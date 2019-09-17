@@ -1,7 +1,7 @@
 ## Sky's 5th Edition Dungeons & Dragons Sheet
 
 * **Author**: Sky#9435
-* **Version**: 0.0.1
+* **Version**: 0.0.2
 * **Foundry VTT Compatibility**: 0.3.6+
 * **System Compatibility**: D&D 5e
 * **Module Requirement(s)**: None
