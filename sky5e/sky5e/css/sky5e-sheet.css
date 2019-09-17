@@ -18,17 +18,25 @@
 	text-align: center;
 }
 
-button:hover,
-.sky5e.sheet form input[type="text"]:hover,
-.sky5e.sheet form input[type="text"]:focus {
-	box-shadow: 0 0 5px rgba(255, 100, 0, 1), 0 0 10px rgba(255, 100, 0, 1);
+button:hover, form input[type="text"]:hover, form input[type="text"]:focus {
+	box-shadow: 0 0 5px rgba(255, 100, 0, 1), 0 0 10px rgba(255, 100, 0, 1) !important;
 }
 
-.sky5e.sheet form.editable .rollable:hover,
-.sky5e .tabs .item.active, 
-.sky5e a:hover, 
-details summary:hover {
-	text-shadow: 0 0 5px rgba(255, 100, 0, 1), 0 0 10px rgba(255, 100, 0, 1), 0 0 15px rgba(255, 100, 0, 1);
+.rollable:hover, a:hover {
+	text-shadow: 0 0 5px rgba(255, 100, 0, 1), 0 0 10px rgba(255, 100, 0, 1), 0 0 15px rgba(255, 100, 0, 1) !important;
+}
+
+.sheet-tabs > .item.active {
+	border: 1px solid #666;
+	border-bottom: none;
+	border-radius: 5px 5px 0px 0px;
+	text-shadow: none;
+	line-height: 24px;
+	box-shadow: 0 0 10px inset #ff6400;
+}
+
+.dnd5e.item form .sheet-tabs .item.active {
+	text-decoration: none;
 }
 
 .sky5e details summary::-webkit-details-marker { 
@@ -227,11 +235,11 @@ details summary:hover {
 .sky5e.actor .inventory-list .item .item-name:hover .item-image {
 	border: 1px solid #FF6400;
 	border-radius: 5px;
-	box-shadow: 0 0 10px 5px rgba(255,100,0, 0.60) inset;
+	box-shadow: 0 0 10px 5px rgba(255,100,0, 0.50) inset;
 }
 .sky5e.actor .inventory-list .item .item-name .item-image:hover {
-	border: 3px solid #FF6400;
-	border-radius: 0px;
+	border: 1px solid #FF6400;
+	border-radius: 5px;
 }
 
 .sky5e.actor .encumbrance {
@@ -302,4 +310,42 @@ details summary:hover {
 .sky5e.actor .currency li.denomination {
 	font-weight: bold;
 	padding: 2px 3px 0px;
+}
+
+.sky5e.actor .abilities .ability .ability-name {
+	padding-left: 3px;
+}
+
+.sky5e.actor .abilities .ability .sky-mod,
+.sky5e.actor .abilities .ability .sky-save {
+  flex: 0 0 40px;
+  font-family: "Nodesto", "Signika", "Palatino Linotype", serif;
+  font-size: 18px;
+  color: #444;
+  line-height: 36px;
+  color: #666;
+  text-align: center;
+}
+
+.sky5e.actor .abilities .ability .sky-score {
+	width: 30px;
+	flex: 0 0 36px;
+	font-family: "Nodesto", "Signika", "Palatino Linotype", serif;
+  font-size: 18px;
+  color: #444;
+  line-height: 36px;
+  color: #666;
+  text-align: center;
+}
+
+#trait-selector li:nth-child(even) {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+#trait-selector input {
+	vertical-align: middle;
+}
+
+#trait-selector span {
+	line-height: 23px;
 }

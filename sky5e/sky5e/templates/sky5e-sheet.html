@@ -66,7 +66,7 @@
 		</section>
 		<nav class="sheet-navigation">
 				<div class="sidebar">
-					<div class="item">Abilities</div>
+					<div class="item">Ability Scores</div>
 				</div>
 				<div class="skillsbar">
 					<div class="item">Skills</div>
@@ -81,7 +81,28 @@
 		<section class="sheet-lower">
 			<section class="sheet-sidebar sidebar no-left-border">
 				<div class="tab abilities">
-					{{> public/systems/dnd5e/templates/actors/actor-abilities.html}}
+					<ol class="abilities-list">
+							<li class="ability" data-ability="{{id}}">
+									<h4 class="ability-name">Ability</h4>
+									<span class="sky-mod">Mod</span>
+									<span class="sky-score">Score</span>
+									<span class="sky-save">Save</span>
+							</li>
+					{{#each data.abilities as |ability id|}}
+							<li class="ability" data-ability="{{id}}">
+									<input type="hidden" name="data.abilities.{{id}}.proficient" value="{{ability.proficient}}"
+												 data-dtype="Number"/>
+									<a class="ability-proficiency" title="{{ability.hover}}">{{{ability.icon}}}</a>
+									<h4 class="ability-name">{{ability.label}}</h4>
+									<span class="ability-mod rollable" title="Modifier">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+									<span class="ability-score" title="Ability Score">
+											<input name="data.abilities.{{id}}.value" type="text" value="{{ability.value}}"
+														 data-dtype="Number" placeholder="10"/>
+									</span>
+									<span class="ability-save rollable" title="Saving Throw">{{numberFormat ability.save decimals=0 sign=true}}</span>
+							</li>
+					{{/each}}
+					</ol>
 					<div class="item traits-header">Traits</div>
 					<section class="traits">
 						<div class="form-group trait-size">
@@ -96,11 +117,11 @@
 						</div>
 						<div class="form-group trait-perception">
 							<label>Passive Insight</label>
-							<input type="text" name="data.traits.insight.value" data-dtype="{{data.traits.insight.type}}" value="{{data.traits.insight.value}}" placeholder="10"/>
+							<input type="text" name="data.traits.insight.value" data-dtype="Number" value="{{data.traits.insight.value}}" placeholder="10"/>
 						</div>
 						<div class="form-group trait-perception">
 							<label>Passive Investigation</label>
-							<input type="text" name="data.traits.investigation.value" data-dtype="{{data.traits.investigation.type}}" value="{{data.traits.investigation.value}}" placeholder="10"/>
+							<input type="text" name="data.traits.investigation.value" data-dtype="Number" value="{{data.traits.investigation.value}}" placeholder="10"/>
 						</div>
 						<div class="form-group trait-perception">
 							<label>{{data.traits.perception.label}}</label>
@@ -112,7 +133,7 @@
 						</div>
 						<div class="form-group-stacked">
 							<label for="data.traits.languages">
-								{{data.traits.languages.label}}
+								<span class="sky-languages rollable">{{data.traits.languages.label}}</span>
 								<a class="trait-selector" data-options="languages"><i class="fas fa-edit"></i></a>
 							</label>
 							<ul class="traits-list">

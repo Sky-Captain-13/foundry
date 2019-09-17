@@ -2,7 +2,7 @@
 	"name": "sky5e",
 	"title": "Sky's 5th Edition Dungeons & Dragons Sheet",
 	"description": "Replaces the default 5e sheet with an alternate layout and adds a few features missing such as weapon, armor and tool proficiencies.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"author": "Sky#9453",
 	"systems": ["dnd5e"],
 	"scripts": ["./sky5e.js"],
