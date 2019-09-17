@@ -11,10 +11,17 @@
 * [https://github.com/Sky-Captain-13/foundry/tree/master/sky5e](https://github.com/Sky-Captain-13/foundry/tree/master/sky5e)
 
 ### Description
-This module provides a variant layout of the Core 5e Character Sheet in Foundry. It also adds the ability to specify Tool, Armor, and Weapon proficiencies in the same manner as adding Language proficiencies.
+This module provides a variant layout of the Core 5e Character Sheet in Foundry as well as providing some upgrades to various sections of the sheet.
+
+* Rearranges the layout into a wider sheet, to display more information instead of being hidden behind tabs
+* Enables rolling ability checks and saving throws directly instead of clicking through a popup
+  * Best combined with Red Reign's BetterRoll5e module: https://github.com/RedReign/FoundryVTT-BetterRolls5e
+* Adds the ability to click Known Languages under Traits to send the list to the chat window
+* Adds Tool, Armor, and Weapon proficiencies beneath Skills
+* Saves the scrollbar position when adding/deleting items from your inventory, features, or spellbook
 
 ## Installation
-Extract the deselection.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Sky's 5th Edition Dungeons & Dragons Sheet` module.
+Extract the contents of the sky5e.zip file to the public/modules directory. Then use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and enable the `Sky's 5th Edition Dungeons & Dragons Sheet` module.
 
 ## License
 This Foundry VTT module is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
