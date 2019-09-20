@@ -1,5 +1,8 @@
 // @author Sky#9453
-// @version 0.0.2
+// @version 0.0.3
+//
+// 0.0.2 => 0.0.3 ~ Bugfix for tools not displaying properly 
+//								~ Add shortsword to list of CONFIG.weapons
 // 
 // Special Thanks:
 //	- DM Me Your Waifu (Discord: Fyorl#1292) for their assistance in getting the additional proficiencies to work properly.
@@ -94,6 +97,7 @@ CONFIG.weapons = {
 	"Rapier": "Rapier",
 	"Scimitar": "Scimitar",
 	"Shortbow": "Shortbow",
+	"Shortsword": "Shortsword",
 	"Sickle": "Sickle",
 	"Sling": "Sling",
 	"Spear": "Spear",
@@ -144,7 +148,7 @@ class Sky5eSheet extends ActorSheet5eCharacter {
 		const data = super.getData();
 		if (data.actor.flags.sky5e === undefined) {
 			const flags = {
-				Tools: { custom: "", label: "Tools", value: [] },
+				tools: { custom: "", label: "Tools", value: [] },
 				armor: { custom: "", label: "Armor", value: [] },
 				weapons: { custom: "", label: "Weapons", value: [] }
 			};
