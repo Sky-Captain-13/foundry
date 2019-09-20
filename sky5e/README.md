@@ -1,7 +1,7 @@
 ## Sky's 5th Edition Dungeons & Dragons Sheet
 
 * **Author**: Sky#9435
-* **Version**: 0.0.2
+* **Version**: 0.0.3
 * **Foundry VTT Compatibility**: 0.3.6+
 * **System Compatibility**: D&D 5e
 * **Module Requirement(s)**: None
@@ -26,3 +26,8 @@ Extract the contents of the sky5e.zip file to the public/modules directory. Then
 ## License
 This Foundry VTT module is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 This work is licensed under Foundry Virtual Tabletop [EULA - Limited License Agreement for module development v 0.1.6](http://foundryvtt.com/pages/license.html).
+
+### Updates
+* 0.0.3
+  * Added shortswords to CONFIG.weapons
+  * Corrected an errant capital T on tools which was causing the Tools Proficiencies to not show up. This fix only applies to new characters, not existing characters that are bugged.
