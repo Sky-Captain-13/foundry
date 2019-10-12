@@ -10,5 +10,5 @@
 	"socket": true,
 	"url": "https://github.com/Sky-Captain-13/foundry/tree/master/deselection",
 	"manifest": "https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/deselection/deselection/module.json",
-	"download": "https://github.com/Sky-Captain-13/foundry/tree/master/deselection/deselection.zip?inline=false"
+	"download": "https://github.com/Sky-Captain-13/foundry/blob/master/deselection/deselection.zip?raw=true"
 }
