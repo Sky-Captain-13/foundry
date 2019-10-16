@@ -2,7 +2,7 @@
 	"name": "deselection",
 	"title": "Deselection",
 	"description": "Lets the GM deselect a token or tokens by clicking anywhere on the map.",
-	"version": "1.0",
+	"version": "1.1",
 	"author": "Sky, KaKaRoTo",
 	"scripts": ["./deselection.js"],
 	"styles": [],
@@ -10,5 +10,5 @@
 	"socket": true,
 	"url": "https://github.com/Sky-Captain-13/foundry/tree/master/deselection",
 	"manifest": "https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/deselection/deselection/module.json",
-	"download": "https://github.com/Sky-Captain-13/foundry/tree/master/deselection/deselection.zip?inline=false"
+	"download": "https://github.com/Sky-Captain-13/foundry/raw/master/deselection/deselection.zip"
 }
