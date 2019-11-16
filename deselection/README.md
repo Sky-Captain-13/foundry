@@ -1,3 +1,4 @@
+![](https://img.shields.io/badge/Foundry-v0.4.0-informational)
 ## Deselection
 
 * **Author**: Sky#9435, KaKaRoTo#4756 (Discord)
