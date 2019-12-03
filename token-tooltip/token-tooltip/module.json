@@ -2,7 +2,7 @@
     "name": "token-tooltip",
     "title": "Token Tooltip",
     "description": "Creates a tooltip with the AC, HP, Passive Perception/Investigation, and Speed when mousing over a token.",
-    "version": "v1.0.0",
+    "version": "1.0.0",
 		"minimumCoreVersion": "0.4.0",
     "author": "Sky#9453 (discord), Sebastian Will (vttassets@gmail.com)",
     "systems": ["dnd5e"],
