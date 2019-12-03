@@ -12,7 +12,7 @@
 * [https://github.com/Sky-Captain-13/foundry/tree/master/token-tooltip](https://github.com/Sky-Captain-13/foundry/tree/master/token-tooltip)
 
 ### Description
-This module.
+This module adds a tooltip that displays vital stats when hovering over a token.
 
 ## Installation
 ### Method 1
