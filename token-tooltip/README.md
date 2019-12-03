@@ -22,7 +22,7 @@ This module adds a tooltip that displays vital stats when hovering over a token.
 * Activate the module in your World using **Manage Modules** under the **Game Settings** tab.
 
 ### Method 2
-Extract the deselection.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Deselection` module.
+Extract the deselection.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Token Tooltip` module.
 
 ## Foundry 0.4.0 Update
 As of November 16th 2019, the module.json includes a minimumCoreVersion 0.4.0 and will cease to work for earlier installs. If you update the module accidentally, just open module.json and change the minimumCoreVersion to 0.3.9 or delete that line. Either will work to restore usage of the Deselection module.
