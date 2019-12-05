@@ -2,7 +2,7 @@
 ## Token Tooltips
 
 * **Author**: Sky#9453, @solfolango77#0880  (Discord)
-* **Version**: 1.0
+* **Version**: 1.1.0
 * **Foundry VTT Compatibility**: 0.4.0
 * **System Compatibility**: D&D 5e
 * **Module Requirement(s)**: None
