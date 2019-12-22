@@ -3,7 +3,7 @@
 
 * **Author**: Sky#9435, KaKaRoTo#4756 (Discord)
 * **Version**: 1.2
-* **Foundry VTT Compatibility**: 0.4.0
+* **Foundry VTT Compatibility**: 0.4.3
 * **System Compatibility**: Universal
 * **Module Requirement(s)**: None
 * **Module Conflicts**: None
