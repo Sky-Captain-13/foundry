@@ -11,9 +11,9 @@ class Deselection {
 	static init() {
 		Canvas.prototype._onMouseDown = Deselection.patchFunction(
 			Canvas.prototype._onMouseDown,
-			22,
+			23,
 			"event.data._selectState = 1;",
-			`if (canvas.ready && game.user.isGM && Object.keys(canvas.activeLayer._controlled).length) canvas.activeLayer.releaseAll();
+			`if (canvas.ready && Object.keys(canvas.activeLayer._controlled).length) canvas.activeLayer.releaseAll();
 			event.data._selectState = 1;`
 		);
 	}
