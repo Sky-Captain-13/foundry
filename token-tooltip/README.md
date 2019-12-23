@@ -2,7 +2,7 @@
 ## Token Tooltips
 
 * **Author**: Sky#9453, @solfolango77#0880  (Discord)
-* **Version**: 1.1.0
+* **Version**: 1.1.1
 * **Foundry VTT Compatibility**: 0.4.0
 * **System Compatibility**: D&D 5e
 * **Module Requirement(s)**: None
@@ -26,6 +26,11 @@ Extract the deselection.zip file to the public/modules directory. Use the `Manag
 
 ## Foundry 0.4.0 Update
 As of November 16th 2019, the module.json includes a minimumCoreVersion 0.4.0 and will cease to work for earlier installs. If you update the module accidentally, just open module.json and change the minimumCoreVersion to 0.3.9 or delete that line. Either will work to restore usage of the Deselection module.
+
+## Token Tooltip Update Notes
+**Version**: 1.1.1
+* Corrected CSS conflict with VTTA Party
+* Added a three second timeout to remove the tooltip. Helps clear up issues where the tooltip would get stuck.
 
 ## License
 This Foundry VTT module is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
