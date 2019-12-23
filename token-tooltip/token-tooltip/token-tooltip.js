@@ -1,22 +1,22 @@
-var tooltip = null;
+var dmtktooltip = null;
 Hooks.on("ready", () => {
-	// Tooltip Configuration
-  tooltip = $('<div class="dmtk-tooltip"></div>');
+	// TOOLTIP CONFIGURATION
+  dmtktooltip = $('<div class="dmtk-tooltip"></div>');
 
   function onMouseUpdate(event) {
-    tooltip.css('left', (event.pageX + 10) + 'px');
-    tooltip.css('top', (event.pageY + 10) + 'px'); 
+    dmtktooltip.css('left', (event.pageX + 10) + 'px');
+    dmtktooltip.css('top', (event.pageY + 10) + 'px'); 
   }
 
-  $('body.game').append(tooltip);
+  $('body.game').append(dmtktooltip);
   document.addEventListener('mousemove', onMouseUpdate, false);
   document.addEventListener('mouseenter', onMouseUpdate, false);
 });
 
-// Tooltip on hover
+// TOOLTIP ON HOVER
 Hooks.on("hoverToken", (object, hovered) => {
-	if (event.altKey) return;
 	if (!object || !object.actor) return;
+	if (event.altKey) return;
 	
 	// SETTINGS & DECLARATIONS
 	let showTooltip = game.settings.get("token-tooltip", "tooltipVisibility");
@@ -38,6 +38,9 @@ Hooks.on("hoverToken", (object, hovered) => {
   } catch (error) {
     return;
   }
+	
+	// TEMPORARY FIX FOR TOOLTIPS ON OVERWORLD MAP
+	if (parseInt(info.ac) === 0) return;
 	
 	// DEFINE THE TEMPLATES
 	let fullTemplate = $(`
@@ -85,10 +88,14 @@ Hooks.on("hoverToken", (object, hovered) => {
 	
   // ADD OR REMOVE THE TOOLTIP
   if (hovered) {
-    tooltip.html(template);
-    tooltip.addClass('visible');
+    dmtktooltip.html(template);
+    dmtktooltip.addClass('visible');
+		setTimeout(function() {
+			dmtktooltip.html('<div></div>');
+			dmtktooltip.removeClass('visible');
+		}, 3000);
   } else {
-		tooltip.html("<div></div>");
-    tooltip.removeClass('visible');
+		dmtktooltip.html('<div></div>');
+    dmtktooltip.removeClass('visible');
   }
 });
