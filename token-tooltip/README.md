@@ -2,7 +2,7 @@
 ## Token Tooltips
 
 * **Author**: Sky#9453, @solfolango77#0880  (Discord)
-* **Version**: 1.2.0
+* **Version**: 1.2.1
 * **Foundry VTT Compatibility**: 0.4.4
 * **System Compatibility**: D&D 5e
 * **Module Requirement(s)**: None
@@ -28,6 +28,9 @@ Extract the deselection.zip file to the public/modules directory. Use the `Manag
 As of January 10th 2020, the module.json includes a minimumCoreVersion 0.4.4 and will cease to work for earlier installs.
 
 ## Token Tooltip Update Notes
+**Version**: 1.2.1
+* Fixed temphp showing up as NaN after being deleted from the character sheet.
+
 **Version**: 1.2.0
 * Removed listeners to prevent lag from excessive polling of mouse movements, particularly while panning the map.
 * Adjusted the method by which tooltips are created and removed, making it much less likely to get a tooltip stuck on the screen.
