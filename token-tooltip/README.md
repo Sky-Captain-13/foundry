@@ -1,9 +1,9 @@
-![](https://img.shields.io/badge/Foundry-v0.4.0-informational)
+![](https://img.shields.io/badge/Foundry-v0.4.4-informational)
 ## Token Tooltips
 
 * **Author**: Sky#9453, @solfolango77#0880  (Discord)
-* **Version**: 1.1.1
-* **Foundry VTT Compatibility**: 0.4.0
+* **Version**: 1.1.2
+* **Foundry VTT Compatibility**: 0.4.4
 * **System Compatibility**: D&D 5e
 * **Module Requirement(s)**: None
 * **Module Conflicts**: VTTA Party (Disable tooltips in VTTA Party)
