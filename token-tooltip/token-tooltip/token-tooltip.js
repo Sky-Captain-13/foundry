@@ -1,18 +1,3 @@
-var dmtktooltip = null;
-Hooks.on("ready", () => {
-	// TOOLTIP CONFIGURATION
-  dmtktooltip = $('<div class="dmtk-tooltip"></div>');
-
-  function onMouseUpdate(event) {
-    dmtktooltip.css('left', (event.pageX + 10) + 'px');
-    dmtktooltip.css('top', (event.pageY + 10) + 'px'); 
-  }
-
-  $('body.game').append(dmtktooltip);
-  document.addEventListener('mousemove', onMouseUpdate, false);
-  document.addEventListener('mouseenter', onMouseUpdate, false);
-});
-
 // TOOLTIP ON HOVER
 Hooks.on("hoverToken", (object, hovered) => {
 	if (!object || !object.actor) return;
@@ -28,13 +13,16 @@ Hooks.on("hoverToken", (object, hovered) => {
     info = {
       ac: isNaN(parseInt(object.actor.data.data.attributes.ac.value)) ? 10 : parseInt(object.actor.data.data.attributes.ac.value),
 			hp: parseInt(object.actor.data.data.attributes.hp.value),
-			hpmax: parseInt(object.actor.data.data.attributes.hp.max),
+			temphp: parseInt(object.actor.data.data.attributes.hp.temp),
+			hpmax: parseInt(object.actor.data.data.attributes.hp.max) + parseInt((object.actor.data.data.attributes.hp.tempmax !== "") ? object.actor.data.data.attributes.hp.tempmax : 0),
 			speed: object.actor.data.data.attributes.speed.value,
       passives: {
         perception: 10 + parseInt(object.actor.data.data.skills.prc.mod),
         investigation: 10 + parseInt(object.actor.data.data.skills.inv.mod)
       }
     };
+		// CHECK IF TARGET HAS TEMP HP AND ADD TO TOOLTIP
+		if (info.temphp !== 0) info.hp = info.hp + " (+" + info.temphp + ")";
   } catch (error) {
     return;
   }
@@ -60,6 +48,7 @@ Hooks.on("hoverToken", (object, hovered) => {
     `);
 	
 	// DETERMINE WHICH TOOLTIP TO USE
+	let template = "";
 	if (game.user.isGM) {
 		template = fullTemplate;
 	} else {
@@ -88,14 +77,15 @@ Hooks.on("hoverToken", (object, hovered) => {
 	
   // ADD OR REMOVE THE TOOLTIP
   if (hovered) {
+		let dmtktooltip = $(`<div class="dmtk-tooltip ${object.data._id}"></div>`);
+		dmtktooltip.css('left', (event.pageX + 10) + 'px');
+    dmtktooltip.css('top', (event.pageY + 10) + 'px'); 
     dmtktooltip.html(template);
-    dmtktooltip.addClass('visible');
+		$('body.game').append(dmtktooltip);
 		setTimeout(function() {
-			dmtktooltip.html('<div></div>');
-			dmtktooltip.removeClass('visible');
-		}, 3000);
+			$("." + object.data._id).remove();
+		}, 5000);
   } else {
-		dmtktooltip.html('<div></div>');
-    dmtktooltip.removeClass('visible');
+		$("." + object.data._id).remove();
   }
 });
