@@ -1,3 +1,5 @@
+# The module is deprecated and will no longer be updated or supported.
+
 ## Sky's 5th Edition Dungeons & Dragons Sheet
 
 * **Author**: Sky#9435
