@@ -234,9 +234,36 @@
 	flex: 0 0 100%;
 }
 
+.alt5e.dnd5e.sheet.actor .inventory-list .inventory-header h3 {
+	margin: 0px;
+	padding: 0px;
+}
+
 .alt5e.dnd5e.sheet.actor .inventory-list {
 	font-family: "Signika", sans-serif;
 	font-size: 13px;
 	text-align: left;
 	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.alt5e .fav-spell-slots {
+	display: flex;
+	flex: 0 0 70px;
+	justify-content: center;
+}
+
+.alt5e .fav-spell-slots input[type="text"] {
+	text-align: center;
+}
+
+.alt5e.dnd5e.sheet.actor .item-controls {
+	flex: 0 0 70px;
+	justify-content: center;
+}
+
+.fav-item, .fav-spell {
+	margin: 0;
+	padding: 0;
 }
