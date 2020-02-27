@@ -2,34 +2,36 @@ let applyChanges = false;
 new Dialog({
   title: `Token Vision Configuration`,
   content: `
-    <div style='height: 25px; line-height: 25px; font-size: 20px; margin-bottom: 10px;'>
-      Vision Type:
-      <select id="vision-type" name="vision-type">
-        <option value="nochange">No Change</option>
-        <option value="dim0">Self</option>
-        <option value="dim30">Darkvision (30 ft)</option>
-        <option value="dim60">Darkvision (60 ft)</option>
-        <option value="dim90">Darkvision (90 ft)</option>
-        <option value="dim120">Darkvision (120 ft)</option>
-        <option value="dim150">Darkvision (150 ft)</option>
-        <option value="dim180">Darkvision (180 ft)</option>
-        <option value="bright120">Devil's Sight (Warlock)</option>
-      </select>
-    </div>
-    <div style='height: 25px; line-height: 25px; font-size: 20px; margin-bottom: 10px;'>
-      Light:
-      <select id="light-source" name="light-source">
-        <option value="nochange">No Change</option>
-        <option value="none">None</option>
-        <option value="candle">Candle</option>
-        <option value="lamp">Lamp</option>
-        <option value="bullseye">Lantern (Bullseye)</option>
-        <option value="hooded-dim">Lantern (Hooded - Dim)</option>
-        <option value="hooded-bright">Lantern (Hooded - Bright)</option>
-        <option value="light">Light (Cantrip)</option>
-        <option value="torch">Torch</option>
-      </select>
-    </div>
+    <form>
+      <div class="form-group" style="align-items: center;">
+        Vision Type:
+        <select id="vision-type" name="vision-type" style="margin-left: 3px;">
+          <option value="nochange">No Change</option>
+          <option value="dim0">Self</option>
+          <option value="dim30">Darkvision (30 ft)</option>
+          <option value="dim60">Darkvision (60 ft)</option>
+          <option value="dim90">Darkvision (90 ft)</option>
+          <option value="dim120">Darkvision (120 ft)</option>
+          <option value="dim150">Darkvision (150 ft)</option>
+          <option value="dim180">Darkvision (180 ft)</option>
+          <option value="bright120">Devil's Sight (Warlock)</option>
+        </select>
+      </div>
+      <div class="form-group" style="align-items: center;">
+        Light Source:
+        <select id="light-source" name="light-source" style="margin-left: 3px;">
+          <option value="nochange">No Change</option>
+          <option value="none">None</option>
+          <option value="candle">Candle</option>
+          <option value="lamp">Lamp</option>
+          <option value="bullseye">Lantern (Bullseye)</option>
+          <option value="hooded-dim">Lantern (Hooded - Dim)</option>
+          <option value="hooded-bright">Lantern (Hooded - Bright)</option>
+          <option value="light">Light (Cantrip)</option>
+          <option value="torch">Torch</option>
+        </select>
+      </div>
+    </form>
     `,
   buttons: {
     yes: {
