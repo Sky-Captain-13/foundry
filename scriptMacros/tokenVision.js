@@ -3,9 +3,9 @@ new Dialog({
   title: `Token Vision Configuration`,
   content: `
     <form>
-      <div class="form-group" style="align-items: center;">
-        Vision Type:
-        <select id="vision-type" name="vision-type" style="margin-left: 3px;">
+      <div class="form-group">
+        <label>Vision Type:</label>
+        <select id="vision-type" name="vision-type">
           <option value="nochange">No Change</option>
           <option value="dim0">Self</option>
           <option value="dim30">Darkvision (30 ft)</option>
@@ -17,9 +17,9 @@ new Dialog({
           <option value="bright120">Devil's Sight (Warlock)</option>
         </select>
       </div>
-      <div class="form-group" style="align-items: center;">
-        Light Source:
-        <select id="light-source" name="light-source" style="margin-left: 3px;">
+      <div class="form-group">
+        <label>Light Source:</label>
+        <select id="light-source" name="light-source">
           <option value="nochange">No Change</option>
           <option value="none">None</option>
           <option value="candle">Candle</option>
