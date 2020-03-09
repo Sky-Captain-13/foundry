@@ -128,7 +128,8 @@
 						<h4 class="skill-name rollable">{{skill.label}}</h4>
 						<span class="skill-ability">{{skill.ability}}</span>
 						<span class="skill-mod">{{numberFormat skill.mod decimals=0 sign=true}}</span>
-						<span class="skill-passive">({{skill.passive}})</span>
+						{{!-- <input class="skill-bonus" name="data.skills.{{s}}.bonus" type="text" value="{{numberFormat skill.bonus decimals=0 sign=true}}" data-dtype="Number" placeholder="0" title="Misc. Modifier"/> --}}
+						{{!-- <span class="skill-passive">({{skill.passive}})</span> --}}
 					</li>
 					{{/each}}
 				</ul>
@@ -182,7 +183,7 @@
 					{{!-- Counters --}}
 					<div class="counters flexrow">
 						<div class="counter flexrow death-saves">
-							<h4 class="deathsave rollable">{{ localize "DND5E.DeathSave" }}</h4>
+							<h4 class="death-save rollable">{{ localize "DND5E.DeathSave" }}</h4>
 							<div class="counter-value">
 								<i class="fas fa-check"></i>
 								<input type="checkbox" name="data.attributes.deathsaves1" data-dtype="Boolean" {{checked data.attributes.deathsaves1}}/>

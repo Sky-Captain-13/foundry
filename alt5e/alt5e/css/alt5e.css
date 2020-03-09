@@ -29,7 +29,7 @@
 
 .alt5e.dnd5e.sheet.actor.character {
 	min-width: 800px;
-	max-width: 800px;
+	/* max-width: 800px; */
 	min-height: unset;
 	max-height: 100%;
 	overflow: hidden;
@@ -125,6 +125,12 @@
 .alt5e.dnd5e.sheet.actor.character ul.skills-list li.skill {
 	padding: 3px;
 	margin: 0px 0px 2px 0px;
+}
+
+.alt5e.dnd5e.sheet .skill-bonus {
+	flex: 0;
+	text-align: center;
+	margin-top: 1px;
 }
 
 .alt5e.dnd5e.sheet.actor ul.attributes {
@@ -267,4 +273,12 @@
 	list-style: none;
 	margin: 0;
 	padding: 0;
+}
+
+.alt5e .item-toggle {
+	color: #b5b3a4 !important;
+}
+
+.alt5e .item-toggle.active {
+  color: #4b4a44 !important;
 }

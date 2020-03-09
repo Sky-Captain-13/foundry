@@ -85,6 +85,7 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
 		});
 		
 		// Roll a Death Save
+		/*
 		html.find('.deathsave').click(event => {
 			event.preventDefault();
 			// new Roll("1d20cs>=" + weight).roll().toMessage({user : game.user.id})
@@ -109,6 +110,7 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
 				sound: CONFIG.sounds.dice
 			});
 		});
+		*/
 		
 		// Item Delete Confirmation
 		html.find('.item-delete').off("click");
@@ -223,7 +225,7 @@ async function addFavorites(app, html, data) {
 	// Alter core CSS to fit new button
 	if (app.options.editable) {
 		html.find('.spellbook .item-controls').css('flex', '0 0 88px');
-		html.find('.inventory .item-controls, .features .item-controls').css('flex', '0 0 70px');
+		html.find('.inventory .item-controls, .features .item-controls').css('flex', '0 0 90px');
 		html.find('.favourite .item-controls').css('flex', '0 0 22px');
 	}
 	
@@ -245,6 +247,7 @@ async function addFavorites(app, html, data) {
 			li.setAttribute("draggable", true);
 			li.addEventListener("dragstart", handler, false);
 		});
+		//favtabHtml.find('.item-toggle').click(event => app._onToggleItem(event));
 		favtabHtml.find('.item-edit').click(ev => {
 			let itemId = $(ev.target).parents('.item')[0].dataset.itemId;
 			app.actor.getOwnedItem(itemId).sheet.render(true);
