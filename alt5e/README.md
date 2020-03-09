@@ -2,8 +2,8 @@
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 0.0.4
-* **Foundry VTT Compatibility**: 0.4.7
+* **Version**: 0.0.5
+* **Foundry VTT Compatibility**: 0.5.0
 * **System Compatibility**: D&D 5th Edition 0.8.2
 * **Module Requirement(s)**: None
 * **Module Conflicts**: None
