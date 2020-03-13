@@ -1,7 +1,7 @@
 // TOOLTIP ON HOVER
 Hooks.on("hoverToken", (object, hovered) => {
 	if (!object || !object.actor) return;
-	if (event.altKey) return;
+	if (event == undefined || keyboard.isDown("Alt")) return;
 
 	// SETTINGS & DECLARATIONS
 	let showTooltip = game.settings.get("token-tooltip", "tooltipVisibility");
@@ -9,6 +9,7 @@ Hooks.on("hoverToken", (object, hovered) => {
 
 	// PARSE TOKEN/ACTOR INFO
 	let info = null;
+	let observant = (object.actor.data.items.some( i => i.name.toLowerCase() === "observant")) ? 5 : 0;
 	try {
 		info = {
 			ac: isNaN(parseInt(object.actor.data.data.attributes.ac.value)) ? 10 : parseInt(object.actor.data.data.attributes.ac.value),
@@ -18,8 +19,8 @@ Hooks.on("hoverToken", (object, hovered) => {
 			tempmaxhp: isNaN(parseInt(object.actor.data.data.attributes.hp.tempmax)) ? 0 : parseInt(object.actor.data.data.attributes.hp.tempmax),
 			speed: object.actor.data.data.attributes.speed.value,
 			passives: {
-				perception: 10 + parseInt(object.actor.data.data.skills.prc.mod),
-				investigation: 10 + parseInt(object.actor.data.data.skills.inv.mod)
+				perception: 10 + parseInt(object.actor.data.data.skills.prc.mod) + observant,
+				investigation: 10 + parseInt(object.actor.data.data.skills.inv.mod) + observant
 			}
 		};
 		// CHECK IF TARGET HAS TEMP HP AND ADD TO TOOLTIP
@@ -86,7 +87,7 @@ Hooks.on("hoverToken", (object, hovered) => {
 		$('body.game').append(dmtktooltip);
 		setTimeout(function () {
 			$("." + object.data._id).remove();
-		}, 5000);
+		}, 8000);
 	} else {
 		$("." + object.data._id).remove();
 	}
