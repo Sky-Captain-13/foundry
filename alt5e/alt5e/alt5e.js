@@ -84,34 +84,6 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
 			});
 		});
 		
-		// Roll a Death Save
-		/*
-		html.find('.deathsave').click(event => {
-			event.preventDefault();
-			// new Roll("1d20cs>=" + weight).roll().toMessage({user : game.user.id})
-			let roll = new Roll("1d20").roll();
-			let result = roll.total;
-			let message = `
-			<div class="dnd5e chat-card item-card">
-				<header class="card-header flexrow">
-					<h3 style="line-height: unset; margin: auto 0px;">${this.actor.name} rolls ${result} on their death save.</h3>
-				</header>
-			</div>
-			`;
-			ChatMessage.create({
-				user: game.user._id,
-				speaker: {
-					actor: this.actor._id,
-					token: this.actor.token,
-					alias: this.actor.name
-				},
-				content: message,
-				type: CONST.CHAT_MESSAGE_TYPES.OTHER,
-				sound: CONFIG.sounds.dice
-			});
-		});
-		*/
-		
 		// Item Delete Confirmation
 		html.find('.item-delete').off("click");
 		html.find('.item-delete').click(event => {
@@ -138,6 +110,59 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
 			}).render(true);
 		});
 	}
+}
+
+// Inject passive perception, investigation, and insight into the traits list
+async function injectPassives(app, html, data) {
+	let observant = (data.actor.items.some( i => i.name.toLowerCase() === "observant")) ? 5 : 0;
+	let passivesTarget = html.find('input[name="data.traits.senses"]').parent();
+	let passives = "";
+	let tagStyle = "text-align: center; min-width: unset; font-size: 13px;";
+	if (game.settings.get("alt5e", "showPassiveInsight")) {
+		let passiveInsight = data.data.skills.ins.passive;
+		passives += `
+			<div class="form-group">
+				<label>Passive Insight</label>
+				<ul class="traits-list">
+					<li class="tag" style="${tagStyle}">${passiveInsight}</li>
+				</ul>
+			</div>
+		`;
+	};
+	if (game.settings.get("alt5e", "showPassiveInvestigation")) {
+		let passiveInvestigation = data.data.skills.inv.passive + observant;
+		passives += `
+			<div class="form-group">
+				<label>Passive Investigation</label>
+				<ul class="traits-list">
+					<li class="tag" style="${tagStyle}">${passiveInvestigation}</li>
+				</ul>
+			</div>
+		`;
+	};
+	if (game.settings.get("alt5e", "showPassivePerception")) {
+		let passivePerception = data.data.skills.prc.passive + observant;
+		passives += `
+			<div class="form-group">
+				<label>Passive Perception</label>
+				<ul class="traits-list">
+					<li class="tag" style="${tagStyle}">${passivePerception}</li>
+				</ul>
+			</div>
+		`;
+	};
+	if (game.settings.get("alt5e", "showPassiveStealth")) {
+		let passiveStealth = data.data.skills.ste.value;
+		passives += `
+			<div class="form-group">
+				<label>Passive Stealth</label>
+				<ul class="traits-list">
+					<li class="tag" style="${tagStyle}">${passiveStealth}</li>
+				</ul>
+			</div>
+		`;
+	};
+	passivesTarget.after(passives);
 }
 
 // The following function is adapted for the Alt5eSheet from the Favorites Item
@@ -298,5 +323,41 @@ Actors.registerSheet("dnd5e", Alt5eSheet, {
 });
 
 Hooks.on(`renderAlt5eSheet`, (app, html, data) => {
+	injectPassives(app, html, data);
 	addFavorites(app, html, data);
+});
+
+Hooks.once("init", () => {
+	game.settings.register("alt5e", "showPassiveInsight", {
+		name: "Show Passive Insight",
+		hint: "Show the passive insight score in Traits.",
+		scope: "world",
+		config: true,
+		default: false,
+		type: Boolean
+	});
+	game.settings.register("alt5e", "showPassiveInvestigation", {
+		name: "Show Passive Investigation",
+		hint: "Show the passive investigation score in Traits.",
+		scope: "world",
+		config: true,
+		default: false,
+		type: Boolean
+	});
+	game.settings.register("alt5e", "showPassivePerception", {
+		name: "Show Passive Perception",
+		hint: "Show the passive perception score in Traits.",
+		scope: "world",
+		config: true,
+		default: true,
+		type: Boolean
+	});
+	game.settings.register("alt5e", "showPassiveStealth", {
+		name: "Show Passive Stealth",
+		hint: "Show the passive perception score in Traits.",
+		scope: "world",
+		config: true,
+		default: false,
+		type: Boolean
+	});
 });
