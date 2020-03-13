@@ -29,7 +29,7 @@ As of January 10th 2020, the module.json includes a minimumCoreVersion 0.4.4 and
 
 ## Token Tooltip Update Notes
 **Version**: 1.2.2
-* Added support for the Observant feat. Simple include a feature named Observant on your character sheet, and token tooltip will automatically add +5 to your passive perception and investigation scores in the tooltip.
+* Added support for the Observant feat. Simply include a feature named Observant on your character sheet, and token tooltip will automatically add +5 to your passive perception and investigation scores in the tooltip.
 
 **Version**: 1.2.1
 * Fixed temphp showing up as NaN after being deleted from the character sheet.
