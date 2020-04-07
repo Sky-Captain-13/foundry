@@ -3,7 +3,7 @@
 	"author": "Sky#9453",
 	"title": "Sky's Alternate 5th Edition Dungeons & Dragons Sheet",
 	"description": "Replaces the default 5e sheet with an alternate layout.",
-	"version": "0.0.7",
+	"version": "1.0.0",
 	"minimumCoreVersion": "0.5.0",
 	"systems": ["dnd5e"],
 	"scripts": [],

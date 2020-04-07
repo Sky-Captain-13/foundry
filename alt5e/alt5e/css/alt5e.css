@@ -282,3 +282,38 @@
 .alt5e .item-toggle.active {
   color: #4b4a44 !important;
 }
+
+.item-control.item-edit i.fas.fa-edit:before {
+    /* content: "\f0ad"; /* Wrench */
+		content: "\f303"; /* Pencil */
+}
+
+.alt5e .additional-info {
+	flex: 0 0 300px;
+}
+
+.alt5e .biopage + .editor {
+	height: auto;
+	min-height: 30px;
+	margin-bottom: 10px;
+}
+
+.alt5e .background {
+	max-height: 95%;
+}
+
+.app.sheet .editor-content {
+	overflow-y: visible !important;
+}
+
+.alt5e.dnd5e.sheet.item {
+	min-width: 560px;
+}
+
+.alt5e.dnd5e.sheet.item .sheet-body {
+	overflow: auto;
+}
+
+.alt5e.dnd5e.sheet.item .window-content form {
+	overflow: hidden;
+}

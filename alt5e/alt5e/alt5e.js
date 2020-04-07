@@ -7,6 +7,20 @@ import { Actor5e } from "../../systems/dnd5e/module/actor/entity.js";
 import { ActorSheet5eCharacter } from "../../systems/dnd5e/module/actor/sheets/character.js";
 import { Item5e } from "../../systems/dnd5e/module/item/entity.js";
 import { ItemSheet5e } from "../../systems/dnd5e/module/item/sheet.js";
+import { BetterRollsHooks } from "../../modules/betterrolls5e/scripts/hooks.js";
+
+export class AltItemSheet5e extends ItemSheet5e {
+	static get defaultOptions() {
+    return mergeObject(super.defaultOptions, {
+			classes: ["alt5e", "dnd5e", "sheet", "item"],
+      resizable: true
+    });
+  }
+	
+	setPosition (...args) {
+		return Application.prototype.setPosition.call(this, ...args);
+	}
+}
 
 export class Alt5eSheet extends ActorSheet5eCharacter {
 	get template() {
@@ -42,6 +56,12 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
 		const html = $(this.form);
 		html.scrollTop(this.scrollPos.top);
 		html.scrollLeft(this.scrollPos.left);
+	}
+	
+	_createEditor(target, editorOptions, initialContent) {
+		//editorOptions.plugins.push("tinymcespellchecker");
+		editorOptions.min_height = 200;
+		super._createEditor(target, editorOptions, initialContent);
 	}
 	
 	activateListeners(html) {
@@ -112,7 +132,6 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
 	}
 }
 
-// Inject passive perception, investigation, and insight into the traits list
 async function injectPassives(app, html, data) {
 	let observant = (data.actor.items.some( i => i.name.toLowerCase() === "observant")) ? 5 : 0;
 	let passivesTarget = html.find('input[name="data.traits.senses"]').parent();
@@ -195,7 +214,7 @@ async function addFavorites(app, html, data) {
 		}
 		let isFav = item.flags.favtab.isFavourite;
 		if (app.options.editable) {
-			let favBtn = $(`<a class="item-control item-fav" data-fav="${isFav}" title="${isFav ? "remove from favourites" : "add to favourites"}"><i class="fas ${isFav ? "fa-star" : "fa-sign-in-alt"}"></i></a>`);
+			let favBtn = $(`<a class="item-control item-fav" data-fav="${isFav}" title="${isFav ? "Remove from Favourites" : "Add to Favourites"}"><i class="fas ${isFav ? "fa-star" : "fa-sign-in-alt"}"></i></a>`);
 			favBtn.click(ev => {
 				app.actor.getOwnedItem(item._id).update({
 					"flags.favtab.isFavourite": !item.flags.favtab.isFavourite
@@ -315,6 +334,8 @@ async function addFavorites(app, html, data) {
 		});
 	}
 	tabContainer.append(favtabHtml);
+	if (window.BetterRolls) BetterRolls.addItemContent(app.object, favtabHtml, ".item .item-name h4", ".item-properties", ".item > .rollable div");
+	Hooks.callAll("renderedAlt5eSheet", app, html, data);
 }
 
 Actors.registerSheet("dnd5e", Alt5eSheet, {
@@ -322,10 +343,16 @@ Actors.registerSheet("dnd5e", Alt5eSheet, {
 	makeDefault: true
 });
 
-Hooks.on(`renderAlt5eSheet`, (app, html, data) => {
+Items.registerSheet("dnd5e", AltItemSheet5e, {
+	makeDefault: true
+});
+
+Hooks.on("renderAlt5eSheet", (app, html, data) => {
 	injectPassives(app, html, data);
 	addFavorites(app, html, data);
 });
+
+BetterRollsHooks.addItemSheet("AltItemSheet5e");
 
 Hooks.once("init", () => {
 	game.settings.register("alt5e", "showPassiveInsight", {
@@ -354,7 +381,7 @@ Hooks.once("init", () => {
 	});
 	game.settings.register("alt5e", "showPassiveStealth", {
 		name: "Show Passive Stealth",
-		hint: "Show the passive perception score in Traits.",
+		hint: "Show the passive stealth score in Traits.",
 		scope: "world",
 		config: true,
 		default: false,

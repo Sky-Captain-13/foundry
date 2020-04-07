@@ -233,8 +233,23 @@
 			{{> "systems/dnd5e/templates/actors/parts/actor-spellbook.html"}}
 		</div>
 		{{!-- Biography Tab --}}
-		<div class="tab biography flexcol" data-group="primary" data-tab="biography">
-			{{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
+		<div class="tab biography flexrow" data-group="primary" data-tab="biography">
+			<div class="additional-info">
+				<div class="section-titles biopage">Description</div>
+				{{editor content=data.details.description.value target="data.details.description.value" button=true owner=owner editable=editable}}
+				<div class="section-titles biopage">Personality Traits</div>
+				{{editor content=data.details.personality.value target="data.details.personality.value" button=true owner=owner editable=editable}}
+				<div class="section-titles biopage">Ideals</div>
+				{{editor content=data.details.ideals.value target="data.details.ideals.value" button=true owner=owner editable=editable}}
+				<div class="section-titles biopage">Bonds</div>
+				{{editor content=data.details.bonds.value target="data.details.bonds.value" button=true owner=owner editable=editable}}
+				<div class="section-titles biopage">flaws</div>
+				{{editor content=data.details.flaws.value target="data.details.flaws.value" button=true owner=owner editable=editable}}
+			</div>
+			<div class="background">
+				<div class="section-titles">Background</div>
+				{{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
+			</div>
 		</div>
 	</section>
 </form>
