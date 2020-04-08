@@ -7,7 +7,7 @@ import { Actor5e } from "../../systems/dnd5e/module/actor/entity.js";
 import { ActorSheet5eCharacter } from "../../systems/dnd5e/module/actor/sheets/character.js";
 import { Item5e } from "../../systems/dnd5e/module/item/entity.js";
 import { ItemSheet5e } from "../../systems/dnd5e/module/item/sheet.js";
-import { BetterRollsHooks } from "../../modules/betterrolls5e/scripts/hooks.js";
+//import { BetterRollsHooks } from "../../modules/betterrolls5e/scripts/hooks.js";
 
 export class AltItemSheet5e extends ItemSheet5e {
 	static get defaultOptions() {
@@ -59,7 +59,6 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
 	}
 	
 	_createEditor(target, editorOptions, initialContent) {
-		//editorOptions.plugins.push("tinymcespellchecker");
 		editorOptions.min_height = 200;
 		super._createEditor(target, editorOptions, initialContent);
 	}
@@ -334,7 +333,12 @@ async function addFavorites(app, html, data) {
 		});
 	}
 	tabContainer.append(favtabHtml);
-	if (window.BetterRolls) BetterRolls.addItemContent(app.object, favtabHtml, ".item .item-name h4", ".item-properties", ".item > .rollable div");
+	try {
+		if (game.modules.get("betterrolls5e") && game.modules.get("betterrolls5e").active) BetterRolls.addItemContent(app.object, favtabHtml, ".item .item-name h4", ".item-properties", ".item > .rollable div");
+	} 
+	catch (err) {
+		// Better Rolls not found!
+	}
 	Hooks.callAll("renderedAlt5eSheet", app, html, data);
 }
 
@@ -352,7 +356,7 @@ Hooks.on("renderAlt5eSheet", (app, html, data) => {
 	addFavorites(app, html, data);
 });
 
-BetterRollsHooks.addItemSheet("AltItemSheet5e");
+//BetterRollsHooks.addItemSheet("AltItemSheet5e");
 
 Hooks.once("init", () => {
 	game.settings.register("alt5e", "showPassiveInsight", {

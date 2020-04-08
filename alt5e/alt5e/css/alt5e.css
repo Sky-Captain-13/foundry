@@ -302,10 +302,6 @@
 	max-height: 95%;
 }
 
-.app.sheet .editor-content {
-	overflow-y: visible !important;
-}
-
 .alt5e.dnd5e.sheet.item {
 	min-width: 560px;
 }
