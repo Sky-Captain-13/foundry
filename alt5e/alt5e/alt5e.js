@@ -1,6 +1,6 @@
 // Alt5eSheet
 // @author Sky#9453
-// @version 0.0.4
+// @version 1.0.2
 import { DND5E } from "../../systems/dnd5e/module/config.js";
 import { Dice5e } from "../../systems/dnd5e/module/dice.js";
 import { Actor5e } from "../../systems/dnd5e/module/actor/entity.js";
@@ -8,6 +8,7 @@ import { ActorSheet5eCharacter } from "../../systems/dnd5e/module/actor/sheets/c
 import { Item5e } from "../../systems/dnd5e/module/item/entity.js";
 import { ItemSheet5e } from "../../systems/dnd5e/module/item/sheet.js";
 //import { BetterRollsHooks } from "../../modules/betterrolls5e/scripts/hooks.js";
+//BetterRollsHooks.addItemSheet("AltItemSheet5e");
 
 export class AltItemSheet5e extends ItemSheet5e {
 	static get defaultOptions() {
@@ -348,7 +349,7 @@ Actors.registerSheet("dnd5e", Alt5eSheet, {
 });
 
 Items.registerSheet("dnd5e", AltItemSheet5e, {
-	makeDefault: true
+	makeDefault: false
 });
 
 Hooks.on("renderAlt5eSheet", (app, html, data) => {
@@ -356,9 +357,7 @@ Hooks.on("renderAlt5eSheet", (app, html, data) => {
 	addFavorites(app, html, data);
 });
 
-//BetterRollsHooks.addItemSheet("AltItemSheet5e");
-
-Hooks.once("init", () => {
+Hooks.once("ready", () => {
 	game.settings.register("alt5e", "showPassiveInsight", {
 		name: "Show Passive Insight",
 		hint: "Show the passive insight score in Traits.",

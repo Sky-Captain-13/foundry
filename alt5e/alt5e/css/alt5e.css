@@ -313,3 +313,7 @@
 .alt5e.dnd5e.sheet.item .window-content form {
 	overflow: hidden;
 }
+
+.dnd5e.sheet.actor .spell-slots, .dnd5e.sheet.actor .spell-comps {
+  min-width: fit-content;
+}
