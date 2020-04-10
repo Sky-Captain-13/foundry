@@ -2,11 +2,11 @@
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.0.1
+* **Version**: 1.0.2
 * **Foundry VTT Compatibility**: 0.5.0
 * **System Compatibility**: D&D 5th Edition 0.8.6
 * **Module Requirement(s)**: None
-* **Module Conflicts**: None
+* **Module Conflicts**: Potentially any module that modifies the default item sheet through HTML injection like Better Rolls, Magic Items, or Dynamic Items
 
 ### Link(s) to Module
 * [https://github.com/Sky-Captain-13/foundry/tree/master/alt5e](https://github.com/Sky-Captain-13/foundry/tree/master/alt5e)
