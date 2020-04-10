@@ -14,6 +14,8 @@
 ### Description
 This module provides an alternate skin/layout of the default D&D 5th edition character sheet in Foundry.
 
+![image](https://i.imgur.com/ECfIHfd.png)
+
 ## Installation
 ### Method 1
 * Open the Foundry application and click **"Install Module"** in the **"Add-On Modules"** tab.
