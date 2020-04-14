@@ -4,7 +4,7 @@
 		<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img"/>
 		<div class="header-details flexrow">
 			<h1 class="charname">
-				<input name="name" type="text" value="{{actor.name}}" placeholder="Character Name"/>
+				<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'DND5E.Name' }}"/>
 			</h1>
 			<div class="charlevel">
 				<div class="level {{#if disableExperience}}noxp{{/if}}">
@@ -12,8 +12,7 @@
 				</div>
 				{{#unless disableExperience}}
 				<div class="experience">
-					<input name="data.details.xp.value" type="text" value="{{data.details.xp.value}}"
-						data-dtype="Number" placeholder="0"/>
+					<input name="data.details.xp.value" type="text" value="{{data.details.xp.value}}" data-dtype="Number" placeholder="0"/>
 					<span class="max"> / {{data.details.xp.max}}</span>
 				</div>
 				<div class="xpbar">
@@ -24,13 +23,13 @@
 			{{!-- Character Summary --}}
 			<ul class="summary">
 				<li>
-					<input type="text" name="data.details.race" value="{{data.details.race}}" placeholder="Race"/>
+					<input type="text" name="data.details.race" value="{{data.details.race}}" placeholder="{{ localize 'DND5E.Race' }}"/>
 				</li>
 				<li>
-					<input type="text" name="data.details.background" value="{{data.details.background}}" placeholder="Background"/>
+					<input type="text" name="data.details.background" value="{{data.details.background}}" placeholder="{{ localize 'DND5E.Background' }}"/>
 				</li>
 				<li>
-					<input type="text" name="data.details.alignment" value="{{data.details.alignment}}" placeholder="Alignment"/>
+					<input type="text" name="data.details.alignment" value="{{data.details.alignment}}" placeholder="{{ localize 'DND5E.Alignment' }}"/>
 				</li>
 			</ul>
 			{{!-- Header Attributes --}}
@@ -95,6 +94,7 @@
 		<a class="item" data-tab="features">{{ localize "DND5E.Features" }}</a>
 		<a class="item" data-tab="spellbook">{{ localize "DND5E.Spellbook" }}</a>
 		<a class="item" data-tab="biography">{{ localize "DND5E.Biography" }}</a>
+		<a class="item" data-tab="notes">Notes</a>
 	</nav>
 	{{!-- PC Sheet Body --}}
 	<section class="sheet-body">
@@ -250,6 +250,32 @@
 				<div class="section-titles">Background</div>
 				{{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
 			</div>
+		</div>
+		{{!-- Notes Tab --}}
+		<div class="tab biography flexrow" data-group="primary" data-tab="notes">
+			<div class="background">
+				<div class="section-titles">Notes</div>
+				{{editor content=data.details.notes.value target="data.details.notes.value" button=true owner=owner editable=editable}}
+			</div>
+			<div class="additional-info">
+				<div class="section-titles biopage">
+					<input type="text" name="data.details.notes1name" value="{{data.details.notes1name}}" placeholder="Additional Notes"/>
+				</div>
+				{{editor content=data.details.notes1.value target="data.details.notes1.value" button=true owner=owner editable=editable}}
+				<div class="section-titles biopage">
+					<input type="text" name="data.details.notes2name" value="{{data.details.notes2name}}" placeholder="Additional Notes"/>
+				</div>
+				{{editor content=data.details.notes2.value target="data.details.notes2.value" button=true owner=owner editable=editable}}
+				<div class="section-titles biopage">
+					<input type="text" name="data.details.notes3name" value="{{data.details.notes3name}}" placeholder="Additional Notes"/>
+				</div>
+				{{editor content=data.details.notes3.value target="data.details.notes3.value" button=true owner=owner editable=editable}}
+				<div class="section-titles biopage">
+					<input type="text" name="data.details.notes4name" value="{{data.details.notes4name}}" placeholder="Additional Notes"/>
+				</div>
+				{{editor content=data.details.notes4.value target="data.details.notes4.value" button=true owner=owner editable=editable}}
+			</div>
+			
 		</div>
 	</section>
 </form>

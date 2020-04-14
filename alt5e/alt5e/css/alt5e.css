@@ -314,6 +314,11 @@
 	overflow: hidden;
 }
 
-.dnd5e.sheet.actor .spell-slots, .dnd5e.sheet.actor .spell-comps {
-  min-width: fit-content;
+.alt5e.dnd5e.sheet.actor .spell-slots, .dnd5e.sheet.actor .spell-comps {
+  min-width: 75px;
+	text-align: center;
+}
+
+.alt5e.dnd5e.sheet.actor .spell-uses {
+	text-align: center !important;
 }

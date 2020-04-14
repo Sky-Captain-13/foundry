@@ -171,7 +171,7 @@ async function injectPassives(app, html, data) {
 		`;
 	};
 	if (game.settings.get("alt5e", "showPassiveStealth")) {
-		let passiveStealth = data.data.skills.ste.value;
+		let passiveStealth = data.data.skills.ste.passive;
 		passives += `
 			<div class="form-group">
 				<label>Passive Stealth</label>
