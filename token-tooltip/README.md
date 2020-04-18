@@ -2,7 +2,7 @@
 ## Token Tooltips
 
 * **Author**: Sky#9453, @solfolango77#0880  (Discord)
-* **Version**: 1.2.3
+* **Version**: 1.2.4
 * **Foundry VTT Compatibility**: 0.4.4 to 0.5.5
 * **System Compatibility**: D&D 5e
 * **Module Requirement(s)**: None
@@ -28,6 +28,9 @@ Extract the deselection.zip file to the public/modules directory. Use the `Manag
 As of January 10th 2020, the module.json includes a minimumCoreVersion 0.4.4 and will cease to work for earlier installs.
 
 ## Token Tooltip Update Notes
+**Version**: 1.2.4
+* Corrected error in module.json that prevented the module from being installed
+
 **Version**: 1.2.3
 * Added coreCompatibilityVersion to module.json to get rid of the yellow compatibility risk box
 
