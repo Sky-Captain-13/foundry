@@ -94,7 +94,7 @@
 		<a class="item" data-tab="features">{{ localize "DND5E.Features" }}</a>
 		<a class="item" data-tab="spellbook">{{ localize "DND5E.Spellbook" }}</a>
 		<a class="item" data-tab="biography">{{ localize "DND5E.Biography" }}</a>
-		<a class="item" data-tab="notes">Notes</a>
+		<a class="item" data-tab="notes">Private Notes</a>
 	</nav>
 	{{!-- PC Sheet Body --}}
 	<section class="sheet-body">
@@ -254,10 +254,12 @@
 		{{!-- Notes Tab --}}
 		<div class="tab biography flexrow" data-group="primary" data-tab="notes">
 			<div class="background">
-				<div class="section-titles">Notes</div>
+				<div class="section-titles">
+					<input type="text" name="data.details.notesname" value="{{data.details.notesname}}" placeholder="Personal Journal"/>
+				</div>
 				{{editor content=data.details.notes.value target="data.details.notes.value" button=true owner=owner editable=editable}}
 			</div>
-			<div class="additional-info">
+			<div class="additional-notes">
 				<div class="section-titles biopage">
 					<input type="text" name="data.details.notes1name" value="{{data.details.notes1name}}" placeholder="Additional Notes"/>
 				</div>
@@ -275,7 +277,6 @@
 				</div>
 				{{editor content=data.details.notes4.value target="data.details.notes4.value" button=true owner=owner editable=editable}}
 			</div>
-			
 		</div>
 	</section>
 </form>

@@ -1,6 +1,6 @@
 // Alt5eSheet
 // @author Sky#9453
-// @version 1.0.2
+// @version 1.1.1
 import { DND5E } from "../../systems/dnd5e/module/config.js";
 import { Dice5e } from "../../systems/dnd5e/module/dice.js";
 import { Actor5e } from "../../systems/dnd5e/module/actor/entity.js";
@@ -25,7 +25,8 @@ export class AltItemSheet5e extends ItemSheet5e {
 
 export class Alt5eSheet extends ActorSheet5eCharacter {
 	get template() {
-		if ( !game.user.isGM && this.actor.limited ) return super.template;
+		if ( !game.user.isGM && this.actor.limited && game.settings.get("alt5e", "useExpandedSheet")) return "modules/alt5e/templates/expanded-limited-sheet.html";
+		if ( !game.user.isGM && this.actor.limited ) return "modules/alt5e/templates/limited-sheet.html";
 		return "modules/alt5e/templates/alt5e-sheet.html";
 	}
 	
@@ -358,6 +359,14 @@ Hooks.on("renderAlt5eSheet", (app, html, data) => {
 });
 
 Hooks.once("ready", () => {
+	game.settings.register("alt5e", "useExpandedSheet", {
+		name: "Expanded View for the Limited Sheet",
+		hint: "The expanded view for the limited sheet displays the entire character sheet (minus the Private Notes tab) to players with Limited permission for that actor.",
+		scope: "world",
+		config: true,
+		default: false,
+		type: Boolean
+	});
 	game.settings.register("alt5e", "showPassiveInsight", {
 		name: "Show Passive Insight",
 		hint: "Show the passive insight score in Traits.",
