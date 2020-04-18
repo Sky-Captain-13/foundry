@@ -1,15 +1,15 @@
 {
-    "name": "token-tooltip",
-    "title": "Token Tooltip",
-    "description": "Creates a tooltip with the AC, HP, Passive Perception/Investigation, and Speed when mousing over a token.",
-    "version": "1.2.2",
-		"minimumCoreVersion": "0.4.4",
-    "author": "Sky#9453 (discord), Sebastian Will (vttassets@gmail.com)",
-    "systems": ["dnd5e"],
-    "scripts": ["./init.js", "./token-tooltip.js"],
-    "styles": ["./styles.css"],
-    "packs": [],
-    "url": "https://github.com/Sky-Captain-13/foundry/tree/master/token-tooltip",
-    "manifest": "https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/token-tooltip/token-tooltip/module.json",
-    "download": "https://github.com/Sky-Captain-13/foundry/raw/master/token-tooltip/token-tooltip.zip"
+	"name": "token-tooltip",
+	"title": "Token Tooltip",
+	"description": "Creates a tooltip with the AC, HP, Passive Perception/Investigation, and Speed when mousing over a token.",
+	"version": "1.2.3",
+	"author": "Sky#9453 (discord), Sebastian Will (vttassets@gmail.com)",
+	"minimumCoreVersion": "0.4.4",
+	""compatibleCoreVersion": "0.5.5",
+	"systems": ["dnd5e"],
+	"scripts": ["./init.js", "./token-tooltip.js"],
+	"styles": ["./styles.css"],
+	"url": "https://github.com/Sky-Captain-13/foundry/tree/master/token-tooltip",
+	"manifest": "https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/token-tooltip/token-tooltip/module.json",
+	"download": "https://github.com/Sky-Captain-13/foundry/raw/master/token-tooltip/token-tooltip.zip"
 }
