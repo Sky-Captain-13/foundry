@@ -17,7 +17,7 @@ A very basic module to implement roll queries (like Roll20's) into macros and ch
 ## Installation
 ### Method 1
 * Open the Foundry application and click **"Install Module"** in the **"Add-On Modules"** tab.
-* Paste the following link: https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/qeury/query/module.json
+* Paste the following link: https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/query/query/module.json
 * Click "Install"
 * Activate the module in your World using **Manage Modules** under the **Game Settings** tab.
 
