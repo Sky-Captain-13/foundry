@@ -1,0 +1,13 @@
+{
+	"name": "query",
+	"title": "Query",
+	"description": "A very basic module to implement roll queries (like Roll20's) into macros and chat. It does NOT work in any rolls processed from the character sheet.",
+	"version": "0.0.1",
+	"author": "Sky#9453",
+	"minimumCoreVersion": "0.5.5",
+	"compatibleCoreVersion": "0.5.5",
+	"scripts": ["./query.js"],
+	"url": "https://github.com/Sky-Captain-13/foundry/tree/master/query",
+	"manifest": "https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/query/query/module.json",
+	"download": "https://github.com/Sky-Captain-13/foundry/raw/master/qeury/query.zip"
+}
