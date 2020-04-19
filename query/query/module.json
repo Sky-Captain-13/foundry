@@ -1,0 +1,13 @@
+{
+	"name": "query",
+	"title": "Query",
+	"description": "",
+	"version": "0.0.1",
+	"author": "Sky#9453",
+	"minimumCoreVersion": "0.5.5",
+	"compatibleCoreVersion": "0.5.5",
+	"scripts": ["./query.js"],
+	"url": "https://github.com/Sky-Captain-13/foundry/tree/master/query",
+	"manifest": "https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/query/query/module.json",
+	"download": "https://github.com/Sky-Captain-13/foundry/raw/master/qeury/query.zip"
+}
