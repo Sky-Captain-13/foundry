@@ -37,6 +37,8 @@ Extract the query.zip file to the public/modules directory. Use the `Manage Modu
 <div style="font-size: 1.25em; font-family: 'Signika'; font-weight: bold; margin: 0px; padding: 0px;">Spike Growth</div><hr>
 <div style="margin-bottom: 7px;"><b>Damage:</b> [[ ?{Distance Traveled|5 ft,2|10 ft,4|15 ft,6|20 ft,8|25 ft,10|30 ft,12|35 ft,14|40 ft,16}d4 ]] piercing</div>
 ```
+![image](https://i.imgur.com/E6h31R1.png)
+
 ## License
 This Foundry VTT module is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 This work is licensed under Foundry Virtual Tabletop [EULA - Limited License Agreement for module development v 0.1.6](http://foundryvtt.com/pages/license.html).
