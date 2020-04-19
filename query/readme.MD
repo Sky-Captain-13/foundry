@@ -2,7 +2,7 @@
 ## Deselection
 
 * **Author**: Sky#9435
-* **Version**: 0.0.1
+* **Version**: 0.0.2
 * **Foundry VTT Compatibility**: 0.5.5
 * **System Compatibility**: Universal
 * **Module Requirement(s)**: None
@@ -23,6 +23,10 @@ A very basic module to implement roll queries (like Roll20's) into macros and ch
 
 ### Method 2
 Extract the query.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Query` module.
+
+## Query 0.0.2 Update Notes
+* Fixed download url in module.json, replacing qeury with query
+* Uploaded query.zip
 
 ## Query 0.0.1 Update Notes
 * Initial commit to github for release
