@@ -1,8 +1,8 @@
 const Query = (() => {
 	// VERSION INFORMATION
 	const Query_Author = "Sky#9453";
-	const Query_Version = "0.0.1";
-	const Query_LastUpdated = 1587282862;
+	const Query_Version = "0.0.3";
+	const Query_LastUpdated = 1587317690;
 	
 	const handleQuery = async function(msg, chatData) {
 		let content = chatData;
@@ -74,8 +74,10 @@ const Query = (() => {
 	};
 	
 	const handleInput = function(msg, chatData) {
-		handleQuery(msg, chatData);
-		return false;
+		if (chatData.includes("?{")) {
+			handleQuery(msg, chatData);
+			return false;
+		}
 	};
 	
 	// HOOKS

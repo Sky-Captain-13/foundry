@@ -2,7 +2,7 @@
 	"name": "query",
 	"title": "Query",
 	"description": "A very basic module to implement roll queries (like Roll20's) into macros and chat. It does NOT work in any rolls processed from the character sheet.",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"author": "Sky#9453",
 	"minimumCoreVersion": "0.5.5",
 	"compatibleCoreVersion": "0.5.5",
