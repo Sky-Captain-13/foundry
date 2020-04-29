@@ -2,7 +2,7 @@
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.1.2
+* **Version**: 1.1.3
 * **Minimum Core Compatibility**: 0.5.0
 * **Compatible Core Version**: 0.5.5
 * **System Compatibility**: D&D 5th Edition 0.8.7
