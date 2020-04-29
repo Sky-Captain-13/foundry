@@ -18,8 +18,8 @@ Hooks.on("hoverToken", (object, hovered) => {
 			tempmaxhp: isNaN(parseInt(object.actor.data.data.attributes.hp.tempmax)) ? 0 : parseInt(object.actor.data.data.attributes.hp.tempmax),
 			speed: object.actor.data.data.attributes.speed.value,
 			passives: {
-				perception: 10 + parseInt(object.actor.data.data.skills.prc.passive),
-				investigation: 10 + parseInt(object.actor.data.data.skills.inv.passive)
+				perception: parseInt(object.actor.data.data.skills.prc.passive),
+				investigation: parseInt(object.actor.data.data.skills.inv.passive)
 			}
 		};
 		// CHECK IF TARGET HAS TEMP HP AND ADD TO TOOLTIP
