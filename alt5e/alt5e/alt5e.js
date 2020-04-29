@@ -1,6 +1,6 @@
 // Alt5eSheet
 // @author Sky#9453
-// @version 1.1.2
+// @version 1.1.3
 import { DND5E } from "../../systems/dnd5e/module/config.js";
 import { Dice5e } from "../../systems/dnd5e/module/dice.js";
 import { Actor5e } from "../../systems/dnd5e/module/actor/entity.js";
@@ -136,7 +136,7 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
 }
 
 async function injectPassives(app, html, data) {
-	let observant = (data.actor.items.some( i => i.name.toLowerCase() === "observant")) ? 5 : 0;
+	// let observant = (data.actor.items.some( i => i.name.toLowerCase() === "observant")) ? 5 : 0;
 	let sentinel_shield = (data.actor.items.some( i => i.name.toLowerCase() === "sentinel shield" && i.data.equipped)) ? 5 : 0;
 	let passivesTarget = html.find('input[name="data.traits.senses"]').parent();
 	let passives = "";
@@ -153,7 +153,7 @@ async function injectPassives(app, html, data) {
 		`;
 	};
 	if (game.settings.get("alt5e", "showPassiveInvestigation")) {
-		let passiveInvestigation = data.data.skills.inv.passive + observant;
+		let passiveInvestigation = data.data.skills.inv.passive;
 		passives += `
 			<div class="form-group">
 				<label>Passive Investigation</label>
@@ -164,7 +164,8 @@ async function injectPassives(app, html, data) {
 		`;
 	};
 	if (game.settings.get("alt5e", "showPassivePerception")) {
-		let passivePerception = data.data.skills.prc.passive + observant + sentinel_shield;
+		let passivePerception = data.data.skills.prc.passive + sentinel_shield;
+		data.data.skills.prc.passive = 10 + data.data.skills.prc.mod + sentinel_shield;
 		passives += `
 			<div class="form-group">
 				<label>Passive Perception</label>
