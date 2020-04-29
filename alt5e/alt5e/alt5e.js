@@ -1,6 +1,6 @@
 // Alt5eSheet
 // @author Sky#9453
-// @version 1.1.4
+// @version 1.1.5
 import { DND5E } from "../../systems/dnd5e/module/config.js";
 import { Dice5e } from "../../systems/dnd5e/module/dice.js";
 import { Actor5e } from "../../systems/dnd5e/module/actor/entity.js";
@@ -165,7 +165,8 @@ async function injectPassives(app, html, data) {
 	};
 	if (game.settings.get("alt5e", "showPassivePerception")) {
 		let actor = game.actors.entities.find(a => a.data._id === data.actor._id);
-		let passivePerception = 10 + data.data.skills.prc.mod + sentinel_shield;
+		let observant = (actor.data.flags.dnd5e.observantFeat) ? 5 : 0;
+		let passivePerception = 10 + data.data.skills.prc.mod + observant + sentinel_shield;
 		mergeObject(actor, { "data.data.skills.prc.passive": passivePerception });
 		passives += `
 			<div class="form-group">
