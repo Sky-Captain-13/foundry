@@ -1,15 +1,16 @@
 // Alt5eSheet
 // @author Sky#9453
-// @version 1.1.1
+// @version 1.1.2
 import { DND5E } from "../../systems/dnd5e/module/config.js";
 import { Dice5e } from "../../systems/dnd5e/module/dice.js";
 import { Actor5e } from "../../systems/dnd5e/module/actor/entity.js";
 import { ActorSheet5eCharacter } from "../../systems/dnd5e/module/actor/sheets/character.js";
 import { Item5e } from "../../systems/dnd5e/module/item/entity.js";
 import { ItemSheet5e } from "../../systems/dnd5e/module/item/sheet.js";
-//import { BetterRollsHooks } from "../../modules/betterrolls5e/scripts/hooks.js";
-//BetterRollsHooks.addItemSheet("AltItemSheet5e");
 
+/* Currently disabled so as not to break Better Rolls, Magic Items, etc
+import { BetterRollsHooks } from "../../modules/betterrolls5e/scripts/hooks.js";
+BetterRollsHooks.addItemSheet("AltItemSheet5e");
 export class AltItemSheet5e extends ItemSheet5e {
 	static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -22,6 +23,7 @@ export class AltItemSheet5e extends ItemSheet5e {
 		return Application.prototype.setPosition.call(this, ...args);
 	}
 }
+*/
 
 export class Alt5eSheet extends ActorSheet5eCharacter {
 	get template() {
@@ -135,6 +137,7 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
 
 async function injectPassives(app, html, data) {
 	let observant = (data.actor.items.some( i => i.name.toLowerCase() === "observant")) ? 5 : 0;
+	let sentinel_shield = (data.actor.items.some( i => i.name.toLowerCase() === "sentinel shield" && i.data.equipped)) ? 5 : 0;
 	let passivesTarget = html.find('input[name="data.traits.senses"]').parent();
 	let passives = "";
 	let tagStyle = "text-align: center; min-width: unset; font-size: 13px;";
@@ -161,7 +164,7 @@ async function injectPassives(app, html, data) {
 		`;
 	};
 	if (game.settings.get("alt5e", "showPassivePerception")) {
-		let passivePerception = data.data.skills.prc.passive + observant;
+		let passivePerception = data.data.skills.prc.passive + observant + sentinel_shield;
 		passives += `
 			<div class="form-group">
 				<label>Passive Perception</label>
@@ -349,9 +352,9 @@ Actors.registerSheet("dnd5e", Alt5eSheet, {
 	makeDefault: true
 });
 
-Items.registerSheet("dnd5e", AltItemSheet5e, {
-	makeDefault: false
-});
+//Items.registerSheet("dnd5e", AltItemSheet5e, {
+//	makeDefault: false
+//});
 
 Hooks.on("renderAlt5eSheet", (app, html, data) => {
 	injectPassives(app, html, data);

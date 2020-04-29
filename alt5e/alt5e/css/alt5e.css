@@ -23,6 +23,10 @@
 	text-shadow: 0px 0px 10px #FF6400, 0px 0px 10px #FF6400, 0px 0px 10px #FF6400;
 }
 
+.alt5e.dnd5e.sheet .sheet-navigation .item {
+	margin: 0px 10px;
+}
+
 .alt5e.dnd5e.sheet .sheet-header h1 {
 	padding: 0px;
 }
@@ -275,12 +279,16 @@
 	padding: 0;
 }
 
+.fa-star {
+	color: #c53131;
+}
+
 .alt5e .item-toggle {
 	color: #b5b3a4 !important;
 }
 
 .alt5e .item-toggle.active {
-  color: #4b4a44 !important;
+  color: #c53131 !important;
 }
 
 .item-control.item-edit i.fas.fa-edit:before {
