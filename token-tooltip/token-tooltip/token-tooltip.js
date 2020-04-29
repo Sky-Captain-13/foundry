@@ -9,7 +9,6 @@ Hooks.on("hoverToken", (object, hovered) => {
 
 	// PARSE TOKEN/ACTOR INFO
 	let info = null;
-	let observant = (object.actor.data.items.some( i => i.name.toLowerCase() === "observant")) ? 5 : 0;
 	try {
 		info = {
 			ac: isNaN(parseInt(object.actor.data.data.attributes.ac.value)) ? 10 : parseInt(object.actor.data.data.attributes.ac.value),
@@ -19,8 +18,8 @@ Hooks.on("hoverToken", (object, hovered) => {
 			tempmaxhp: isNaN(parseInt(object.actor.data.data.attributes.hp.tempmax)) ? 0 : parseInt(object.actor.data.data.attributes.hp.tempmax),
 			speed: object.actor.data.data.attributes.speed.value,
 			passives: {
-				perception: 10 + parseInt(object.actor.data.data.skills.prc.mod) + observant,
-				investigation: 10 + parseInt(object.actor.data.data.skills.inv.mod) + observant
+				perception: 10 + parseInt(object.actor.data.data.skills.prc.passive),
+				investigation: 10 + parseInt(object.actor.data.data.skills.inv.passive)
 			}
 		};
 		// CHECK IF TARGET HAS TEMP HP AND ADD TO TOOLTIP
