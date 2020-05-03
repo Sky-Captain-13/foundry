@@ -2,7 +2,7 @@
 Hooks.on("hoverToken", (object, hovered) => {
 	if (!object || !object.actor) return;
 	if (event == undefined || keyboard.isDown("Alt")) return;
-
+  
 	// SETTINGS & DECLARATIONS
 	let showTooltip = game.settings.get("token-tooltip", "tooltipVisibility");
 	let disposition = parseInt(object.data.disposition);
@@ -79,15 +79,20 @@ Hooks.on("hoverToken", (object, hovered) => {
 
 	// ADD OR REMOVE THE TOOLTIP
 	if (hovered) {
-		let dmtktooltip = $(`<div class="dmtk-tooltip ${object.data._id}"></div>`);
-		dmtktooltip.css('left', (event.pageX + 10) + 'px');
-		dmtktooltip.css('top', (event.pageY + 10) + 'px');
+		let canvasToken = canvas.tokens.ownedTokens.find((ownedToken) => ownedToken.id === object.id);
+		let dmtktooltip = $(`<div class="dmtk-tooltip ${game.user.id}"></div>`);
+		dmtktooltip.css('left', (canvasToken.worldTransform.tx + ((object.width + 55) * canvas.scene._viewPosition.scale)) + 'px');
+		dmtktooltip.css('top', (canvasToken.worldTransform.ty + 0) + 'px');
 		dmtktooltip.html(template);
 		$('body.game').append(dmtktooltip);
-		setTimeout(function () {
-			$("." + object.data._id).remove();
-		}, 8000);
+		//setTimeout(function () {
+		//	$("." + object.data._id).remove();
+		//}, 8000);
 	} else {
-		$("." + object.data._id).remove();
+		$('.dmtk-tooltip').remove();
 	}
+});
+
+Hooks.on("deleteToken", (scene, token) => {
+	$('.dmtk-tooltip').remove();
 });
