@@ -2,7 +2,7 @@
 ## Token Tooltips
 
 * **Author**: Sky#9453, @solfolango77#0880  (Discord)
-* **Version**: 1.2.5
+* **Version**: 1.3.0
 * **Foundry VTT Compatibility**: 0.4.4 to 0.5.5
 * **System Compatibility**: D&D 5e
 * **Module Requirement(s)**: None
@@ -24,30 +24,12 @@ This module adds a tooltip that displays vital stats when hovering over a token.
 ### Method 2
 Extract the deselection.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Token Tooltip` module.
 
-## Foundry 0.4.4 Update
-As of January 10th 2020, the module.json includes a minimumCoreVersion 0.4.4 and will cease to work for earlier installs.
-
 ## Token Tooltip Update Notes
-**Version**: 1.2.4
-* Corrected error in module.json that prevented the module from being installed
-
-**Version**: 1.2.3
-* Added coreCompatibilityVersion to module.json to get rid of the yellow compatibility risk box
-
-**Version**: 1.2.2
-* Added support for the Observant feat. Simply include a feature named Observant on your character sheet, and token tooltip will automatically add +5 to your passive perception and investigation scores in the tooltip.
-
-**Version**: 1.2.1
-* Fixed temphp showing up as NaN after being deleted from the character sheet.
-
-**Version**: 1.2.0
-* Removed listeners to prevent lag from excessive polling of mouse movements, particularly while panning the map.
-* Adjusted the method by which tooltips are created and removed, making it much less likely to get a tooltip stuck on the screen.
-* Tooltip properly shows hp with +temphp and +maxhp added.
-
-**Version**: 1.1.1
-* Corrected CSS conflict with VTTA Party
-* Added a three second timeout to remove the tooltip. Helps clear up issues where the tooltip would get stuck.
+**Version**: 1.3.0
+* Tooltip will now always appear aligned with the top of the token and approximately 50px to the right of it regardless of the zoom scale of the users view.
+* Tooltip will now appear/vanish properly when mousing over/off the tokens.
+* Tooltip will also vanish properly when a token is deleted.
+* The tooltip may linger when moving tokens in specific directions... just tap the alt key or mouseover the token to quickly remove it.
 
 ## License
 This Foundry VTT module is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
