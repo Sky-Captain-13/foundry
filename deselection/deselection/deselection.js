@@ -9,12 +9,18 @@ class Deselection {
 		return func;
 	}
 	static init() {
-		Canvas.prototype._onMouseDown = Deselection.patchFunction(
-			Canvas.prototype._onMouseDown,
-			23,
-			"event.data._selectState = 1;",
-			`if (canvas.ready && Object.keys(canvas.activeLayer._controlled).length) canvas.activeLayer.releaseAll();
-			event.data._selectState = 1;`
+		Canvas.prototype._onClickLeft = Deselection.patchFunction(
+			Canvas.prototype._onClickLeft,
+			13,
+			"if ( isSelect ) return;",
+			`
+			if ( isSelect && canvas.controls.select.active ) {
+					canvas.controls.select.clear();
+					canvas.controls.select.active = false;
+					if ( tool === "select" ) return layer.selectObjects(coords);
+					if ( tool === "target" ) return layer.targetObjects(coords, {releaseOthers: !originalEvent.shiftKey});
+				}
+			`
 		);
 	}
 }
