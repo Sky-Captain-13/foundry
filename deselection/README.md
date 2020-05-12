@@ -1,9 +1,9 @@
-![](https://img.shields.io/badge/Foundry-v0.4.4-informational)
+![](https://img.shields.io/badge/Foundry-v0.5.6-informational)
 ## Deselection
 
 * **Author**: Sky#9435, KaKaRoTo#4756 (Discord)
-* **Version**: 1.3.3
-* **Foundry VTT Compatibility**: 0.4.4+
+* **Version**: 1.4.3
+* **Foundry VTT Compatibility**: 0.5.6
 * **System Compatibility**: Universal
 * **Module Requirement(s)**: None
 * **Module Conflicts**: None
@@ -22,10 +22,10 @@ This module lets the GM deselect a token or tokens by clicking anywhere on the m
 * Activate the module in your World using **Manage Modules** under the **Game Settings** tab.
 
 ### Method 2
-Extract the deselection.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Deselection` module.
+* Extract the deselection.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Deselection` module.
 
-## Deselection 1.3.2 Update Notes
-Minor update to fix minimumCoreVersion. Deselection 1.3.2 will only work with Foundry 0.4.4 currently and may be broken by future updates to Foundry.
+## Deselection 1.4.0 Update Notes
+* This update allows Deselection to work with Foundry version 0.5.6 or higher. It is a breaking change and you should NOT update if you are still using 0.5.5
 
 ## License
 This Foundry VTT module is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
