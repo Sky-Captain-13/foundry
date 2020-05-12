@@ -2,11 +2,12 @@
 Hooks.on("hoverToken", (object, hovered) => {
 	if (!object || !object.actor) return;
 	if (event == undefined || keyboard.isDown("Alt")) return;
-  
+  //console.log(event.srcElement); USE THIS TO IGNORE MOUSING OVER TOKENS IN TRACKER
+	
 	// SETTINGS & DECLARATIONS
 	let showTooltip = game.settings.get("token-tooltip", "tooltipVisibility");
 	let disposition = parseInt(object.data.disposition);
-
+	
 	// PARSE TOKEN/ACTOR INFO
 	let info = null;
 	try {
@@ -79,15 +80,12 @@ Hooks.on("hoverToken", (object, hovered) => {
 
 	// ADD OR REMOVE THE TOOLTIP
 	if (hovered) {
-		let canvasToken = canvas.tokens.ownedTokens.find((ownedToken) => ownedToken.id === object.id);
-		let dmtktooltip = $(`<div class="dmtk-tooltip ${game.user.id}"></div>`);
+		let canvasToken = canvas.tokens.placeables.find((tok) => tok.id === object.id);
+		let dmtktooltip = $(`<div class="dmtk-tooltip"></div>`);
 		dmtktooltip.css('left', (canvasToken.worldTransform.tx + ((object.width + 55) * canvas.scene._viewPosition.scale)) + 'px');
 		dmtktooltip.css('top', (canvasToken.worldTransform.ty + 0) + 'px');
 		dmtktooltip.html(template);
 		$('body.game').append(dmtktooltip);
-		//setTimeout(function () {
-		//	$("." + object.data._id).remove();
-		//}, 8000);
 	} else {
 		$('.dmtk-tooltip').remove();
 	}
