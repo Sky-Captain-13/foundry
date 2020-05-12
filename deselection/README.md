@@ -2,7 +2,7 @@
 ## Deselection
 
 * **Author**: Sky#9435, KaKaRoTo#4756 (Discord)
-* **Version**: 1.4.3
+* **Version**: 1.4.0
 * **Foundry VTT Compatibility**: 0.5.6
 * **System Compatibility**: Universal
 * **Module Requirement(s)**: None
