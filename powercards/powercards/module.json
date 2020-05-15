@@ -4,12 +4,12 @@
 	"author": "Sky#9453",
 	"description": "",
 	"version": "0.0.1",
-	"minimumCoreVersion": "0.5.5",
+	"minimumCoreVersion": "0.5.6",
 	"compatibleCoreVersion": "0.5.6",
 	"scripts": ["powercards.js"],
 	"packs": [],
 	"socket": true,
-	"download": "",
-	"manifest": "",
-	"url": ""
+	"url": "https://github.com/Sky-Captain-13/foundry/tree/master/powercards",
+	"manifest": "https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/powercards/powercards/module.json",
+	"download": "https://github.com/Sky-Captain-13/foundry/raw/master/powercards/powercards.zip"
 }

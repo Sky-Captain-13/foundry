@@ -1,12 +1,13 @@
 const PowerCards = (() => {
 	// VERSION INFORMATION
 	const PowerCards_Author = "Sky#9453";
-	const PowerCards_Version = "0.0.1";
-	const PowerCards_LastUpdated = 1589548249;
+	const PowerCards_Version = "0.0.2";
+	const PowerCards_LastUpdated = 1589551270;
 	
 	// CONFIGURATION
-	var USE_PLAYER_COLOR_EMOTE = false;
-	var USE_PLAYER_COLOR_TITLE = true;
+	let USE_PLAYER_COLOR_EMOTE = false;
+	let USE_PLAYER_COLOR_TITLE = true;
+	let USE_TITLE_TEXT_SHADOW = true;
 	
 	// FUNCTIONS
 	function getBrightness(hex) {
@@ -28,6 +29,7 @@ const PowerCards = (() => {
 			// DEFAULT FORMATTING
 			let playerBGColor = game.user.data.color;
 			let playerTXColor = (getBrightness(playerBGColor) < (255 / 2)) ? "#FFFFFF" : "#000000";
+			let playerTXShadow = (getBrightness(playerTXColor) < (255 / 2)) ? "#FFFFFF" : "#000000";
 			
 			// EMOTE
 			card.avatar = (game.user.character == null) ? game.user.avatar : game.user.character.img;
@@ -45,6 +47,7 @@ const PowerCards = (() => {
 			// TITLE
 			card.title_bgcolor = (USE_PLAYER_COLOR_TITLE) ? playerBGColor : "#FFFFFF";
 			card.title_txcolor = (USE_PLAYER_COLOR_TITLE) ? playerTXColor : "#000000";
+			card.title_txshadow = ""; //(USE_TITLE_TEXT_SHADOW) ? `-1px 1px 2px ${playerTXShadow}, 1px 1px 2px ${playerTXShadow}, 1px -1px 2px ${playerTXShadow}, -1px -1px 2px ${playerTXShadow}` : "";
 			card.title_border = "1px solid #000";
 			card.title_borderradius = "5px";
 			card.title_fontsize = "1.2em";
@@ -86,13 +89,13 @@ const PowerCards = (() => {
 			let emote = (card.emote !== undefined) ? `<div style = 'display: table-cell; background-color: ${card.emote_bgcolor}; color: ${card.emote_txcolor}; border: ${card.emote_border}; border-radius: ${card.emote_borderradius}; vertical-align: middle; text-align: ${card.emote_textalign}; font-size: ${card.emote_fontsize}; font-weight: ${card.emote_fontweight}; font-style: ${card.emote_fontstyle}; ${avatar}'>${card.emote}</div>` : ``;
 			let title = (card.title === undefined) ? `` : `` +
 				`<div style = 'display: block; background-color: ${card.title_bgcolor}; color: ${card.title_txcolor}; border: ${card.title_border}; border-radius: ${card.title_borderradius}; background-image: linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, 0)); margin: ${card.title_margin}; padding: ${card.title_padding};'>` +
-				`<div style = 'text-align: ${card.title_textalign}; font-size: ${card.title_fontsize}; font-weight: ${card.title_fontweight}; font-style: ${card.title_fontstyle};'>${card.title}</div>` +
+				`<div style = 'text-align: ${card.title_textalign}; font-size: ${card.title_fontsize}; font-weight: ${card.title_fontweight}; font-style: ${card.title_fontstyle}; text-shadow: ${card.title_txshadow};'>${card.title}</div>` +
 				`<div style = 'text-align: ${card.subtitle_textalign}; font-size: ${card.subtitle_fontsize}; font-weight: ${card.subtitle_fontweight}; font-style: ${card.subtitle_fontstyle};'>${card.subtitle}</div>` +
 				`</div>`;
 			
 			// REMOVE FORMATTING TAGS
 			let keys = Object.keys(card);
-			let tags_to_remove = ["", "emote_bgcolor", "emote_txcolor", "emote_border", "emote_borderradius", "emote_fontsize", "emote_fontweight", "emote_fontstyle", "emote_textalign", "emote_margin", "emote_padding", "title_bgcolor", "title_txcolor", "title_border", "title_borderradius", "title_fontsize", "title_fontweight", "title_fontstyle", "title_textalign", "title_margin", "title_padding", "subtitle_fontsize", "subtitle_fontweight", "subtitle_fontstyle", "subtitle_textalign", "orow_txcolor", "orow_bgcolor", "erow_txcolor", "erow_bgcolor", "guts_lineheight", "guts_border", "guts_borderradius", "guts_fontsize", "guts_fontweight", "guts_fontstyle", "guts_textalign", "guts_margin", "guts_padding", "tokenid", "emote", "title", "subtitle", "avatar"];
+			let tags_to_remove = ["", "emote_bgcolor", "emote_txcolor", "emote_border", "emote_borderradius", "emote_fontsize", "emote_fontweight", "emote_fontstyle", "emote_textalign", "emote_margin", "emote_padding", "title_bgcolor", "title_txcolor", "title_txshadow", "title_border", "title_borderradius", "title_fontsize", "title_fontweight", "title_fontstyle", "title_textalign", "title_margin", "title_padding", "subtitle_fontsize", "subtitle_fontweight", "subtitle_fontstyle", "subtitle_textalign", "orow_txcolor", "orow_bgcolor", "erow_txcolor", "erow_bgcolor", "guts_lineheight", "guts_border", "guts_borderradius", "guts_fontsize", "guts_fontweight", "guts_fontstyle", "guts_textalign", "guts_margin", "guts_padding", "tokenid", "emote", "title", "subtitle", "avatar"];
 			tags_to_remove.forEach(function (b) {
 				if (keys.indexOf(b) !== -1) keys.splice(keys.indexOf(b), 1);
 			});
