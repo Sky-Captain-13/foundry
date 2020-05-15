@@ -1,0 +1,9 @@
+a.inline-roll {
+  display: inline-block;
+	min-width: 2em;
+	text-align: center;
+}
+
+a.inline-roll i {
+	display: none;
+}

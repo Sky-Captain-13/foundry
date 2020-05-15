@@ -1,13 +1,13 @@
 const PowerCards = (() => {
 	// VERSION INFORMATION
 	const PowerCards_Author = "Sky#9453";
-	const PowerCards_Version = "0.0.2";
-	const PowerCards_LastUpdated = 1589551270;
+	const PowerCards_Version = "0.0.3";
+	const PowerCards_LastUpdated = 1589555959;
 	
 	// CONFIGURATION
-	let USE_PLAYER_COLOR_EMOTE = false;
+	let USE_PLAYER_COLOR_EMOTE = true;
 	let USE_PLAYER_COLOR_TITLE = true;
-	let USE_TITLE_TEXT_SHADOW = true;
+	let USE_TITLE_TEXT_SHADOW = false;
 	
 	// FUNCTIONS
 	function getBrightness(hex) {
@@ -35,8 +35,8 @@ const PowerCards = (() => {
 			card.avatar = (game.user.character == null) ? game.user.avatar : game.user.character.img;
 			card.emote_bgcolor = (USE_PLAYER_COLOR_EMOTE) ? playerBGColor : "transparent";
 			card.emote_txcolor = (USE_PLAYER_COLOR_EMOTE) ? playerTXColor : "#000000";
-			card.emote_border = "none";
-			card.emote_borderradius = "0px";
+			card.emote_border = (USE_PLAYER_COLOR_EMOTE) ? "1px solid #000" : "none";
+			card.emote_borderradius = (USE_PLAYER_COLOR_EMOTE) ? "5px" : "0px";
 			card.emote_fontsize = "1em";
 			card.emote_fontweight = "normal";
 			card.emote_fontstyle = "italic";
@@ -47,10 +47,10 @@ const PowerCards = (() => {
 			// TITLE
 			card.title_bgcolor = (USE_PLAYER_COLOR_TITLE) ? playerBGColor : "#FFFFFF";
 			card.title_txcolor = (USE_PLAYER_COLOR_TITLE) ? playerTXColor : "#000000";
-			card.title_txshadow = ""; //(USE_TITLE_TEXT_SHADOW) ? `-1px 1px 2px ${playerTXShadow}, 1px 1px 2px ${playerTXShadow}, 1px -1px 2px ${playerTXShadow}, -1px -1px 2px ${playerTXShadow}` : "";
+			card.title_txshadow = (USE_TITLE_TEXT_SHADOW) ? `-1px 1px 1px ${playerTXShadow}, 1px 1px 1px ${playerTXShadow}, 1px -1px 1px ${playerTXShadow}, -1px -1px 1px ${playerTXShadow}` : "";
 			card.title_border = "1px solid #000";
 			card.title_borderradius = "5px";
-			card.title_fontsize = "1.2em";
+			card.title_fontsize = "1.5em";
 			card.title_fontweight = "bold";
 			card.title_fontstyle = "normal";
 			card.title_textalign = "center";
@@ -85,7 +85,7 @@ const PowerCards = (() => {
 			});
 			
 			// EMOTE & TITLE
-			let avatar = (card.avatar !== undefined) ? `padding: 0px 5px 0px 50px; background-image: url("${card.avatar}"); background-size: 50px 50px; background-position: left; background-repeat: no-repeat; height: 50px; min-height: 50px;` : ``;
+			let avatar = (card.avatar !== undefined) ? `padding: 0px 5px 0px 55px; background-image: url("${card.avatar}"); background-size: 50px 50px; background-position: 5px; background-repeat: no-repeat; height: 60px; min-height: 60px;` : ``;
 			let emote = (card.emote !== undefined) ? `<div style = 'display: table-cell; background-color: ${card.emote_bgcolor}; color: ${card.emote_txcolor}; border: ${card.emote_border}; border-radius: ${card.emote_borderradius}; vertical-align: middle; text-align: ${card.emote_textalign}; font-size: ${card.emote_fontsize}; font-weight: ${card.emote_fontweight}; font-style: ${card.emote_fontstyle}; ${avatar}'>${card.emote}</div>` : ``;
 			let title = (card.title === undefined) ? `` : `` +
 				`<div style = 'display: block; background-color: ${card.title_bgcolor}; color: ${card.title_txcolor}; border: ${card.title_border}; border-radius: ${card.title_borderradius}; background-image: linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, 0)); margin: ${card.title_margin}; padding: ${card.title_padding};'>` +
@@ -120,7 +120,7 @@ const PowerCards = (() => {
 				row_number++;
 			});
 			
-			// SEND TO CHAT
+			// SEND FINAL CARD TO CHAT
 			ChatMessage.create({
 				user: game.user._id,
 				speaker: { alias: who },
@@ -128,10 +128,10 @@ const PowerCards = (() => {
 				type: CONST.CHAT_MESSAGE_TYPES.OTHER,
 				sound: ""
 			});
+			
+			// DO NOT SEND ORIGINAL MESSAGE TO CHAT
+			return false;
 		}
-		
-		// Don't send to chat...
-		return false;
 	};
 	
 	// HOOKS
