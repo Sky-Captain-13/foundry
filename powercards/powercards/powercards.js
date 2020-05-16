@@ -1,11 +1,11 @@
 const PowerCards = (() => {
 	// VERSION INFORMATION
 	const PowerCards_Author = "Sky#9453";
-	const PowerCards_Version = "0.0.3";
-	const PowerCards_LastUpdated = 1589555959;
+	const PowerCards_Version = "0.0.4";
+	const PowerCards_LastUpdated = 1589609509;
 	
 	// CONFIGURATION
-	let USE_PLAYER_COLOR_EMOTE = true;
+	let USE_PLAYER_COLOR_EMOTE = false;
 	let USE_PLAYER_COLOR_TITLE = true;
 	let USE_TITLE_TEXT_SHADOW = false;
 	
@@ -20,10 +20,9 @@ const PowerCards = (() => {
 	};
 	
 	const handleInput = function(message, chatData) {
-		if ( chatData.charAt(0) === "!") {
+		if ( chatData.split(" ")[0].toLowerCase().trim() === "!power") {
 			let who = game.user.data.name;
-			let command = chatData.split(" ")[0].trim();
-			let content = chatData.replace(command, "").trim()
+			let content = chatData.replace("!power", "").trim();
 			let card = {};
 			
 			// DEFAULT FORMATTING
@@ -37,7 +36,7 @@ const PowerCards = (() => {
 			card.emote_txcolor = (USE_PLAYER_COLOR_EMOTE) ? playerTXColor : "#000000";
 			card.emote_border = (USE_PLAYER_COLOR_EMOTE) ? "1px solid #000" : "none";
 			card.emote_borderradius = (USE_PLAYER_COLOR_EMOTE) ? "5px" : "0px";
-			card.emote_fontsize = "1em";
+			card.emote_fontsize = "small";
 			card.emote_fontweight = "normal";
 			card.emote_fontstyle = "italic";
 			card.emote_textalign = "center";
@@ -58,9 +57,9 @@ const PowerCards = (() => {
 			card.title_padding = "2px 5px 2px 5px";
 			
 			// SUBTITLE
-			card.subtitle_fontsize = "0.8em";
+			card.subtitle_fontsize = "0.9em";
 			card.subtitle_fontweight = "normal";
-			card.subtitle_fontstyle = "italic";
+			card.subtitle_fontstyle = "normal";
 			card.subtitle_textalign = "center";
 			
 			// GUTS FORMATTING
@@ -100,6 +99,8 @@ const PowerCards = (() => {
 				if (keys.indexOf(b) !== -1) keys.splice(keys.indexOf(b), 1);
 			});
 			
+			// MAGIC HAPPENS HERE
+			
 			// CREATE FINAL CARD
 			let final_card = (keys.length != 0) ? `<div style = 'border: ${card.guts_border}; border-radius: ${card.guts_borderradius}; background-color: ${card.orow_bgcolor};'>` : ``;
 			let key_count = 1;
@@ -133,6 +134,10 @@ const PowerCards = (() => {
 			return false;
 		}
 	};
+	
+	const logThis = function(a, b, c) {
+		console.log(a);
+	}
 	
 	// HOOKS
 	Hooks.on("ready", function() {
