@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/Foundry-v0.5.5-informational)
-## Deselection
+## Query
 
 * **Author**: Sky#9435
 * **Version**: 0.0.4
