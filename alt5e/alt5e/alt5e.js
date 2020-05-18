@@ -1,29 +1,6 @@
-// Alt5eSheet
-// @author Sky#9453
-// @version 1.1.5
 import { DND5E } from "../../systems/dnd5e/module/config.js";
-import { Dice5e } from "../../systems/dnd5e/module/dice.js";
-import { Actor5e } from "../../systems/dnd5e/module/actor/entity.js";
-import { ActorSheet5eCharacter } from "../../systems/dnd5e/module/actor/sheets/character.js";
-import { Item5e } from "../../systems/dnd5e/module/item/entity.js";
-import { ItemSheet5e } from "../../systems/dnd5e/module/item/sheet.js";
-
-/* Currently disabled so as not to break Better Rolls, Magic Items, etc
-import { BetterRollsHooks } from "../../modules/betterrolls5e/scripts/hooks.js";
-BetterRollsHooks.addItemSheet("AltItemSheet5e");
-export class AltItemSheet5e extends ItemSheet5e {
-	static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
-			classes: ["alt5e", "dnd5e", "sheet", "item"],
-      resizable: true
-    });
-  }
-	
-	setPosition (...args) {
-		return Application.prototype.setPosition.call(this, ...args);
-	}
-}
-*/
+import ActorSheet5e from "../../systems/dnd5e/module/actor/sheets/base.js";
+import ActorSheet5eCharacter from "../../systems/dnd5e/module/actor/sheets/character.js";
 
 export class Alt5eSheet extends ActorSheet5eCharacter {
 	get template() {
@@ -135,8 +112,23 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
 	}
 }
 
+async function addClassList(app, html, data) {
+	let actor = game.actors.entities.find(a => a.data._id === data.actor._id);
+	let classList = [];
+	let items = data.actor.items;
+	for (let item of items) {
+		if (item.type === "class") {
+			let subclass = (item.data.subclass) ? ` (${item.data.subclass})` : ``;
+			classList.push(item.name + subclass);
+		}
+	};
+	classList = "<div style='display: inline-block; width: 400px; word-break: break-word;'>" + classList.join(" / ") + "</div>";
+	mergeObject(actor, {"data.flags.alt5e.classlist": classList});
+	let classListTarget = html.find('.charlevel .level');
+	classListTarget.after(classList);
+}
+
 async function injectPassives(app, html, data) {
-	// let observant = (data.actor.items.some( i => i.name.toLowerCase() === "observant")) ? 5 : 0;
 	let sentinel_shield = (data.actor.items.some( i => i.name.toLowerCase() === "sentinel shield" && i.data.equipped)) ? 5 : 0;
 	let passivesTarget = html.find('input[name="data.traits.senses"]').parent();
 	let passives = "";
@@ -165,9 +157,7 @@ async function injectPassives(app, html, data) {
 	};
 	if (game.settings.get("alt5e", "showPassivePerception")) {
 		let actor = game.actors.entities.find(a => a.data._id === data.actor._id);
-		let observant = (actor.data.flags.dnd5e.observantFeat) ? 5 : 0;
-		let passivePerception = 10 + data.data.skills.prc.mod + observant + sentinel_shield;
-		mergeObject(actor, { "data.data.skills.prc.passive": passivePerception });
+		let passivePerception = data.data.skills.prc.passive;
 		passives += `
 			<div class="form-group">
 				<label>Passive Perception</label>
@@ -355,11 +345,8 @@ Actors.registerSheet("dnd5e", Alt5eSheet, {
 	makeDefault: true
 });
 
-//Items.registerSheet("dnd5e", AltItemSheet5e, {
-//	makeDefault: false
-//});
-
 Hooks.on("renderAlt5eSheet", (app, html, data) => {
+	addClassList(app, html, data);
 	injectPassives(app, html, data);
 	addFavorites(app, html, data);
 });

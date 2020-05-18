@@ -8,7 +8,9 @@
 			</h1>
 			<div class="charlevel">
 				<div class="level {{#if disableExperience}}noxp{{/if}}">
-					<label>Level {{data.details.level}}</label>
+					<label>
+						Level {{data.details.level}}
+					</label>
 				</div>
 				{{#unless disableExperience}}
 				<div class="experience">
@@ -122,15 +124,14 @@
 				<ul class="skills-list">
 					<div class="section-titles">Skills</div>
 					{{#each data.skills as |skill s|}}
-					<li class="skill flexrow {{#if skill.value}}proficient{{/if}}" data-skill="{{s}}">
-						<input type="hidden" name="data.skills.{{s}}.value" value="{{skill.value}}" data-dtype="Number"/>
-						<a class="proficiency-toggle skill-proficiency" title="{{skill.hover}}">{{{skill.icon}}}</a>
-						<h4 class="skill-name rollable">{{skill.label}}</h4>
-						<span class="skill-ability">{{skill.ability}}</span>
-						<span class="skill-mod">{{numberFormat skill.mod decimals=0 sign=true}}</span>
-						{{!-- <input class="skill-bonus" name="data.skills.{{s}}.bonus" type="text" value="{{numberFormat skill.bonus decimals=0 sign=true}}" data-dtype="Number" placeholder="0" title="Misc. Modifier"/> --}}
-						{{!-- <span class="skill-passive">({{skill.passive}})</span> --}}
-					</li>
+						<li class="skill flexrow {{#if skill.value}}proficient{{/if}}" data-skill="{{s}}">
+							<input type="hidden" name="data.skills.{{s}}.value" value="{{skill.value}}" data-dtype="Number"/>
+							<a class="proficiency-toggle skill-proficiency" title="{{skill.hover}}">{{{skill.icon}}}</a>
+							<h4 class="skill-name rollable">{{skill.label}}</h4>
+							<span class="skill-ability">{{skill.ability}}</span>
+							<span class="skill-mod">{{numberFormat skill.total decimals=0 sign=true}}</span>
+							{{!-- <span class="skill-passive">({{skill.passive}})</span> --}}
+						</li>
 					{{/each}}
 				</ul>
 				<div style="width: 100%;">

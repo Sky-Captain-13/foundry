@@ -2,6 +2,10 @@
 	height: 6px;
 }
 
+.alt5e.dnd5e label.checkbox input[type="checkbox"] {
+	margin: 0px;
+}
+
 .alt5e.dnd5e.sheet input[type="text"]:hover,
 .dnd5e select:hover, .dnd5e input[type="text"]:hover {
 	background: rgba(0, 0, 0, 0.075);
@@ -9,7 +13,7 @@
 }
 
 .alt5e.dnd5e.sheet input[type="text"]:focus,
-.dnd5e select:focus, .dnd5e input[type="text"]:focus {
+.alt5e.dnd5e select:focus, .dnd5e input[type="text"]:focus {
 	background: rgba(0, 0, 0, 0.075);
 	box-shadow: none;
 }
@@ -18,8 +22,8 @@
 .alt5e.dnd5e.sheet .editable .rollable:hover,
 .alt5e.dnd5e.sheet .tabs .item.active,
 .alt5e.dnd5e.sheet.actor .traits i.fas:hover,
-.dnd5e.sheet.item .sheet-navigation .item:hover,
-.dnd5e.sheet.item .sheet-navigation .item.active {
+.alt5e.dnd5e.sheet.item .sheet-navigation .item:hover,
+.alt5e.dnd5e.sheet.item .sheet-navigation .item.active {
 	text-shadow: 0px 0px 10px #FF6400, 0px 0px 10px #FF6400, 0px 0px 10px #FF6400;
 }
 
@@ -52,6 +56,8 @@
 .alt5e.dnd5e.sheet.actor.character .sheet-header img.profile {
 	padding: 5px;
 	margin: 0px 0px 0px -5px;
+	object-fit: contain;
+	height: auto;
 }
 
 .alt5e.dnd5e.sheet .sheet-body {
@@ -60,6 +66,11 @@
 
 .alt5e.dnd5e.sheet .window-content .tab {
 	overflow: visible;
+}
+
+.alt5e.dnd5e.sheet.actor.character .sheet-header .charlevel {
+	flex: 0 0 auto;
+	height: auto;
 }
 
 .alt5e .section-titles {
@@ -187,10 +198,11 @@
 	flex: 0 0 20%;
 	line-height: 20px;
 }
-
+/*
 .alt5e.dnd5e.sheet.actor .counters .counter input[type="checkbox"] {
 	margin: 0px 3px;
 }
+*/
 
 .alt5e.dnd5e.sheet.actor .traits .form-group, 
 .alt5e.dnd5e.sheet.actor .traits .form-group-stacked {
@@ -333,4 +345,8 @@
 
 .alt5e.dnd5e.sheet.actor .spell-uses {
 	text-align: center !important;
+}
+
+.dnd5e.sheet.item .sheet-header img.profile {
+	border: none;
 }
