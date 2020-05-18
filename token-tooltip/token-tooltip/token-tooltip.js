@@ -2,7 +2,6 @@
 Hooks.on("hoverToken", (object, hovered) => {
 	if (!object || !object.actor) return;
 	if (event == undefined || keyboard.isDown("Alt")) return;
-  //console.log(event.srcElement); USE THIS TO IGNORE MOUSING OVER TOKENS IN TRACKER
 	
 	// SETTINGS & DECLARATIONS
 	let showTooltip = game.settings.get("token-tooltip", "tooltipVisibility");
