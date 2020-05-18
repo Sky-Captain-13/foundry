@@ -1,13 +1,12 @@
 ![](https://img.shields.io/badge/Foundry-v0.5.0-informational)
+![](https://img.shields.io/badge/D&D5e-v0.9.0-informational)
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.1.5
+* **Version**: 1.2.0
 * **Minimum Core Compatibility**: 0.5.0
-* **Compatible Core Version**: 0.5.5
-* **System Compatibility**: D&D 5th Edition 0.8.7
-* **Module Requirement(s)**: None
-* **Module Conflicts**: None
+* **Compatible Core Version**: 0.5.7
+* **System Compatibility**: D&D 5th Edition 0.9.0
 
 ### Link(s) to Module
 * [https://github.com/Sky-Captain-13/foundry/tree/master/alt5e](https://github.com/Sky-Captain-13/foundry/tree/master/alt5e)
