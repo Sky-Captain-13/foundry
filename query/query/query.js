@@ -1,8 +1,8 @@
 const Query = (() => {
 	// VERSION INFORMATION
 	const Query_Author = "Sky#9453";
-	const Query_Version = "0.0.3";
-	const Query_LastUpdated = 1587317690;
+	const Query_Version = "0.0.4";
+	const Query_LastUpdated = 1589783292;
 	
 	const handleQuery = async function(msg, chatData) {
 		let content = chatData;
