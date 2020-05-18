@@ -1,12 +1,10 @@
-![](https://img.shields.io/badge/Foundry-v0.4.4-informational)
+![](https://img.shields.io/badge/Foundry-v0.5.6-informational)
 ## Points of Interest Actor Sheet
 
 * **Author**: Sky#9435
-* **Version**: 0.0.3
-* **Foundry VTT Compatibility**: 0.4.4+
+* **Version**: 0.0.4
+* **Foundry VTT Compatibility**: 0.5.6
 * **System Compatibility**: D&D 5e
-* **Module Requirement(s)**: None
-* **Module Conflicts**: None
 
 ### Link(s) to Module
 * [https://github.com/Sky-Captain-13/foundry/tree/master/poi-sheet](https://github.com/Sky-Captain-13/foundry/tree/master/poi-sheet)
