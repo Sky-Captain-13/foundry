@@ -14,11 +14,9 @@ class Deselection {
 			13,
 			"if ( isSelect ) return;",
 			`
-			if ( isSelect && canvas.controls.select.active ) {
-				canvas.controls.select.clear();
-				canvas.controls.select.active = false;
-				if ( tool === "select" ) return layer.selectObjects(coords);
-				if ( tool === "target" ) return layer.targetObjects(coords, {releaseOthers: !originalEvent.shiftKey});
+			if ( isSelect && tool === "target" ) {
+				canvas.activeLayer.targetObjects({}, {releaseOthers: true});
+				return;
 			};
 			`
 		);
