@@ -2,11 +2,9 @@
 ## Deselection
 
 * **Author**: Sky#9435
-* **Version**: 0.0.2
+* **Version**: 0.0.4
 * **Foundry VTT Compatibility**: 0.5.5
 * **System Compatibility**: Universal
-* **Module Requirement(s)**: None
-* **Module Conflicts**: None
 
 ### Link(s) to Module
 * [https://github.com/Sky-Captain-13/foundry/tree/master/query](https://github.com/Sky-Captain-13/foundry/tree/master/query)
