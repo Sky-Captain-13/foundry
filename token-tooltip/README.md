@@ -3,10 +3,8 @@
 
 * **Author**: Sky#9453, @solfolango77#0880  (Discord)
 * **Version**: 1.3.1
-* **Foundry VTT Compatibility**: 0.4.4 to 0.5.6
+* **Foundry VTT Compatibility**: 0.4.4
 * **System Compatibility**: D&D 5e
-* **Module Requirement(s)**: None
-* **Module Conflicts**: VTTA Party (Disable tooltips in VTTA Party)
 
 ### Link(s) to Module
 * [https://github.com/Sky-Captain-13/foundry/tree/master/token-tooltip](https://github.com/Sky-Captain-13/foundry/tree/master/token-tooltip)
