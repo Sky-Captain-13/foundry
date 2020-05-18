@@ -2,7 +2,7 @@
 	"name": "deselection",
 	"title": "Deselection",
 	"description": "Lets the players and GM deselect tokens by clicking anywhere on the map.",
-	"version": "1.4.1",
+	"version": "1.4.2",
 	"author": "Sky",
 	"minimumCoreVersion": "0.5.6",
 	"compatibleCoreVersion": "0.5.7",
