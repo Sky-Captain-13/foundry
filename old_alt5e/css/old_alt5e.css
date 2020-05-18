@@ -1,0 +1,336 @@
+::-webkit-scrollbar {
+	height: 6px;
+}
+
+.alt5e.dnd5e.sheet input[type="text"]:hover,
+.dnd5e select:hover, .dnd5e input[type="text"]:hover {
+	background: rgba(0, 0, 0, 0.075);
+	box-shadow: 0px 0px 8px #FF6400, 0px 0px 8px #FF6400;
+}
+
+.alt5e.dnd5e.sheet input[type="text"]:focus,
+.dnd5e select:focus, .dnd5e input[type="text"]:focus {
+	background: rgba(0, 0, 0, 0.075);
+	box-shadow: none;
+}
+
+.alt5e.dnd5e.sheet a:hover, 
+.alt5e.dnd5e.sheet .editable .rollable:hover,
+.alt5e.dnd5e.sheet .tabs .item.active,
+.alt5e.dnd5e.sheet.actor .traits i.fas:hover,
+.dnd5e.sheet.item .sheet-navigation .item:hover,
+.dnd5e.sheet.item .sheet-navigation .item.active {
+	text-shadow: 0px 0px 10px #FF6400, 0px 0px 10px #FF6400, 0px 0px 10px #FF6400;
+}
+
+.alt5e.dnd5e.sheet .sheet-navigation .item {
+	margin: 0px 10px;
+}
+
+.alt5e.dnd5e.sheet .sheet-header h1 {
+	padding: 0px;
+}
+
+.alt5e.dnd5e.sheet.actor.character {
+	min-width: 800px;
+	/* max-width: 800px; */
+	min-height: unset;
+	max-height: 100%;
+	overflow: hidden;
+}
+
+.alt5e.dnd5e.sheet .window-content {
+	overflow: auto;
+}
+
+.alt5e.dnd5e.sheet .window-content form {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background-color: rgba(0, 0, 0, 0.025);
+}
+
+.alt5e.dnd5e.sheet.actor.character .sheet-header img.profile {
+	padding: 5px;
+	margin: 0px 0px 0px -5px;
+}
+
+.alt5e.dnd5e.sheet .sheet-body {
+	overflow: visible;
+}
+
+.alt5e.dnd5e.sheet .window-content .tab {
+	overflow: visible;
+}
+
+.alt5e .section-titles {
+	display: inline-block;
+	font-family: "Nodesto", "Signika", "Palatino Linotype", serif;
+	font-size: 22px;
+	text-align: center;
+	height: 25px;
+	width: 99%;
+	max-height: 25px;
+	margin: 0px 0px 4px 0px;
+	border-bottom: 2px groove;
+}
+
+.alt5e li.skill:nth-child(odd) {
+	background-color: rgba(0, 0, 0, 0.075);
+}
+
+.alt5e.dnd5e.sheet.actor.character ul.ability-scores {
+	flex: 0 0 100px;
+	flex-direction: column;
+}
+
+.alt5e.dnd5e.sheet.actor .ability-scores .ability {
+	height: 70px;
+	max-height: 70px;
+	margin: 0px 5px 2px 5px;
+	text-align: center;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 3px;
+	background-color: rgba(0, 0, 0, 0.025);
+}
+
+.alt5e.dnd5e.sheet.actor .ability-scores .ability .ability-modifiers {
+	margin: -11px 0px 0px 0px;
+}
+
+.alt5e.dnd5e.sheet.actor .ability-scores .ability .ability-modifiers span.ability-mod, 
+.alt5e.dnd5e.sheet.actor .ability-scores .ability .ability-modifiers span.ability-save {
+	height: 23px;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+}
+
+.alt5e.dnd5e.sheet.actor .ability-scores .ability .ability-modifiers span.ability-mod {
+	margin-left: 1px;
+	border-right: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	background-color: rgba(0, 0, 0, 0.025);
+}
+
+.alt5e.dnd5e.sheet.actor .ability-scores .ability .ability-modifiers span.ability-save {
+	margin-right: 1px;
+	border-left: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	background-color: rgba(0, 0, 0, 0.025);
+}
+
+.alt5e.dnd5e.sheet.actor.character ul.skills-list {
+	flex: 1;
+	flex-direction: column;
+	margin: 0px 5px;
+	padding: 0px 2px;
+	border: none;
+}
+
+.alt5e.dnd5e.sheet.actor.character ul.skills-list li.skill {
+	padding: 3px;
+	margin: 0px 0px 2px 0px;
+}
+
+.alt5e.dnd5e.sheet .skill-bonus {
+	flex: 0;
+	text-align: center;
+	margin-top: 1px;
+}
+
+.alt5e.dnd5e.sheet.actor ul.attributes {
+	margin: 0px;
+	flex: 0 0 100%;
+}
+
+.alt5e.dnd5e.sheet.actor .traits {
+	margin: 0px;
+}
+
+.alt5e.dnd5e.sheet.actor ul.attributes li.attribute {
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.alt5e .resource, .alt5e .initiative {
+	background-color: rgba(0, 0, 0, 0.025);
+	border-radius: 0px;
+}
+
+.alt5e.dnd5e.sheet.actor .counters {
+	text-align: center;
+	margin-top: 5px;
+}
+
+.alt5e.dnd5e.sheet.actor .counters .counter h4 {
+	flex: 0 0 100%;
+	font-size: 20px;
+	text-align: center;
+}
+
+.alt5e.dnd5e.sheet.actor .counters .counter .counter-value {
+	flex: auto;
+	line-height: 20px;
+	text-align: center;
+}
+
+.alt5e.dnd5e.sheet.actor.character .counters .death-saves {
+	flex: 0 0 40%;
+	line-height: 20px;
+}
+
+.alt5e.dnd5e.sheet.actor.character .counters .exhaustion {
+	flex: 0 0 40%;
+	line-height: 20px;
+}
+
+.alt5e.dnd5e.sheet.actor.character .counters .inspiration {
+	flex: 0 0 20%;
+	line-height: 20px;
+}
+
+.alt5e.dnd5e.sheet.actor .counters .counter input[type="checkbox"] {
+	margin: 0px 3px;
+}
+
+.alt5e.dnd5e.sheet.actor .traits .form-group, 
+.alt5e.dnd5e.sheet.actor .traits .form-group-stacked {
+	margin: 0px;
+}
+
+.alt5e.dnd5e.sheet.actor .traits .actor-size {
+	flex: 1;
+	border: none;
+	font-family: "Signika", sans-serif;
+	font-size: 13px;
+	margin: 0px;
+	padding: 2px 0px 0px 0px;
+}
+
+.alt5e.dnd5e.sheet.actor .traits .traits-list {
+	text-align: left;
+}
+
+.alt5e.dnd5e.sheet.actor .traits input {
+	text-align: left;
+}
+
+.alt5e.dnd5e.sheet.actor .traits label {
+	padding-top: 2px;
+}
+
+.alt5e.dnd5e.sheet.actor .traits .trait-selector {
+	padding: 7px 0px 0px 0px;
+}
+
+.alt5e.dnd5e.sheet.actor .traits .configure-flags {
+	padding-top: 6px;
+}
+
+.alt5e.dnd5e .traits-list .tag {
+	margin: 3px 0px 0px 0px;
+	padding: 0px 3px;
+	line-height: 18px;
+	min-width: 32%;
+}
+
+.alt5e .ac-display, 
+.alt5e .prof-bonus {
+	font-size: 40px !important;
+	height: 48px !important;
+	line-height: 48px !important;
+}
+
+.alt5e .alt-favorites {
+	flex: 0 0 100%;
+}
+
+.alt5e.dnd5e.sheet.actor .inventory-list .inventory-header h3 {
+	margin: 0px;
+	padding: 0px;
+}
+
+.alt5e.dnd5e.sheet.actor .inventory-list {
+	font-family: "Signika", sans-serif;
+	font-size: 13px;
+	text-align: left;
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.alt5e .fav-spell-slots {
+	display: flex;
+	flex: 0 0 70px;
+	justify-content: center;
+}
+
+.alt5e .fav-spell-slots input[type="text"] {
+	text-align: center;
+}
+
+.alt5e.dnd5e.sheet.actor .item-controls {
+	flex: 0 0 70px;
+	justify-content: center;
+}
+
+.fav-item, .fav-feat, .fav-spell {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.fa-star {
+	color: #c53131;
+}
+
+.alt5e .item-toggle {
+	color: #b5b3a4 !important;
+}
+
+.alt5e .item-toggle.active {
+  color: #c53131 !important;
+}
+
+.item-control.item-edit i.fas.fa-edit:before {
+    /* content: "\f0ad"; /* Wrench */
+		content: "\f303"; /* Pencil */
+}
+
+.alt5e .additional-info {
+	flex: 0 0 300px;
+}
+
+.alt5e .additional-notes {
+	flex: 0 0 50%;
+}
+
+.alt5e .biopage + .editor {
+	height: auto;
+	min-height: 30px;
+	margin-bottom: 10px;
+}
+
+.alt5e .background {
+	max-height: 95%;
+}
+
+.alt5e.dnd5e.sheet.item {
+	min-width: 560px;
+}
+
+.alt5e.dnd5e.sheet.item .sheet-body {
+	overflow: auto;
+}
+
+.alt5e.dnd5e.sheet.item .window-content form {
+	overflow: hidden;
+}
+
+.alt5e.dnd5e.sheet.actor .spell-slots, .dnd5e.sheet.actor .spell-comps {
+  min-width: 75px;
+	text-align: center;
+}
+
+.alt5e.dnd5e.sheet.actor .spell-uses {
+	text-align: center !important;
+}
