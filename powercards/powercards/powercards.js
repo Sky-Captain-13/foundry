@@ -1,15 +1,27 @@
 const PowerCards = (() => {
 	// VERSION INFORMATION
 	const PowerCards_Author = "Sky#9453";
-	const PowerCards_Version = "0.0.4";
-	const PowerCards_LastUpdated = 1589609509;
+	const PowerCards_Version = "0.0.6";
+	const PowerCards_LastUpdated = 1589785464;
 	
 	// CONFIGURATION
+	let USE_PLAYER_AVATAR = false;
+	let USE_ACTOR_AVATAR = true;
 	let USE_PLAYER_COLOR_EMOTE = false;
 	let USE_PLAYER_COLOR_TITLE = true;
 	let USE_TITLE_TEXT_SHADOW = false;
 	
 	// FUNCTIONS
+	function getRandomNumber(min, max) {
+		// getRandomIntInclusive(1, 10) <-- Generate a random number between 1 and 10
+		const randomBuffer = new Uint32Array(1);
+		window.crypto.getRandomValues(randomBuffer);
+		let randomNumber = randomBuffer[0] / (0xffffffff + 1);
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(randomNumber * (max - min + 1)) + min;
+	}
+	
 	function getBrightness(hex) {
 		return ((getHex2Dec(hex.substr(1, 2)) * 299) + (getHex2Dec(hex.substr(3, 2)) * 587) + (getHex2Dec(hex.substr(5, 2)) * 114)) / 1000;
 	};
@@ -77,20 +89,39 @@ const PowerCards = (() => {
 			card.guts_margin = "0px";
 			card.guts_padding = "6px 2px 5px 2px";
 		
-			// ADD CONTENT TO CARD
+			// ADD CONTENT TO CARD OBJECT & GET/REPLACE INLINE ROLLS
+			let tag;
+			let guts;
+			let rolls = [];
+			let rollcount = 0;
 			content = content.replace(/<br\/>\n/g, " ").replace(/({{(.*?)}})/g, " $2 ").trim().slice(2, content.length - 2).split(/\s+--/);
 			content.forEach(function (a) {
-				if (a !== "") card[a.substring(0, a.indexOf("|")).trim()] = a.substring(a.indexOf("|") + 1).trim();
+				if (a !== "") {
+					let tag = a.substring(0, a.indexOf("|")).trim();
+					let guts = a.substring(a.indexOf("|") + 1).trim();
+					let r = guts.match(/\[\[(.*?\]?)\]\]/g);
+					if (r) {
+						r.forEach(function(b) {
+							rolls.push(b);
+							guts = guts.replace(b, `{${rollcount}}`);
+							rollcount++;
+						});
+					};
+					card[tag] = guts;
+				}
 			});
 			
-			// EMOTE & TITLE
+			// PROCESS ROLLS
+			
+			
+			// AVATAR, EMOTE, & TITLE
 			let avatar = (card.avatar !== undefined) ? `padding: 0px 5px 0px 55px; background-image: url("${card.avatar}"); background-size: 50px 50px; background-position: 5px; background-repeat: no-repeat; height: 60px; min-height: 60px;` : ``;
 			let emote = (card.emote !== undefined) ? `<div style = 'display: table-cell; background-color: ${card.emote_bgcolor}; color: ${card.emote_txcolor}; border: ${card.emote_border}; border-radius: ${card.emote_borderradius}; vertical-align: middle; text-align: ${card.emote_textalign}; font-size: ${card.emote_fontsize}; font-weight: ${card.emote_fontweight}; font-style: ${card.emote_fontstyle}; ${avatar}'>${card.emote}</div>` : ``;
-			let title = (card.title === undefined) ? `` : `` +
-				`<div style = 'display: block; background-color: ${card.title_bgcolor}; color: ${card.title_txcolor}; border: ${card.title_border}; border-radius: ${card.title_borderradius}; background-image: linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, 0)); margin: ${card.title_margin}; padding: ${card.title_padding};'>` +
-				`<div style = 'text-align: ${card.title_textalign}; font-size: ${card.title_fontsize}; font-weight: ${card.title_fontweight}; font-style: ${card.title_fontstyle}; text-shadow: ${card.title_txshadow};'>${card.title}</div>` +
-				`<div style = 'text-align: ${card.subtitle_textalign}; font-size: ${card.subtitle_fontsize}; font-weight: ${card.subtitle_fontweight}; font-style: ${card.subtitle_fontstyle};'>${card.subtitle}</div>` +
-				`</div>`;
+			let title = ``;
+			title += (card.title !== undefined || card.subtitle !== undefined) ? `<div style = 'display: block; background-color: ${card.title_bgcolor}; color: ${card.title_txcolor}; border: ${card.title_border}; border-radius: ${card.title_borderradius}; background-image: linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, 0)); margin: ${card.title_margin}; padding: ${card.title_padding};'>` : ``;
+			title += (card.title !== undefined) ? `<div style = 'text-align: ${card.title_textalign}; font-size: ${card.title_fontsize}; font-weight: ${card.title_fontweight}; font-style: ${card.title_fontstyle}; text-shadow: ${card.title_txshadow};'>${card.title}</div>` : ``;
+			title += (card.subtitle !== undefined) ? `<div style = 'text-align: ${card.subtitle_textalign}; font-size: ${card.subtitle_fontsize}; font-weight: ${card.subtitle_fontweight}; font-style: ${card.subtitle_fontstyle};'>${card.subtitle}</div>` : ``;
+			title += (card.title !== undefined || card.subtitle !== undefined) ? `</div>` : ``;
 			
 			// REMOVE FORMATTING TAGS
 			let keys = Object.keys(card);
@@ -98,8 +129,6 @@ const PowerCards = (() => {
 			tags_to_remove.forEach(function (b) {
 				if (keys.indexOf(b) !== -1) keys.splice(keys.indexOf(b), 1);
 			});
-			
-			// MAGIC HAPPENS HERE
 			
 			// CREATE FINAL CARD
 			let final_card = (keys.length != 0) ? `<div style = 'border: ${card.guts_border}; border-radius: ${card.guts_borderradius}; background-color: ${card.orow_bgcolor};'>` : ``;
@@ -110,8 +139,8 @@ const PowerCards = (() => {
 			let row_even = `color: ${card.erow_txcolor}; background-color: ${card.erow_bgcolor};`;
 			
 			keys.forEach(function (tag) {
-				let guts = card[tag];
 				row_style += (row_number % 2 === 1) ? row_odd : row_even;
+				let guts = card[tag];
 				if (row_number == 1 && keys.length == 1) row_style += `border-radius: ${card.guts_borderradius};`;
 				if (row_number == 1 && keys.length > 1) row_style += `border-radius: ${card.guts_borderradius} ${card.guts_borderradius} 0px 0px;`;
 				if (row_number != 1 && key_count != keys.length) row_style += `border-radius: 0px;`;
@@ -125,7 +154,7 @@ const PowerCards = (() => {
 			ChatMessage.create({
 				user: game.user._id,
 				speaker: { alias: who },
-				content: emote + title + final_card + "</div>",
+				content: emote + title + final_card + `</div>`,
 				type: CONST.CHAT_MESSAGE_TYPES.OTHER,
 				sound: ""
 			});
@@ -134,10 +163,6 @@ const PowerCards = (() => {
 			return false;
 		}
 	};
-	
-	const logThis = function(a, b, c) {
-		console.log(a);
-	}
 	
 	// HOOKS
 	Hooks.on("ready", function() {
