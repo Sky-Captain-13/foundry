@@ -2,7 +2,7 @@
 ## Deselection
 
 * **Author**: Sky#9435, KaKaRoTo#4756 (Discord)
-* **Version**: 1.4.1
+* **Version**: 1.4.2
 * **Minimum Foundry Compatibility**: 0.5.6
 * **System Compatibility**: Universal
 
@@ -21,6 +21,9 @@ This module lets the GM deselect a token or tokens by clicking anywhere on the m
 
 ### Method 2
 * Extract the deselection.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Deselection` module.
+
+## Deselection 1.4.2 Update Notes
+* Adds deselection of targeted tokens in addition to controlled tokens. (Added by Reaver#4634)
 
 ## Deselection 1.4.1 Update Notes
 * Compatibility update for 0.5.7
