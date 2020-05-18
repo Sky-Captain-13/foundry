@@ -1,6 +1,3 @@
-// @author Sky#9453
-// @version 0.0.1
-
 class PoISheet extends ActorSheet {
 	get template() {
 		if ( !game.user.isGM && this.actor.limited ) return super.template;
