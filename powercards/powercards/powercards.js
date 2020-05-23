@@ -88,8 +88,13 @@ const PowerCards = (() => {
 			card.guts_textalign = "left";
 			card.guts_margin = "0px";
 			card.guts_padding = "6px 2px 5px 2px";
-		
+			
 			// ADD CONTENT TO CARD OBJECT & GET/REPLACE INLINE ROLLS
+			content = content.replace(/<br\/>\n/g, " ").replace(/({{(.*?)}})/g, " $2 ").trim().slice(2, content.length - 2).split(/\s+--/);
+			content.forEach(function (a) {
+				if (a !== "") card[a.substring(0, a.indexOf("|")).trim()] = a.substring(a.indexOf("|") + 1).trim();
+			});
+			/*
 			let tag;
 			let guts;
 			let rolls = [];
@@ -110,7 +115,7 @@ const PowerCards = (() => {
 					card[tag] = guts;
 				}
 			});
-			
+			*/
 			// PROCESS ROLLS
 			
 			
