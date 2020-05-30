@@ -1,13 +1,13 @@
-![](https://img.shields.io/badge/Foundry-v0.5.0-informational)
+![](https://img.shields.io/badge/Foundry-v0.5.6-informational)
 
 ![](https://img.shields.io/badge/D&D5e-v0.9.0-informational)
 
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.2.0
-* **Foundry VTT Compatibility**: 0.5.6
-* **System Compatibility**: D&D 5th Edition 0.9.0
+* **Version**: 1.3.0
+* **Foundry VTT Compatibility**: 0.5.6 to 0.6.0
+* **System Compatibility**: D&D 5th Edition 0.92
 
 ### Link(s) to Module
 * [https://foundryvtt.com/packages/alt5e/](https://foundryvtt.com/packages/alt5e/)
