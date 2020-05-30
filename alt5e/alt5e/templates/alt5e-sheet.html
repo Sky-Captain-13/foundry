@@ -130,6 +130,7 @@
 							<h4 class="skill-name rollable">{{skill.label}}</h4>
 							<span class="skill-ability">{{skill.ability}}</span>
 							<span class="skill-mod">{{numberFormat skill.total decimals=0 sign=true}}</span>
+							{{!-- <input class="skill-bonus" name="data.skills.{{s}}.bonus" type="text" value="{{numberFormat skill.bonus decimals=0 sign=true}}" data-dtype="Number" placeholder="0" title="Misc. Modifier"/> --}}
 							{{!-- <span class="skill-passive">({{skill.passive}})</span> --}}
 						</li>
 					{{/each}}
@@ -223,15 +224,15 @@
 		</div>
 		{{!-- Inventory Tab --}}
 		<div class="tab inventory flexcol" data-group="primary" data-tab="inventory">
-			{{> "systems/dnd5e/templates/actors/parts/actor-inventory.html" sections=inventory}}
+			{{> "modules/alt5e/templates/parts/alt5e-inventory.html" sections=inventory}}
 		</div>
 		{{!-- Features Tab --}}
 		<div class="tab features flexcol" data-group="primary" data-tab="features">
-			{{> "systems/dnd5e/templates/actors/parts/actor-features.html" sections=features}}
+			{{> "modules/alt5e/templates/parts/alt5e-features.html" sections=features}}
 		</div>
 		{{!-- Spellbook Tab --}}
 		<div class="tab spellbook flexcol" data-group="primary" data-tab="spellbook">
-			{{> "systems/dnd5e/templates/actors/parts/actor-spellbook.html"}}
+			{{> "modules/alt5e/templates/parts/alt5e-spellbook.html"}}
 		</div>
 		{{!-- Biography Tab --}}
 		<div class="tab biography flexrow" data-group="primary" data-tab="biography">
@@ -239,13 +240,13 @@
 				<div class="section-titles biopage">Description</div>
 				{{editor content=data.details.description.value target="data.details.description.value" button=true owner=owner editable=editable}}
 				<div class="section-titles biopage">Personality Traits</div>
-				{{editor content=data.details.personality.value target="data.details.personality.value" button=true owner=owner editable=editable}}
+				{{editor content=data.details.trait target="data.details.trait" button=true owner=owner editable=editable}}
 				<div class="section-titles biopage">Ideals</div>
-				{{editor content=data.details.ideals.value target="data.details.ideals.value" button=true owner=owner editable=editable}}
+				{{editor content=data.details.ideal target="data.details.ideal" button=true owner=owner editable=editable}}
 				<div class="section-titles biopage">Bonds</div>
-				{{editor content=data.details.bonds.value target="data.details.bonds.value" button=true owner=owner editable=editable}}
+				{{editor content=data.details.bond target="data.details.bond" button=true owner=owner editable=editable}}
 				<div class="section-titles biopage">flaws</div>
-				{{editor content=data.details.flaws.value target="data.details.flaws.value" button=true owner=owner editable=editable}}
+				{{editor content=data.details.flaw target="data.details.flaw" button=true owner=owner editable=editable}}
 			</div>
 			<div class="background">
 				<div class="section-titles">Background</div>

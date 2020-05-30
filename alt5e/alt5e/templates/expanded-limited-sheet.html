@@ -126,8 +126,7 @@
 						<a class="proficiency-toggle skill-proficiency" title="{{skill.hover}}">{{{skill.icon}}}</a>
 						<h4 class="skill-name rollable">{{skill.label}}</h4>
 						<span class="skill-ability">{{skill.ability}}</span>
-						<span class="skill-mod">{{numberFormat skill.mod decimals=0 sign=true}}</span>
-						{{!-- <input class="skill-bonus" name="data.skills.{{s}}.bonus" type="text" value="{{numberFormat skill.bonus decimals=0 sign=true}}" data-dtype="Number" placeholder="0" title="Misc. Modifier"/> --}}
+						<span class="skill-mod">{{numberFormat skill.total decimals=0 sign=true}}</span>
 						{{!-- <span class="skill-passive">({{skill.passive}})</span> --}}
 					</li>
 					{{/each}}
@@ -237,13 +236,13 @@
 				<div class="section-titles biopage">Description</div>
 				{{editor content=data.details.description.value target="data.details.description.value" button=true owner=owner editable=editable}}
 				<div class="section-titles biopage">Personality Traits</div>
-				{{editor content=data.details.personality.value target="data.details.personality.value" button=true owner=owner editable=editable}}
+				{{editor content=data.details.trait target="data.details.trait" button=true owner=owner editable=editable}}
 				<div class="section-titles biopage">Ideals</div>
-				{{editor content=data.details.ideals.value target="data.details.ideals.value" button=true owner=owner editable=editable}}
+				{{editor content=data.details.ideal target="data.details.ideal" button=true owner=owner editable=editable}}
 				<div class="section-titles biopage">Bonds</div>
-				{{editor content=data.details.bonds.value target="data.details.bonds.value" button=true owner=owner editable=editable}}
+				{{editor content=data.details.bond target="data.details.bond" button=true owner=owner editable=editable}}
 				<div class="section-titles biopage">flaws</div>
-				{{editor content=data.details.flaws.value target="data.details.flaws.value" button=true owner=owner editable=editable}}
+				{{editor content=data.details.flaw target="data.details.flaw" button=true owner=owner editable=editable}}
 			</div>
 			<div class="background">
 				<div class="section-titles">Background</div>
