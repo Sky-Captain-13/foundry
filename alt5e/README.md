@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Foundry-v0.5.6-informational)
 
-![](https://img.shields.io/badge/D&D5e-v0.9.0-informational)
+![](https://img.shields.io/badge/D&D5e-v0.9.2-informational)
 
 ## Alt5e
 
