@@ -1,5 +1,3 @@
-Don't use... is broke.
-
 ![](https://img.shields.io/badge/Foundry-v0.6.0-informational)
 ## Expander
 
