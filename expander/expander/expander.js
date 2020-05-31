@@ -17,6 +17,7 @@ class Expander {
 			`
 				const sidebar = this.element;;
 				const chatlog = sidebar.find('.fa-comments').parent();
+				chatlog.off("click");
 				chatlog.click(ev => {
 					if ( this._collapsed ) {
 						const sidebar = this.element;
@@ -33,6 +34,7 @@ class Expander {
 							sidebar.removeClass("collapsed");
 							Hooks.callAll("sidebarCollapse", this, this._collapsed);
 						});
+						chatlog.off("click");
 					}
 				});
 			`
