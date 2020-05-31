@@ -7,7 +7,7 @@
 * **System Compatibility**: Universal
 
 ### Link(s) to Module
-* [https://github.com/Sky-Captain-13/foundry/tree/master/expander](https://github.com/Sky-Captain-13/foundry/tree/master/expander
+* [https://github.com/Sky-Captain-13/foundry/tree/master/expander](https://github.com/Sky-Captain-13/foundry/tree/master/expander)
 
 ### Description
 This module expands the chat window when you click on the chat icon instead of only by clicking on the arrow at the bottom.
