@@ -12,6 +12,8 @@
 ### Description
 This module expands the chat window when you click on the chat icon instead of only by clicking on the arrow at the bottom.
 
+https://i.imgur.com/3y64pXF.gifv
+
 ## Installation
 ### Method 1
 * Open the Foundry application and click **"Install Module"** in the **"Add-On Modules"** tab.
