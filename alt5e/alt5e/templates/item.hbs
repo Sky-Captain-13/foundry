@@ -3,7 +3,7 @@
 		<div class="item-image" style="background-image: url({{item.img}}) !important"></div>
 		<h4>{{item.name}}</h4>
 	</div>
-	{{#if item.data.uses.value }}
+	{{#if item.data.uses.max }}
 	  <div class="item-detail item-uses">
 	    <input type="text" value="{{item.data.uses.value}}" placeholder="0" disabled/>/<span style="padding-left: 8px;">{{item.data.uses.max}}</span>
 		</div>

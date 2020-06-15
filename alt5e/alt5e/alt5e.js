@@ -112,21 +112,6 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
   }
 }
 
-async function addClassList(app, html, data) {
-  let actor = game.actors.entities.find(a => a.data._id === data.actor._id);
-  let classList = [];
-  let items = data.actor.items;
-  for (let item of items) {
-    if (item.type === "class") {
-      let subclass = (item.data.subclass) ? ` (${item.data.subclass})` : ``;
-      classList.push(item.name + subclass);
-    }
-  };
-  classList = "<div style='display: inline-block; width: 400px; word-break: break-word;'>" + classList.join(" / ") + "</div>";
-  let classListTarget = html.find('.charlevel .level');
-  classListTarget.after(classList);
-}
-
 async function addFavorites(app, html, data) {
   // Thisfunction is adapted for the Alt5eSheet from the Favorites Item
   // Tab Module created for Foundry VTT - by Felix Müller (Felix#6196 on Discord).
@@ -296,7 +281,7 @@ async function injectPassives(app, html, data) {
     passives += `
       <div class="form-group">
         <label>Passive Insight</label>
-        <ul class="traits-list">
+        <ul class="traits-list" style="flex: unset;">
           <li class="tag" style="${tagStyle}">${passiveInsight}</li>
         </ul>
       </div>
@@ -307,7 +292,7 @@ async function injectPassives(app, html, data) {
     passives += `
       <div class="form-group">
         <label>Passive Investigation</label>
-        <ul class="traits-list">
+        <ul class="traits-list" style="flex: unset;">
           <li class="tag" style="${tagStyle}">${passiveInvestigation}</li>
         </ul>
       </div>
@@ -319,7 +304,7 @@ async function injectPassives(app, html, data) {
     passives += `
       <div class="form-group">
         <label>Passive Perception</label>
-        <ul class="traits-list">
+        <ul class="traits-list" style="flex: unset;">
           <li class="tag" style="${tagStyle}">${passivePerception}</li>
         </ul>
       </div>
@@ -330,7 +315,7 @@ async function injectPassives(app, html, data) {
     passives += `
       <div class="form-group">
         <label>Passive Stealth</label>
-        <ul class="traits-list">
+        <ul class="traits-list" style="flex: unset;">
           <li class="tag" style="${tagStyle}">${passiveStealth}</li>
         </ul>
       </div>
@@ -368,21 +353,22 @@ async function migrateTraits(app, html, data) {
     }
     return segmentsA.length - segmentsB.length;
   }
-  
+  /*
   if (actorVersion === "unknown version" || compareVersions(actorVersion, moduleVersion) === -1) {
-    console.log(`-=> Migrating ${actor.name} from ${actorVersion} to ${moduleVersion} <=-`);
+		console.log(`-=> Migrating ${actor.name} from ${actorVersion} to ${moduleVersion} <=-`);
 		let trait = (actor.data.data.details.personality && actor.data.data.details.personality.value) ? actor.data.data.details.personality.value : "";
 		let ideal = (actor.data.data.details.ideals && actor.data.data.details.ideals.value) ? actor.data.data.details.ideals.value : "";
 		let bond = (actor.data.data.details.bonds && actor.data.data.details.bonds.value) ? actor.data.data.details.bonds.value : "";
 		let flaw = (actor.data.data.details.flaws && actor.data.data.details.flaws.value) ? actor.data.data.details.flaws.value : "";
 		actor.update({
-      "data.details.trait": trait,
-      "data.details.ideal": ideal,
-      "data.details.bond": bond,
-      "data.details.flaw": flaw
-    });
-    actor.setFlag("alt5e", "version", moduleVersion);
+			"data.details.trait": trait,
+			"data.details.ideal": ideal,
+			"data.details.bond": bond,
+			"data.details.flaw": flaw
+		});
+		actor.setFlag("alt5e", "version", moduleVersion);
   }
+	*/
 }
 
 Actors.registerSheet("dnd5e", Alt5eSheet, {
@@ -391,11 +377,10 @@ Actors.registerSheet("dnd5e", Alt5eSheet, {
 });
 
 Hooks.on("renderAlt5eSheet", (app, html, data) => {
-  addClassList(app, html, data);
   addFavorites(app, html, data);
   injectPassives(app, html, data);
   makeBold(app, html, data);
-  migrateTraits(app, html, data);
+  // migrateTraits(app, html, data);
 });
 
 Hooks.once("ready", () => {
@@ -450,15 +435,12 @@ Hooks.once("ready", () => {
 });
 
 Hooks.once("init", () => {
-  //export const preloadHandlebarsTemplates = async function() {
-    const templatePaths = [
-      // Actor Sheet Partials
-      "modules/alt5e/templates/parts/alt5e-inventory.html",
-      "modules/alt5e/templates/parts/alt5e-features.html",
-      "modules/alt5e/templates/parts/alt5e-spellbook.html",
-    ];
-
-    // Load the template parts
-    return loadTemplates(templatePaths);
-  //};
+	const templatePaths = [
+		// Actor Sheet Partials
+		"modules/alt5e/templates/parts/alt5e-inventory.html",
+		"modules/alt5e/templates/parts/alt5e-features.html",
+		"modules/alt5e/templates/parts/alt5e-spellbook.html",
+	];
+	// Load the template parts
+	return loadTemplates(templatePaths);
 });
