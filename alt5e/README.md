@@ -5,7 +5,7 @@
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.3.1
+* **Version**: 1.3.2
 * **Foundry VTT Compatibility**: 0.5.6 to 0.6.2
 * **System Compatibility**: D&D 5th Edition 0.93
 
@@ -17,6 +17,10 @@
 This module provides an alternate skin/layout of the default D&D 5th edition character sheet in Foundry.
 
 ![image](https://i.imgur.com/ECfIHfd.png)
+
+## Patch Notes
+### Version 1.3.2
+* Added height: -moz-fit-content to alt5e.css to fix firefox compatibility
 
 ## Installation
 ### Method 1
