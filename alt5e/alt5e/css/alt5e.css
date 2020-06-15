@@ -140,6 +140,7 @@
 	padding: 0px 2px;
 	border: none;
 	height: fit-content;
+	height: -moz-fit-content;
 }
 
 .alt5e.dnd5e.sheet.actor.character ul.skills-list li.skill {
