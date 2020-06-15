@@ -122,7 +122,7 @@ async function addClassList(app, html, data) {
       classList.push(item.name + subclass);
     }
   };
-  classList = "<div style='display: inline-block; width: 400px; word-break: break-word;'>" + classList.join(" / ") + "</div>";
+  classList = "<div class='classes'>" + classList.join(" / ") + "</div>";
   let classListTarget = html.find('.charlevel .level');
   classListTarget.after(classList);
 }

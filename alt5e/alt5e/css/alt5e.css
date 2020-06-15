@@ -73,6 +73,11 @@
 	height: auto;
 }
 
+.alt5e.dnd5e.sheet.actor.character .sheet-header .charlevel .classes {
+	display: inline-block;
+	word-break: break-word;
+}
+
 .alt5e .section-titles {
 	display: inline-block;
 	font-family: "Nodesto", "Signika", "Palatino Linotype", serif;
