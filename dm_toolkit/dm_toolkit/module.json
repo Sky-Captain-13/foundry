@@ -1,0 +1,15 @@
+{
+  "name": "dm_toolkit",
+  "title": "DM's Toolkit",
+	"author": "Sky#9453",
+  "description": "Provides a variety of simple tools for Dungeons Masters.",
+  "version": "1.0.0",
+  "minimumCoreVersion": "0.6.0",
+	"compatibleCoreVersion": "0.6.2",
+  "scripts": ["./dm_toolkit.js"],
+	"styles": ["./css/dmtk_styles.css"],
+	"socket": true,
+  "url": "https://github.com/Sky-Captain-13/foundry/tree/master/dm_toolkit",
+	"manifest": "https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/dm_toolkit/dm_toolkit/module.json",
+	"download": "https://github.com/Sky-Captain-13/foundry/raw/master/dm_toolkit/dm_toolkit.zip"
+}

@@ -1,0 +1,21 @@
+#token-hud .status-effects {
+  width: 200px;
+  grid-template-columns: 50px 50px 50px 50px;
+}
+
+#token-hud .status-effects .effect-control {
+	height: 50px;
+	width: 50px;
+}
+
+#token-hud .status-effects {
+	background: rgba(0, 0, 0, 0.9);
+}
+
+#token-hud .status-effects .effect-control:hover {
+	opacity: 1;
+}
+
+.simple-dice-roller-popup {
+	background: rgba(0, 0, 0, 0.9) !important;
+}
