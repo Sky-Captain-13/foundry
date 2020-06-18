@@ -2,7 +2,7 @@
 ## Expander
 
 * **Author**: Sky#9435, KaKaRoTo#4756 (Discord)
-* **Version**: 0.0.1
+* **Version**: 0.0.3
 * **Minimum Foundry Compatibility**: 0.6.0
 * **System Compatibility**: Universal
 
