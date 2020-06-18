@@ -1,12 +1,12 @@
-![](https://img.shields.io/badge/Foundry-v0.5.6-informational)
+![](https://img.shields.io/badge/Foundry-v0.6.0-informational)
 
 ![](https://img.shields.io/badge/D&D5e-v0.93-informational)
 
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.3.2
-* **Foundry VTT Compatibility**: 0.5.6 to 0.6.2
+* **Version**: 1.3.3
+* **Foundry VTT Compatibility**: 0.6.0 to 0.6.2
 * **System Compatibility**: D&D 5th Edition 0.93
 
 ### Link(s) to Module
@@ -19,6 +19,10 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ECfIHfd.png)
 
 ## Patch Notes
+### Version 1.3.3
+* Minor CSS adjustments
+* Added back the ability to click on Languages and send your known languages to chat
+
 ### Version 1.3.2
 * Added height: -moz-fit-content to alt5e.css to fix firefox compatibility
 
