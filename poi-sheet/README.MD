@@ -1,9 +1,10 @@
-![](https://img.shields.io/badge/Foundry-v0.5.6-informational)
+![](https://img.shields.io/badge/Foundry-v0.6.0-informational)
+
 ## Points of Interest Actor Sheet
 
 * **Author**: Sky#9435
-* **Version**: 0.0.4
-* **Foundry VTT Compatibility**: 0.5.6
+* **Version**: 0.0.5
+* **Foundry VTT Compatibility**: 0.6.2
 * **System Compatibility**: D&D 5e
 
 ### Link(s) to Module
@@ -17,8 +18,6 @@ The Points of Interest Actor Sheet adds a new Actor Sheet for the D&D 5e System 
 3. The selection border matches the grid shape (square or hex). Yay for OCD.
 4. The sheet could potentially be expanded to include stats for points of interest for strategic gameplay like Pathfinder Kingmaker.
 
-![image](https://i.imgur.com/w4RHijV.png)
-
 ## Installation
 ### Method 1
 * Open the Foundry application and click **"Install Module"** in the **"Add-On Modules"** tab.
@@ -30,8 +29,8 @@ The Points of Interest Actor Sheet adds a new Actor Sheet for the D&D 5e System 
 Extract the poi-sheet.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Point of Interest Character Sheet` module.
 
 ## Point of Interest Character Sheet Update Notes
-**Version**: 0.0.3
-* Compatibility update for FOundry ver 0.5.5 to get rid of the compatibility unknown / compatibility risk box in the module list
+**Version**: 0.0.5
+* Compatibility update
 
 ## License
 This Foundry VTT module is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
