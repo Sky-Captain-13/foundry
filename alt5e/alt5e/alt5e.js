@@ -48,10 +48,10 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
     super.activateListeners(html);
     
     // Add Rollable CSS Class to Languages
-    html.find('[for="data.traits.languages"]').addClass("rollable");
+    html.find('[data-options="languages"]').parent().addClass("rollable");
     
     // Send Languages to Chat onClick
-    html.find('[for="data.traits.languages"]').click(event => {
+    html.find('[data-options="languages"]').parent().click(event => {
       event.preventDefault();
       let langs = this.actor.data.data.traits.languages.value.map(l => DND5E.languages[l] || l).join(", ");
       let custom = this.actor.data.data.traits.languages.custom;

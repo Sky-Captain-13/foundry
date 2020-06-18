@@ -398,7 +398,7 @@
 }
 
 .alt5e.dnd5e.sheet.actor .inventory-list .item .item-name.rollable .item-image {
-	border-radius: 10px;
+	border-radius: 5px;
 	background-position: center;
 	height: 30px;
 }
