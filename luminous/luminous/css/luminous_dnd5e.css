@@ -1,0 +1,82 @@
+/* DICE ICON FIX */
+.dnd5e.sheet.actor .inventory-list .item .item-name.rollable .item-image:hover {
+	background-image: url(/icons/svg/d20-highlight.svg) !important;
+}
+
+.alt5e.dnd5e.sheet .filter-list .filter-item.active,
+.alt5e.dnd5e.sheet .sheet-navigation .item.active,
+.dnd5e.sheet .sheet-navigation .item.active {
+	border-bottom: 3px solid rgba(55, 90, 160, 1);
+}
+
+
+.alt5e.dnd5e.sheet .editable .rollable:hover h4,
+.alt5e.dnd5e.sheet .editable .rollable:hover {
+	font-weight: bold;
+}
+
+a:hover,
+.tabs .item.active,
+.alt5e.dnd5e.sheet .tabs .item.active,
+.dnd5e.sheet.actor .traits i.fas:hover,
+.dnd5e.sheet.actor .inventory-list .item-controls a:hover,
+.dnd5e.sheet .editable .rollable:hover h4,
+.dnd5e.sheet .editable .rollable:hover,
+.alt5e.dnd5e.sheet .filter-list .filter-item.active,
+.alt5e.dnd5e.sheet .sheet-navigation .item:hover, 
+.alt5e.dnd5e.sheet.actor .proficiency-toggle:hover, 
+.alt5e.dnd5e.sheet.actor .proficient .proficiency-toggle:hover, 
+.alt5e.dnd5e.sheet .filter-list .filter-item:hover, 
+.alt5e.dnd5e.sheet.actor .traits i.fas:hover, 
+.alt5e.dnd5e.sheet.actor .inventory-list .item-controls a:hover, 
+.alt5e.dnd5e.sheet .editable .rollable:hover h4, 
+.alt5e.dnd5e.sheet .editable .rollable:hover,
+.dnd5e.sheet .sheet-navigation .item.active {
+	color: rgba(55, 90, 160, 1);
+	font-weight: bold;
+	text-shadow: none;
+}
+
+.alt5e.dnd5e.sheet input[type="text"]:hover,
+.alt5e.dnd5e.sheet select:hover,
+.alt5e.dnd5e input[type="text"]:hover, 
+.alt5e.dnd5e input[type="text"]:focus,
+.dnd5e.sheet input[type="text"]:hover, 
+.dnd5e.sheet select:hover,
+.dnd5e input[type="text"]:hover, 
+.dnd5e input[type="text"]:focus {
+	border: 1px solid rgba(25, 50, 125, 1);
+	box-shadow: 0 0 3px rgba(70, 110, 235, 1), 0 0 6px rgba(70, 110, 235, 1);
+	background-color: rgba(0, 0, 0, 0.015);
+}
+
+.dnd5e.chat-card .card-header h3:hover {
+	color: rgba(55, 90, 160, 1);
+	font-weight: normal;
+	text-shadow: none;
+}
+
+.alt5e.dnd5e.sheet.actor .inventory-list .item .item-name.rollable:hover .item-image {
+	border: 2px solid rgba(55, 90, 160, 1);
+}
+
+.alt5e.dnd5e.sheet.actor .inventory-list .item .item-name.rollable .item-image {
+	border-radius: 5px;
+}
+
+.tabs .item.active, .tabs,
+.tabs .item.active, .tabs a:hover,
+.alt5e.dnd5e.sheet .tabs .item.active,
+.alt5e.dnd5e.sheet .tabs .item.active:hover,
+.alt5e.dnd5e.sheet.actor h4.box-title,
+.alt5e.dnd5e.sheet.actor h4.box-title:hover,
+.alt5e.dnd5e.sheet .sheet-navigation .item,
+.alt5e.dnd5e.sheet .sheet-navigation .item:hover,
+.alt5e.dnd5e.sheet.actor h4.box-title,
+.alt5e.dnd5e.sheet.actor h4.box-title:hover,
+.dnd5e.sheet.actor h4.box-title,
+.dnd5e.sheet.actor h4.box-title:hover,
+.dnd5e.sheet .sheet-navigation .item.active,
+.dnd5e.sheet .sheet-navigation .item.active:hover {
+	font-weight: normal;
+}

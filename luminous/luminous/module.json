@@ -1,0 +1,13 @@
+{
+	"name": "luminous",
+	"title": "Luminous",
+	"author": "Sky#9453",
+	"description": "A lighter take on the Foundry UI.",
+	"version": "0.0.1",
+	"minimumCoreVersion": "0.6.0",
+	"compatibleCoreVersion": "0.6.2",
+	"styles": ["/css/luminous.css", "/css/luminous_dnd5e.css"],
+	"url": "https://github.com/Sky-Captain-13/foundry/tree/master/luminous",
+	"manifest": "https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/luminous/luminous/module.json",
+	"download": "https://github.com/Sky-Captain-13/foundry/raw/master/luminous/luminous.zip"
+}
