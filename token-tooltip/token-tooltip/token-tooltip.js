@@ -81,7 +81,7 @@ Hooks.on("hoverToken", (object, hovered) => {
 	if (hovered) {
 		let canvasToken = canvas.tokens.placeables.find((tok) => tok.id === object.id);
 		let dmtktooltip = $(`<div class="dmtk-tooltip"></div>`);
-		dmtktooltip.css('left', (canvasToken.worldTransform.tx + ((object.width + 55) * canvas.scene._viewPosition.scale)) + 'px');
+		dmtktooltip.css('left', (canvasToken.worldTransform.tx + (((object.data.width * canvas.dimensions.size) + 55) * canvas.scene._viewPosition.scale)) + 'px');
 		dmtktooltip.css('top', (canvasToken.worldTransform.ty + 0) + 'px');
 		dmtktooltip.html(template);
 		$('body.game').append(dmtktooltip);
