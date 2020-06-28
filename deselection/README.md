@@ -10,7 +10,7 @@
 * [https://github.com/Sky-Captain-13/foundry/tree/master/deselection](https://github.com/Sky-Captain-13/foundry/tree/master/deselection)
 
 ### Description
-This module lets the GM deselect a token or tokens by clicking anywhere on the map.
+This module allows you to deselect a token or tokens by clicking any empty spot on the map.
 
 ## Installation
 ### Method 1
