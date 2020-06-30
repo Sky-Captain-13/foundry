@@ -2,7 +2,7 @@
 img { border: none !important; }
 
 /* UNSET LINE HEIGHT FONT AWESOME ICONS */
-.fa, .fab, .fad, .fal, .far, .fas { line-height: unset !important; }
+#sidebar .fa, #sidebar .fab, #sidebar .fad, #sidebar .fal, #sidebar .far, #sidebar .fas { line-height: unset; }
 
 /* MAKE THE TOKEN HUD LESS TRANSPARENT & BIGGER */
 .placeable-hud input[type="text"] {
