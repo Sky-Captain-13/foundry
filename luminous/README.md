@@ -5,8 +5,8 @@
 ## Luminous
 
 * **Author**: Sky#9435
-* **Version**: 0.0.1
-* **Foundry VTT Compatibility**: 0.6.0 to 0.6.2
+* **Version**: 0.0.2
+* **Foundry VTT Compatibility**: 0.6.0 to 0.6.4
 * **System Compatibility**: D&D 5th Edition 0.93
 * **Module Conflicts**: Any module that affects CSS across a variety of modules
 
@@ -18,6 +18,9 @@
 Provides a lighter take on the Foundry UI with less transparency and the use of cooler colors.
 
 ## Patch Notes
+### Version 0.0.2
+* Made font-awesome line-height rule more specific and only affect the sidebar (Fuck firefox)
+
 ### Version 0.0.1
 * Initial commit
 * Added back the ability to click on Languages and send your known languages to chat
