@@ -33,7 +33,7 @@ a:hover,
 .alt5e.dnd5e.sheet .editable .rollable:hover,
 .dnd5e.sheet .sheet-navigation .item.active {
 	color: rgba(55, 90, 160, 1);
-	font-weight: bold;
+	font-weight: 700;
 	text-shadow: none;
 }
 
@@ -78,5 +78,5 @@ a:hover,
 .dnd5e.sheet.actor h4.box-title:hover,
 .dnd5e.sheet .sheet-navigation .item.active,
 .dnd5e.sheet .sheet-navigation .item.active:hover {
-	font-weight: normal;
+	font-weight: 700;
 }

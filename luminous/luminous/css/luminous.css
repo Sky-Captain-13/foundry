@@ -6,60 +6,60 @@ img { border: none !important; }
 
 /* MAKE THE TOKEN HUD LESS TRANSPARENT & BIGGER */
 .placeable-hud input[type="text"] {
-	background: rgba(0, 0, 0, 0.75) !important;
+  background: rgba(0, 0, 0, 0.75) !important;
 }
 
 /* SCROLL BARS - CHROME ONLY ~ FUCK FIREFOX */
 ::-webkit-scrollbar-thumb {
-	background: rgba(55, 90, 160, 1);
-	border: 1px solid rgba(150, 160, 175, 1);
+  background: rgba(55, 90, 160, 1);
+  border: 1px solid rgba(150, 160, 175, 1);
 }
 
 /* NOTIFICATION PIP */
 .notification-pip {
-	color: #FFF;
-	text-shadow: 0px 0px 2px rgba(20, 50, 120, 1), 0px 0px 4px rgba(20, 50, 120, 0.8);
-	top: -5px;
-	right: -5px;
+  color: #FFF;
+  text-shadow: 0px 0px 2px rgba(20, 50, 120, 1), 0px 0px 4px rgba(20, 50, 120, 0.8);
+  top: -5px;
+  right: -5px;
 }
 
 /* TOKEN HUD STUFF */
 #token-hud .status-effects {
-	width: 200px;
-	grid-template-columns: 50px 50px 50px 50px;
+  width: 200px;
+  grid-template-columns: 50px 50px 50px 50px;
 }
 
 #token-hud .status-effects .effect-control {
-	height: 50px;
-	width: 50px;
+  height: 50px;
+  width: 50px;
 }
 
 #token-hud .status-effects {
-	background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.9);
 }
 
 #token-hud .status-effects .effect-control:hover {
-	opacity: 1;
+  opacity: 1;
 }
 
 .placeable-hud .control-icon.active {
-	border: 1px solid #FFF;
+  border: 1px solid #FFF;
 }
 
 a:hover,
 .tabs .item.active {
-	color: rgba(55, 90, 160, 1);
-	/*font-weight: bold;*/
-	text-shadow: none;
+  color: rgba(55, 90, 160, 1);
+  /*font-weight: bold;*/
+  text-shadow: none;
 }
 
 .alt5e.dnd5e.sheet .editable .rollable:hover h4,
 .alt5e.dnd5e.sheet .editable .rollable:hover {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .tabs .item.active, .tabs a:hover {
-	font-weight: normal;
+  font-weight: normal;
 }
 
 input[type="text"]:hover, 
@@ -69,142 +69,142 @@ select:hover,
 input:focus,
 input:hover
  {
-	border: 1px solid rgba(25, 50, 125, 1);
-	box-shadow: 0 0 3px rgba(70, 110, 235, 1), 0 0 6px rgba(70, 110, 235, 1);
-	background-color: rgba(0, 0, 0, 0.015);
+  border: 1px solid rgba(25, 50, 125, 1);
+  box-shadow: 0 0 3px rgba(70, 110, 235, 1), 0 0 6px rgba(70, 110, 235, 1) !important;
+  background-color: rgba(0, 0, 0, 0.015);
 }
 
 .dialog .dialog-buttons button {
-	border: none;
+  border: none;
 }
 
 button:hover {
-	box-shadow: 0 0 3px rgba(70, 110, 235, 1), 0 0 6px rgba(70, 110, 235, 1);
-	border: 1px solid transparent;
-	font-weight: bold;
-	color: rgba(55, 90, 160, 1);
-	background-color: rgba(55, 90, 160, 0.2);
+  box-shadow: 0 0 3px rgba(70, 110, 235, 1), 0 0 6px rgba(70, 110, 235, 1);
+  border: 1px solid transparent;
+  font-weight: bold;
+  color: rgba(55, 90, 160, 1);
+  background-color: rgba(55, 90, 160, 0.2);
 }
 
 .close:hover, .configure-sheet:hover, .configure-token:hover,
 .share-image:hover, .entry-text:hover, .entry-image:hover {
-	color: #FFF;
-	font-weight: normal;
+  color: #FFF;
+  font-weight: normal;
 }
 
 .filepicker .directory > li:hover {
-	color: rgba(55, 90, 160, 1);
-	font-weight: bold;
-	text-shadow: none;
+  color: rgba(55, 90, 160, 1);
+  font-weight: bold;
+  text-shadow: none;
 }
 
 /* CHAT BOX */
 textarea {
-	border: 2px solid rgba(55, 90, 160, 1);
-	border-radius: 5px;
+  border: 2px solid rgba(55, 90, 160, 1);
+  border-radius: 5px;
 }
 
 textarea:focus {
-	outline: none;
-	border-radius: 5px;
-	border: 2px solid rgba(55, 90, 160, 1);
-	box-shadow: 0 0 15px rgba(70, 110, 235, 1);
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid rgba(55, 90, 160, 1);
+  box-shadow: 0 0 15px rgba(70, 110, 235, 1);
 }
 
 #controls .scene-control.active, #controls .control-tool.active, #controls .scene-control:hover, #controls .control-tool:hover  {
-	color: #FFF;
-	border: 1px solid rgba(255, 255, 255, 0.25);
-	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #FFF;
+  color: #FFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #FFF;
 }
 
 #controls .control-tool.toggle.active {
-	background: rgba(255, 255, 255, 0.75);
-	box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 8px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 1);
-	color: rgba(80, 70, 170, 1);
-	border: 1px solid;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 8px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 1);
+  color: rgba(80, 70, 170, 1);
+  border: 1px solid;
 }
 
 #controls .control-tool.toggle.active:hover {
-	background: rgba(100, 0, 0, 1);
-	color: #FFF;
+  background: rgba(100, 0, 0, 1);
+  color: #FFF;
 }
 
 /* NAVIGATION BAR */
 #navigation #scene-list .scene, 
 #navigation #scene-list .scene.view, 
 #navigation #scene-list .scene.context {
-	border: 1px solid rgba(255, 255, 255, 0.25);
-	background: rgba(20, 50, 120, 0.9);
-	color: #FFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(20, 50, 120, 0.9);
+  color: #FFF;
 }
 
 #navigation #scene-list .scene.view, #navigation #scene-list .scene.context {
-	box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 1);
 }
 
 #navigation #scene-list .scene.gm {
-	border: 1px solid rgba(255, 255, 255, 0.25);
-	background: rgba(51, 51, 51, 0.9);
-	color: #FFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(51, 51, 51, 0.9);
+  color: #FFF;
 }
 
 #navigation #scene-list .scene.active, 
 #navigation #scene-list .scene.active.gm {
-	background: rgba(0, 85, 45, 0.90);
-	border: 1px solid rgba(255, 255, 255, 0.25); /* DkGreen */
+  background: rgba(0, 85, 45, 0.90);
+  border: 1px solid rgba(255, 255, 255, 0.25); /* DkGreen */
 }
 
 #navigation #scene-list .scene a:hover {
-	font-weight: normal;
-	color: #FFF;
-	text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 10px rgba(255, 255, 255, 0.75), 0 0 8px rgba(255, 255, 255, 0.5);
+  font-weight: normal;
+  color: #FFF;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 10px rgba(255, 255, 255, 0.75), 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
 /* MACROBAR */
 #hotbar .macro:hover {
-	box-shadow: 0 0 12px inset rgba(255, 255, 255, 0.8), 0 0 12px inset rgba(255, 255, 255, 0.8), 0 0 12px inset #9db9d2, 0 0 12px inset rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 12px inset rgba(255, 255, 255, 0.8), 0 0 12px inset rgba(255, 255, 255, 0.8), 0 0 12px inset #9db9d2, 0 0 12px inset rgba(255, 255, 255, 0.8);
 }
 
 #hotbar .bar-controls a:hover {
-	color: #FFF;
-	text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 10px rgba(255, 255, 255, 0.75), 0 0 8px rgba(255, 255, 255, 0.5);
+  color: #FFF;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 10px rgba(255, 255, 255, 0.75), 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
 #hotbar .macro.active:hover {
-	border: 1px solid #FFF;
+  border: 1px solid #FFF;
 }
 
 /* SIDEBAR */
 /* TAB COLORS */
 #sidebar-tabs > .item {
-	line-height: 31px;
+  line-height: 31px;
 }
 #sidebar-tabs > .collapse {
-	color: rgba(20, 50, 120, 0.9);
+  color: rgba(20, 50, 120, 0.9);
 }
 
 #sidebar.collapsed #sidebar-tabs > .item.active {
-	border: 1px solid transparent;
+  border: 1px solid transparent;
 }
 
 #sidebar-tabs > .item.active {
-	color: #f1f7fd;
-	text-shadow: 0 0 5px #093358, 0 0 5px #164A76;
-	border: 1px solid rgba(25, 50, 125, 1);
-	box-shadow: 0 0 12px inset #164A76, 0 0 12px inset #1d598e, 0 0 12px inset #9db9d2, 0 0 12px inset #FFFFFF;
+  color: #f1f7fd;
+  text-shadow: 0 0 5px #093358, 0 0 5px #164A76;
+  border: 1px solid rgba(25, 50, 125, 1);
+  box-shadow: 0 0 12px inset #164A76, 0 0 12px inset #1d598e, 0 0 12px inset #9db9d2, 0 0 12px inset #FFFFFF;
 }
 
 #sidebar-tabs {
-	color: rgba(20, 50, 120, 0.9);
-	border-bottom: 1px solid rgba(25, 50, 125, 1);
-	box-shadow: 0 0 10px #164A76;
+  color: rgba(20, 50, 120, 0.9);
+  border-bottom: 1px solid rgba(25, 50, 125, 1);
+  box-shadow: 0 0 10px #164A76;
 }
 
 #sidebar-tabs a:hover {
-	color: #FFF;
-	text-shadow: 0 0 8px rgba(20, 50, 120, 0.9), 0 0 8px rgba(20, 50, 120, 0.9), 0 0 8px rgba(20, 50, 120, 0.9);
-	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: rgba(255, 255, 255, 0.25);
+  color: #FFF;
+  text-shadow: 0 0 8px rgba(20, 50, 120, 0.9), 0 0 8px rgba(20, 50, 120, 0.9), 0 0 8px rgba(20, 50, 120, 0.9);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.25);
 }
 
 /* BORDER SHENANIGANS */
@@ -214,66 +214,66 @@ textarea:focus {
 li.folder > .folder-header,
 .sidebar-tab .directory-list .folder + .entity,
 .sidebar-tab .directory-list .entity:last-child {
-	border: none;
+  border: none;
 }
 
 /* MARGIN & PADDING SHENANIGANS */
 .sidebar-tab .directory-list {
-	padding-right: 5px;
+  padding-right: 5px;
 }
 
 .subdirectory {
-	margin-left: 5px;
+  margin-left: 5px;
 }
 
 ol.subdirectory > li.directory-item {
-	margin-left: 1em;
+  margin-left: 1em;
 }
 
 /* FOLDER ICON SIZE */
 li.folder > .folder-header h3 > i {
-	display: inline;
-	vertical-align: middle;
-	font-size: 2em;
+  display: inline;
+  vertical-align: middle;
+  font-size: 2em;
 }
 
 #actors-popout {
-	width: fit-content !important;
+  width: fit-content !important;
 }
 
 /* SIDEBAR BACKGROUND & TEXT COLOR */
 #sidebar, .sidebar-popout {
-	background: url('/ui/parchment.jpg') repeat;
+  background: url('/ui/parchment.jpg') repeat;
 }
 
 #sidebar, .sidebar-popout,
 .app.sidebar-popout .window-content,
 li.folder > .folder-header h3,
 li.folder > .folder-header .create-folder, li.folder > .folder-header .create-entity {
-	color: #333;
+  color: #333;
 }
 
 li.folder > .folder-header,
 li.folder.collapsed > .folder-header {
-	background-color: transparent;
-	align-items: center;
-	line-height: 22px;
-	border-radius: 5px 0px 0px 5px;
+  background-color: transparent;
+  align-items: center;
+  line-height: 22px;
+  border-radius: 5px 0px 0px 5px;
 }
 
 ol.directory-list > li.folder > .folder-header {
-	border-radius: 0px;
+  border-radius: 0px;
 }
 
 .sidebar-tab .directory-list .directory-item h3, .sidebar-tab .directory-list .directory-item h4 {
-	padding: 0px 6px;
-	font-size: 16px;
+  padding: 0px 6px;
+  font-size: 16px;
 }
 
 #scenes .scene h3 a:hover {
-	color: #FFF;
-	font-weight: normal;
-	text-shadow: 1px 1px 3px #000, 1px -1px 3px #000, -1px 1px 3px #000;
+  color: #FFF;
+  font-weight: normal;
+  text-shadow: 1px 1px 3px #000, 1px -1px 3px #000, -1px 1px 3px #000;
 }
 
 /* COMBAT TRACKER */
@@ -281,63 +281,95 @@ ol.directory-list > li.folder > .folder-header {
 #combat #combat-round .encounters h4,
 #combat li.combatant .token-resource,
 #combat li.combatant .token-name .combatant-control {
-	color: #333;
+  color: #333;
 }
 
 #combat li.combatant .token-name,
 #combat li.combatant .token-initiative .initiative {
-	text-shadow: none;
+  text-shadow: none;
 }
 
 #combat li.combatant.active {
-	background: rgba(65, 170, 40, 0.5);
+  background: rgba(65, 170, 40, 0.5);
 }
 
 #combat li.combatant .token-initiative {
-	flex: 0 0 60px;
+  flex: 0 0 60px;
 }
 
 #combat li.combatant .roll {
-	width: unset;
-	background-size: 44px;
+  width: unset;
+  background-size: 44px;
 }
 
 #combat ol.directory-list > li.directory-item:last-child {
-	border-bottom: 1px solid #333;
+  border-bottom: 1px solid #333;
 }
 
 /* SCENE TAB */
 #scenes .scene h3 {
-	font-size: 1.75em;
-	color: #FFF;
-	text-shadow: 1px 1px 3px #000, 1px -1px 3px #000, -1px 1px 3px #000;
+  font-size: 1.75em;
+  color: #FFF;
+  text-shadow: 1px 1px 3px #000, 1px -1px 3px #000, -1px 1px 3px #000;
 }
 
 #scenes .subdirectory {
-	border-left: 1px solid rgba(51, 51, 51, 0.5);
-	border-bottom: 1px solid rgba(51, 51, 51, 0.5);
-	border-radius: 0px 0px 0px 15px;
+  border-left: 1px solid rgba(51, 51, 51, 0.5);
+  border-bottom: 1px solid rgba(51, 51, 51, 0.5);
+  border-radius: 0px 0px 0px 15px;
 }
 
 #scenes .scene {
-	border-radius: 15px;
-	position: relative;
-	height: 100px;
-	line-height: 100px;
-	background-size: 100% auto;
-	background-position: 50% 50%;
-	border: 1px solid rgba(51, 51, 51, 0.5);
-	margin: 5px 0px 5px 5px;
-	box-shadow: none;
+  border-radius: 15px;
+  position: relative;
+  height: 100px;
+  line-height: 100px;
+  background-size: 100% auto;
+  background-position: 50% 50%;
+  border: 1px solid rgba(51, 51, 51, 0.5);
+  margin: 5px 0px 5px 5px;
+  box-shadow: none;
 }
 
 /* PLAYLIST */
 #playlists li.playlist .sound-control {
-	font-size: 13px;
-	color: #333;
+  font-size: 13px;
+  color: #333;
 }
 
 /* SETTINGS */
 #settings .game-system h4 {
-	color: #333 !important;
+  color: #333 !important;
+}
+
+/* FILEPICKER */
+.filepicker .display-modes a.active {
+  background: rgba(55, 90, 160, 1);
+  color: #FFF;
+  text-shadow: none;
+}
+
+.filepicker .tiles-list li.picked {
+  box-shadow: 0 0 6px inset rgba(55, 90, 160, 1);
+  background: rgba(55, 90, 160, 1);
+}
+
+.filepicker .directory > li.picked {
+  background: rgba(55, 90, 160, 1);
+  color: #FFF;
+  font-weight: normal;
+}
+
+.filepicker .directory {
+  border: none;
+  border-top: 1px solid #191813;
+  border-left: 1px solid #191813;
+}
+
+.filepicker .directory > li:last-child {
+  border-bottom: 1px solid #191813;
+}
+
+.filepicker .tiles-list {
+  width: 501px;
 }
