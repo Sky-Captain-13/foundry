@@ -3,8 +3,8 @@
 ## Points of Interest Actor Sheet
 
 * **Author**: Sky#9435
-* **Version**: 0.0.5
-* **Foundry VTT Compatibility**: 0.6.2
+* **Version**: 0.0.6
+* **Foundry VTT Compatibility**: 0.6.5
 * **System Compatibility**: D&D 5e
 
 ### Link(s) to Module
