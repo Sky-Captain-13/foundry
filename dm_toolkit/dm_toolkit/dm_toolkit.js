@@ -420,5 +420,4 @@ const Toolkit = (() => {
     game.socket.on("module.toolkit", processCommand);
   });
 })();
-
 */
