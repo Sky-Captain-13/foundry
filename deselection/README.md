@@ -1,9 +1,9 @@
-![](https://img.shields.io/badge/Foundry-v0.6.0-informational)
+![](https://img.shields.io/badge/Foundry-v0.6.3-informational)
 ## Deselection
 
 * **Author**: Sky#9435, KaKaRoTo#4756 (Discord)
-* **Version**: 1.4.3
-* **Minimum Foundry Compatibility**: 0.6.2
+* **Version**: 1.4.4
+* **Minimum Foundry Compatibility**: 0.6.3 to 0.6.5
 * **System Compatibility**: Universal
 
 ### Link(s) to Module
