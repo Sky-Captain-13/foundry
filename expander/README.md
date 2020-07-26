@@ -2,8 +2,8 @@
 ## Expander
 
 * **Author**: Sky#9435, KaKaRoTo#4756 (Discord)
-* **Version**: 0.0.3
-* **Minimum Foundry Compatibility**: 0.6.0
+* **Version**: 0.0.4
+* **Minimum Foundry Compatibility**: 0.6.0 to 0.6.5
 * **System Compatibility**: Universal
 
 ### Link(s) to Module
