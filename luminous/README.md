@@ -1,13 +1,13 @@
-![](https://img.shields.io/badge/Foundry-v0.6.0-informational)
+![](https://img.shields.io/badge/Foundry-v0.6.5-informational)
 
-![](https://img.shields.io/badge/D&D5e-v0.93-informational)
+![](https://img.shields.io/badge/D&D5e-v0.94-informational)
 
 ## Luminous
 
 * **Author**: Sky#9435
-* **Version**: 0.0.2
-* **Foundry VTT Compatibility**: 0.6.0 to 0.6.4
-* **System Compatibility**: D&D 5th Edition 0.93
+* **Version**: 0.0.3
+* **Foundry VTT Compatibility**: 0.6.5
+* **System Compatibility**: D&D 5th Edition 0.94
 * **Module Conflicts**: Any module that affects CSS across a variety of modules
 
 ### Link(s) to Module
@@ -18,6 +18,10 @@
 Provides a lighter take on the Foundry UI with less transparency and the use of cooler colors.
 
 ## Patch Notes
+### Version 0.0.3
+* Updated some CSS
+* Added CSS to improve filepicker appearance
+
 ### Version 0.0.2
 * Made font-awesome line-height rule more specific and only affect the sidebar (Fuck firefox)
 
