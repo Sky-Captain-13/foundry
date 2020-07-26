@@ -326,12 +326,13 @@ async function injectPassives(app, html, data) {
 
 async function makeBold(app, html, data) {
   let items = data.actor.items;
+	let prepColor = (game.modules.get("luminous") !== undefined && game.modules.get("luminous").active === true) ? "rgba(55, 90, 160, 1)" : "#c53131";
   for (let item of items) {
     if (item.type == "spell" && item.data.preparation.prepared) {
-      // console.log(`${item.name}: ${item.data.preparation.prepared}`);
+      // console.log(`${item.name}: ${item.data.preparation.prepared}`); 
       html.find(`.item[data-item-id="${item._id}"]`).find('h4').css({
         'font-weight': 'bold',
-        'color': '#c53131'
+        'color': prepColor
       });
     }
   }
@@ -380,6 +381,7 @@ Hooks.on("renderAlt5eSheet", (app, html, data) => {
   addFavorites(app, html, data);
   injectPassives(app, html, data);
   makeBold(app, html, data);
+	if (app.inventoryPlus) app.inventoryPlus.addInventoryFunctions(html);
   // migrateTraits(app, html, data);
 });
 

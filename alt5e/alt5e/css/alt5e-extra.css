@@ -2,15 +2,25 @@
 
 DELETE THIS LINE (LINE #3) TO DISABLE THIS CSS */
 
+button:hover {
+	box-shadow: none;
+	color: #c53131;
+	font-weight: bold;
+}
+
 select:hover,
 select:focus,
 input[type="text"]:hover,
-input[type="text"]:focus {
+input[type="text"]:focus,
+.dnd5e input[type="text"]:hover, 
+.dnd5e input[type="text"]:focus {
 	box-shadow: 0px 0px 5px #ff0000, 0px 0px 5px #c53131;
 }
 
 a:hover,
-.dnd5e.chat-card .card-header h3:hover {
+.tabs .item.active,
+.dnd5e.chat-card .card-header h3:hover,
+.filepicker .directory > li:hover {
 	color: #c53131;
 	text-shadow: none;
 }
@@ -21,9 +31,39 @@ a:hover,
 	text-shadow: none;
 }
 
-button:hover {
-	box-shadow: none;
-	color: #c53131;
-	font-weight: bold;
+.dnd5e.sheet.item .sheet-header img.profile {
+	border: none;
 }
 /**/
+
+/* FILEPICKER */
+.filepicker .display-modes a.active {
+  background: #c53131;
+  color: #FFF;
+  text-shadow: none;
+}
+
+.filepicker .tiles-list li.picked {
+  box-shadow: 0 0 6px inset #c53131;
+  background: #c53131;
+}
+
+.filepicker .directory > li.picked {
+  background: #c53131;
+  color: #FFF;
+  font-weight: normal;
+}
+
+.filepicker .directory {
+  border: none;
+  border-top: 1px solid #191813;
+  border-left: 1px solid #191813;
+}
+
+.filepicker .directory > li:last-child {
+  border-bottom: 1px solid #191813;
+}
+
+.filepicker .tiles-list {
+  width: 501px;
+}
