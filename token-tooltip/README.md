@@ -2,8 +2,8 @@
 ## Token Tooltips
 
 * **Author**: Sky#9453, @solfolango77#0880  (Discord)
-* **Version**: 1.3.3
-* **Foundry VTT Compatibility**: 0.6.2
+* **Version**: 1.3.4
+* **Foundry VTT Compatibility**: 0.6.5
 * **System Compatibility**: D&D 5e
 
 ### Link(s) to Module
@@ -23,7 +23,7 @@ This module adds a tooltip that displays vital stats when hovering over a token.
 Extract the deselection.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Token Tooltip` module.
 
 ## Token Tooltip Update Notes
-**Version**: 1.3.3
+**Version**: 1.3.4
 * Compatibility update
 
 ## License
