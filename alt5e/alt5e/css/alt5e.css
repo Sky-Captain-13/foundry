@@ -454,10 +454,10 @@
 	font-weight: bold;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="datetime-local"],
-.dnd5e input[type="text"],
-.dnd5e select {
+.alt5e input[type="text"],
+.alt5e input[type="password"],
+.alt5e input[type="datetime-local"],
+.alt5e.dnd5e input[type="text"],
+.alt5e.dnd5e select {
 	color: #4b4a44;
 }
