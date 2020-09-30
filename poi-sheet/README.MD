@@ -4,7 +4,7 @@
 
 * **Author**: Sky#9435
 * **Version**: 0.0.6
-* **Foundry VTT Compatibility**: 0.6.5
+* **Foundry VTT Compatibility**: 0.6.6
 * **System Compatibility**: D&D 5e
 
 ### Link(s) to Module
@@ -17,6 +17,8 @@ The Points of Interest Actor Sheet adds a new Actor Sheet for the D&D 5e System 
 2. You can right click and hide or reveal a point of interest token on the map.
 3. The selection border matches the grid shape (square or hex). Yay for OCD.
 4. The sheet could potentially be expanded to include stats for points of interest for strategic gameplay like Pathfinder Kingmaker.
+
+To use the PoI Sheet, create a new Actor using the Character type and then edit the actor's Sheet at the top of the character sheet window and change it to `dnd5e.PoISheet`
 
 ## Installation
 ### Method 1
