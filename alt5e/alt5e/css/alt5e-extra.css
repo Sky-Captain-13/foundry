@@ -2,6 +2,10 @@
 
 DELETE THIS LINE (LINE #3) TO DISABLE THIS CSS */
 
+::-webkit-scrollbar {
+	height: 6px;
+}
+
 button:hover {
 	box-shadow: none;
 	color: #c53131;
@@ -12,9 +16,19 @@ select:hover,
 select:focus,
 input[type="text"]:hover,
 input[type="text"]:focus,
+input[type="datetime-local"]:hover,
+input[type="datetime-local"]:focus,
 .dnd5e input[type="text"]:hover, 
 .dnd5e input[type="text"]:focus {
 	box-shadow: 0px 0px 5px #ff0000, 0px 0px 5px #c53131;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="datetime-local"],
+.dnd5e input[type="text"],
+.dnd5e select {
+	color: #4b4a44;
 }
 
 a:hover,
@@ -66,4 +80,9 @@ a:hover,
 
 .filepicker .tiles-list {
   width: 501px;
+}
+
+.token-tooltip-alt-tooltip-container {
+	color: #c53131 !important;
+	border: 2px solid #c53131 !important;
 }

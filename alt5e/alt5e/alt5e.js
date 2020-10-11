@@ -381,7 +381,7 @@ Hooks.on("renderAlt5eSheet", (app, html, data) => {
   addFavorites(app, html, data);
   injectPassives(app, html, data);
   makeBold(app, html, data);
-	if (app.inventoryPlus) app.inventoryPlus.addInventoryFunctions(html);
+	// if (app.inventoryPlus) app.inventoryPlus.addInventoryFunctions(html);
   // migrateTraits(app, html, data);
 });
 

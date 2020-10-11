@@ -1,7 +1,3 @@
-::-webkit-scrollbar {
-	height: 6px;
-}
-
 .alt5e.dnd5e label.checkbox input[type="checkbox"] {
 	margin: 0px;
 }
@@ -314,6 +310,14 @@
 	height: auto;
 	min-height: 30px;
 	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.alt5e .tox.tox-tinymce {
+	border: none;
+	flex: 1;
+	min-height: 200px;
 }
 
 .alt5e .background {
@@ -452,12 +456,4 @@
 
 .alt5e.dnd5e.sheet .filter-list .filter-item.active {
 	font-weight: bold;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="datetime-local"],
-.dnd5e input[type="text"],
-.dnd5e select {
-	color: #4b4a44;
 }
