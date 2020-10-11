@@ -5,9 +5,9 @@
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.3.4
-* **Foundry VTT Compatibility**: 0.6.5
-* **System Compatibility**: D&D 5th Edition 0.94
+* **Version**: 1.3.5
+* **Foundry VTT Compatibility**: 0.7.3
+* **System Compatibility**: D&D 5th Edition 0.98
 
 ### Link(s) to Module
 * [https://foundryvtt.com/packages/alt5e/](https://foundryvtt.com/packages/alt5e/)
@@ -19,6 +19,11 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ECfIHfd.png)
 
 ## Patch Notes
+### Version 1.3.5
+* CSS adjustment to TinyMCE editor
+* Fixes the double button bug with Inventory+
+* Foundry compatibility update
+
 ### Version 1.3.4
 * CSS adjustments due to font changes in D&D 0.94
 * Added compatibility with Inventory+ module by Felix
