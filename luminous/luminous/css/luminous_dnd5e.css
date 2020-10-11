@@ -1,3 +1,9 @@
+/* MONSTERBLOCK SETTINGS */
+div.monsterblock {
+	font-size: 15px;
+	--background-filter: none;
+}
+
 /* DICE ICON FIX */
 .dnd5e.sheet.actor .inventory-list .item .item-name.rollable .item-image:hover {
 	background-image: url(/icons/svg/d20-highlight.svg) !important;
@@ -52,7 +58,7 @@ a:hover,
 
 .dnd5e.chat-card .card-header h3:hover {
 	color: rgba(55, 90, 160, 1);
-	font-weight: normal;
+	/* font-weight: normal; */
 	text-shadow: none;
 }
 
@@ -79,4 +85,9 @@ a:hover,
 .dnd5e.sheet .sheet-navigation .item.active,
 .dnd5e.sheet .sheet-navigation .item.active:hover {
 	font-weight: 700;
+}
+
+.token-tooltip-alt-tooltip-container {
+	color: rgba(55, 90, 160, 1) !important;
+	border: 2px solid rgba(55, 90, 160, 1) !important;
 }
