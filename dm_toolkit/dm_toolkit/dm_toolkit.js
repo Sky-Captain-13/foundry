@@ -1,7 +1,7 @@
 const DMToolKit = (() => {
 	// VERSION INFORMATION
 	const DMToolkit_Author = "Sky";
-	const DMToolkit_Version = "0.0.1";
+	const DMToolkit_Version = "1.0.2";
 	const DMToolkit_LastUpdated = 0;
 	
 	// CONFIGURATION
@@ -43,7 +43,7 @@ const DMToolKit = (() => {
 					temphp = (temphp === 0) ? "" : Math.max(temphp - hpChange, 0);
 					promises.push(token.actor.update({
 						"data.attributes.hp.temp": temphp,
-						"data.attributes.hp.value": Math.max(hp.value - hpChange, 0)
+						"data.attributes.hp.value": Math.max(hp.value - damage, 0)
 					}));
 					message = `
 					<div class="dnd5e chat-card item-card">
@@ -396,6 +396,8 @@ const DMToolKit = (() => {
 		console.log("-=> DMToolkit v" + DMToolkit_Version + " <=- [" + (new Date(DMToolkit_LastUpdated * 1000)) + "]");
 		//console.log(Date.now().toString().substr(0, 10)
 	});
+	
+	//Hooks.on("init", () => PIXI.MIPMAP_MODES.POW2 = PIXI.MIPMAP_MODES.ON);
 })();
 
 /*
