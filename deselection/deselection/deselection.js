@@ -11,10 +11,10 @@ class Deselection {
 	static init() {
 		Canvas.prototype._onClickLeft = Deselection.patchFunction(
 			Canvas.prototype._onClickLeft,
-			13,
-			"if ( isSelect ) return;",
+			14,
+			"if ( isSelect && !release ) return;",
 			`
-			if ( isSelect && tool === "target" ) {
+			if ( isSelect && tool === "target" && !release ) {
 				canvas.activeLayer.targetObjects({}, {releaseOthers: true});
 				return;
 			};
