@@ -1,9 +1,9 @@
-![](https://img.shields.io/badge/Foundry-v0.6.0-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.5-informational)
 
 ## Points of Interest Actor Sheet
 
 * **Author**: Sky#9435
-* **Version**: 0.0.6
+* **Version**: 0.0.7
 * **Foundry VTT Compatibility**: 0.6.6
 * **System Compatibility**: D&D 5e
 
@@ -29,10 +29,6 @@ To use the PoI Sheet, create a new Actor using the Character type and then edit 
 
 ### Method 2
 Extract the poi-sheet.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Point of Interest Character Sheet` module.
-
-## Point of Interest Character Sheet Update Notes
-**Version**: 0.0.5
-* Compatibility update
 
 ## License
 This Foundry VTT module is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
