@@ -22,7 +22,7 @@ https://i.imgur.com/3y64pXF.gifv
 * Activate the module in your World using **Manage Modules** under the **Game Settings** tab.
 
 ### Method 2
-* Extract the deselection.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Deselection` module.
+* Extract the expander.zip file to the public/modules directory. Use the `Manage Modules` in your World on the Settings tab of the sidebar on the right and then enable the `Expander` module.
 
 ## License
 This Foundry VTT module is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
