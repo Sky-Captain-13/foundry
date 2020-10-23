@@ -86,8 +86,9 @@ a:hover,
 .dnd5e.sheet .sheet-navigation .item.active:hover {
 	font-weight: 700;
 }
-
+/*
 .token-tooltip-alt-tooltip-container {
 	color: rgba(55, 90, 160, 1) !important;
 	border: 2px solid rgba(55, 90, 160, 1) !important;
 }
+*/
