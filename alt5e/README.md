@@ -1,12 +1,12 @@
-![](https://img.shields.io/badge/Foundry-v0.6.5-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.5-informational)
 
-![](https://img.shields.io/badge/D&D5e-v0.94-informational)
+![](https://img.shields.io/badge/D&D5e-v0.98-informational)
 
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.3.5
-* **Foundry VTT Compatibility**: 0.7.3
+* **Version**: 1.3.6
+* **Foundry VTT Compatibility**: 0.7.5
 * **System Compatibility**: D&D 5th Edition 0.98
 
 ### Link(s) to Module
@@ -19,6 +19,9 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ECfIHfd.png)
 
 ## Patch Notes
+### Version 1.3.6
+* Version update for compatibility
+
 ### Version 1.3.5
 * CSS adjustment to TinyMCE editor
 * Fixes the double button bug with Inventory+
