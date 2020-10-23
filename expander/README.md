@@ -1,8 +1,8 @@
-![](https://img.shields.io/badge/Foundry-v0.6.0-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.5-informational)
 ## Expander
 
 * **Author**: Sky#9435, KaKaRoTo#4756 (Discord)
-* **Version**: 0.0.4
+* **Version**: 0.0.5
 * **Minimum Foundry Compatibility**: 0.6.0 to 0.6.5
 * **System Compatibility**: Universal
 
