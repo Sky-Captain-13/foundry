@@ -27,7 +27,7 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 * Fixes the double button bug with Inventory+
 * Foundry compatibility update
 
-### Version 1.3.4
+### Version 1.3.4 
 * CSS adjustments due to font changes in D&D 0.94
 * Added compatibility with Inventory+ module by Felix
 * Added css compatibility with Luminous for prepared spells
