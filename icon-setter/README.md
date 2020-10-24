@@ -14,6 +14,9 @@
 ### Description
 A simple module that allows players to set status icons on targeted tokens. GM's can use the same commands to set status icons on selected and targeted tokens.
 
+### Usage
+The player or GM can enter `!icon {icon name}` such as `!icon acid` into the chat window or use it as a chat macro to toggle the named icon on the selected and/or targeted tokens. The module can only set icons located in the `public/icons/svg` folder currently. 
+
 ## Patch Notes
 ### Version 0.0.1
 * Initial commit
