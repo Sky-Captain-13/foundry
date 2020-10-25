@@ -1,4 +1,4 @@
-const DMToolKit = (() => {
+const DMToolKit = (() => { 
 	// VERSION INFORMATION
 	const DMToolkit_Author = "Sky";
 	const DMToolkit_Version = "1.0.2";
