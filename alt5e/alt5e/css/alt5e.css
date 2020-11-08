@@ -178,6 +178,11 @@
 .alt5e.dnd5e.sheet.actor .sheet-header .attributes .attribute {
 	border: none;
 	border-right: 1px solid rgba(0, 0, 0, 0.15);
+	overflow: hidden;
+}
+
+.alt5e.dnd5e.sheet.actor .sheet-header .attributes .attribute-footer {
+	overflow: hidden;
 }
 
 .alt5e.dnd5e.sheet.actor .sheet-header .attributes .attribute:last-child {
@@ -254,7 +259,8 @@
 	margin: 0px;
 	padding: 0px;
 	font-family: Signika, sans-serif;
-	font-size: 14px;
+	font-size: 15px;
+	font-weight: bold;
 }
 
 .alt5e.dnd5e.sheet.actor .inventory-list {
@@ -263,7 +269,16 @@
 	text-align: left;
 	overflow-x: hidden;
 	margin: 0;
-	padding: 0;
+	padding: 0px 5px 0px 1px;
+}
+
+.alt5e.dnd5e.sheet.actor .item-list {
+	margin: 1px 0px 1px 0px;
+	padding: 0px;
+}
+
+.alt5e.dnd5e.sheet.actor li.item.flexrow {
+	margin: 1px 0px 0px 0px;
 }
 
 .alt5e .fav-spell-slots {
@@ -279,6 +294,9 @@
 .alt5e.dnd5e.sheet.actor .item-controls {
 	flex: 0 0 70px;
 	justify-content: center;
+	text-align: center;
+	margin: auto;
+	color: #666;
 }
 
 .fav-item, .fav-feat, .fav-spell {
@@ -371,8 +389,10 @@
 
 .alt5e.dnd5e.sheet.actor .inventory-list .inventory-header {
 	background: rgba(0, 0, 0, 0.2) !important;
+	margin: 1px 0px 0px 0px;
 	padding: 1px 0px 0px 5px;
 	border: none;
+	border-radius: 3px;
 }
 
 .alt5e.dnd5e.sheet.actor .item-detail.item-uses input,
@@ -387,6 +407,7 @@
 	color: #666;
 	border: none;
 	height: 100%;
+	margin: auto;
 }
 
 .alt5e.dnd5e.sheet.actor .spell-slots span.sep {
@@ -410,10 +431,14 @@
 	padding-left: 5px;
 }
 
-.alt5e.dnd5e.sheet.actor .inventory-list .item .item-name.rollable .item-image {
-	border-radius: 5px;
-	background-position: center;
+.alt5e.dnd5e.sheet.actor .inventory-list .item .item-name .item-image {
+	flex: 0 0 30px;
 	height: 30px;
+	background-size: 30px;
+	background-position: center;
+	border: none;
+	border-radius: 5px;
+	margin-right: 5px;
 }
 
 .alt5e.dnd5e.sheet.actor .inventory-list .item .item-name.rollable:hover .item-image {
@@ -428,6 +453,7 @@
 
 .alt5e.dnd5e.sheet.actor .inventory-list .item .item-name h4 {
 	white-space: unset;
+	margin: auto;
 }
 
 .alt5e.dnd5e.sheet .sheet-navigation .item:hover,
@@ -456,4 +482,8 @@
 
 .alt5e.dnd5e.sheet .filter-list .filter-item.active {
 	font-weight: bold;
+}
+
+.alt5e.dnd5e.sheet.actor.character .biography {
+	max-width: 100%;
 }

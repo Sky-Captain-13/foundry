@@ -212,7 +212,7 @@ async function addFavorites(app, html, data) {
   
   if (app.options.editable) {
     favtabHtml.find('.item-image').click(ev => app._onItemRoll(ev));
-    let handler = ev => app._onDragItemStart(ev);
+    let handler = ev => app._onDragStart(ev);
     favtabHtml.find('.item').each((i, li) => {
       if (li.classList.contains("inventory-header")) return;
       li.setAttribute("draggable", true);
@@ -354,22 +354,6 @@ async function migrateTraits(app, html, data) {
     }
     return segmentsA.length - segmentsB.length;
   }
-  /*
-  if (actorVersion === "unknown version" || compareVersions(actorVersion, moduleVersion) === -1) {
-		console.log(`-=> Migrating ${actor.name} from ${actorVersion} to ${moduleVersion} <=-`);
-		let trait = (actor.data.data.details.personality && actor.data.data.details.personality.value) ? actor.data.data.details.personality.value : "";
-		let ideal = (actor.data.data.details.ideals && actor.data.data.details.ideals.value) ? actor.data.data.details.ideals.value : "";
-		let bond = (actor.data.data.details.bonds && actor.data.data.details.bonds.value) ? actor.data.data.details.bonds.value : "";
-		let flaw = (actor.data.data.details.flaws && actor.data.data.details.flaws.value) ? actor.data.data.details.flaws.value : "";
-		actor.update({
-			"data.details.trait": trait,
-			"data.details.ideal": ideal,
-			"data.details.bond": bond,
-			"data.details.flaw": flaw
-		});
-		actor.setFlag("alt5e", "version", moduleVersion);
-  }
-	*/
 }
 
 Actors.registerSheet("dnd5e", Alt5eSheet, {
@@ -381,8 +365,6 @@ Hooks.on("renderAlt5eSheet", (app, html, data) => {
   addFavorites(app, html, data);
   injectPassives(app, html, data);
   makeBold(app, html, data);
-	// if (app.inventoryPlus) app.inventoryPlus.addInventoryFunctions(html);
-  // migrateTraits(app, html, data);
 });
 
 Hooks.once("ready", () => {
@@ -442,6 +424,7 @@ Hooks.once("init", () => {
 		"modules/alt5e/templates/parts/alt5e-inventory.html",
 		"modules/alt5e/templates/parts/alt5e-features.html",
 		"modules/alt5e/templates/parts/alt5e-spellbook.html",
+		"modules/alt5e/templates/parts/alt5e-traits.html",
 	];
 	// Load the template parts
 	return loadTemplates(templatePaths);
