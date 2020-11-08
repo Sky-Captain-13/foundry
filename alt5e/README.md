@@ -1,13 +1,13 @@
-![](https://img.shields.io/badge/Foundry-v0.7.5-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.6-informational)
 
-![](https://img.shields.io/badge/D&D5e-v0.98-informational)
+![](https://img.shields.io/badge/D&D5e-v0.99-informational)
 
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.3.6
-* **Foundry VTT Compatibility**: 0.7.5
-* **System Compatibility**: D&D 5th Edition 0.98
+* **Version**: 1.4.0
+* **Foundry VTT Compatibility**: 0.7.6
+* **System Compatibility**: D&D 5th Edition 0.99
 
 ### Link(s) to Module
 * [https://foundryvtt.com/packages/alt5e/](https://foundryvtt.com/packages/alt5e/)
@@ -19,6 +19,11 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ECfIHfd.png)
 
 ## Patch Notes
+### Version 1.4.0
+* Version update for compatibility
+* Adds support for Active Effects tab
+* Major fixes to CSS changed recently
+
 ### Version 1.3.6
 * Version update for compatibility
 
