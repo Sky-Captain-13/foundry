@@ -23,6 +23,7 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 * Version update for compatibility
 * Adds support for Active Effects tab
 * Major fixes to CSS changed recently
+* Update to new speed format
 
 ### Version 1.3.6
 * Version update for compatibility
