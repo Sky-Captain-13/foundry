@@ -1,13 +1,48 @@
 const DM_Toolkit = (() => {
   // VERSION INFORMATION
   const DMToolkit_Author = "Sky";
-  const DMToolkit_Version = "2.0.0";
-  const DMToolkit_LastUpdated = 1604360680;
+  const DMToolkit_Version = "2.0.1";
+  const DMToolkit_LastUpdated = 1604864297;
   
   // CONFIGURATION
-  const announceTokenHPChange = true; // TO DO: Change to a module settings configuration option
-  
+	const announceTokenHPChange = true; // TO DO: Change to a module settings configuration option
+	
   // FUNCTIONS
+  const actorDrop = async (bar, data, slot) => {
+    if (data.type !== 'Actor') return;
+    
+    const actor = game.actors.get(data.id);
+    if (!actor) return;
+    
+    const command = `
+			let actor = game.actors.get('${data.id}');
+			if (actor) {
+				if (!actor.sheet.rendered) actor.sheet.render(true);
+				else actor.sheet.close();
+			}
+		`;
+    let macro = game.macros.entities.find(macro => macro.name === actor.name && macro.command === command);
+    
+    if (!macro) {
+      macro = await Macro.create({
+        name: actor.name,
+        type: 'script',
+        img: actor.data.img,
+        command: command
+      }, {
+        renderSheet: false
+      });
+    }
+    
+    game.user.assignHotbarMacro(macro, slot);
+    return false;
+  };
+	
+	const addProficiency = (actor, item, sheet, id) => {
+		if (item.type === "weapon" || item.type === "armor") actor.updateOwnedItem({ _id: item._id, "data.proficient": true });
+		if (item.type === "tool") actor.updateOwnedItem({ _id: item._id, "data.proficient": 1 });
+	}
+	
   const adjustTokenHP = function(changeType, amount, announce) {
     // Loop through selected tokens and add or subtract hpChange from the HP Bar.
     let count = 0;
@@ -63,8 +98,7 @@ const DM_Toolkit = (() => {
       }
     return Promise.all(promises);
   }
- 
-  // Handles API commands entered via chat/macros
+	
   const handleInput = function(msg, chatData) {
     if (chatData.charAt(0) === "!") {
       let command = chatData.split(" ")[0].trim();
@@ -266,40 +300,10 @@ const DM_Toolkit = (() => {
     }
   };
   
-  // Enables actor drag and drop to macrobar
-  const actorDrop = async (bar, data, slot) => {
-    if (data.type !== 'Actor') return;
-    
-    const actor = game.actors.get(data.id);
-    if (!actor) return;
-    
-    const command = `
-			let actor = game.actors.get('${data.id}');
-			if (actor) {
-				if (!actor.sheet.rendered) actor.sheet.render(true);
-				else actor.sheet.close();
-			}
-		`;
-    let macro = game.macros.entities.find(macro => macro.name === actor.name && macro.command === command);
-    
-    if (!macro) {
-      macro = await Macro.create({
-        name: actor.name,
-        type: 'script',
-        img: actor.data.img,
-        command: command
-      }, {
-        renderSheet: false
-      });
-    }
-    
-    game.user.assignHotbarMacro(macro, slot);
-    return false;
-  };
-  
   // HOOKS
   Hooks.on("ready", function() {
 		Hooks.on("chatMessage", handleInput);
+		Hooks.on("createOwnedItem", addProficiency);
     Hooks.on("hotbarDrop", actorDrop);
     console.log("-=> DMToolkit v" + DMToolkit_Version + " <=- [" + (new Date(DMToolkit_LastUpdated * 1000)) + "]");
     //console.log(Date.now().toString().substr(0, 10));
