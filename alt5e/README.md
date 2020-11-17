@@ -1,13 +1,13 @@
-![](https://img.shields.io/badge/Foundry-v0.7.6-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.7-informational)
 
-![](https://img.shields.io/badge/D&D5e-v0.99-informational)
+![](https://img.shields.io/badge/D&D5e-v1.1.1-informational)
 
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.4.0
-* **Foundry VTT Compatibility**: 0.7.6
-* **System Compatibility**: D&D 5th Edition 0.99
+* **Version**: 1.4.1
+* **Foundry VTT Compatibility**: 0.7.7
+* **System Compatibility**: D&D 5th Edition 1.1.1
 
 ### Link(s) to Module
 * [https://foundryvtt.com/packages/alt5e/](https://foundryvtt.com/packages/alt5e/)
@@ -19,6 +19,14 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ECfIHfd.png)
 
 ## Patch Notes
+### Version 1.4.1
+* Updated to Foundry v077 and D&D v111
+* Fixed death saves
+* Added option to roll initiative from the character sheet
+* Many css adjustments
+* Drag and drop error in Favorites sorted
+* Fixed compatibility with Inventory+ module
+
 ### Version 1.4.0
 * Version update for compatibility
 * Adds support for Active Effects tab
