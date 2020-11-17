@@ -5,7 +5,9 @@
 	</div>
 	{{#if item.data.uses.max }}
 	  <div class="item-detail item-uses">
-	    <input type="text" value="{{item.data.uses.value}}" placeholder="0" disabled/>/<span style="padding-left: 8px;">{{item.data.uses.max}}</span>
+	    <input type="text" value="{{item.data.uses.value}}" placeholder="0" disabled/>
+			<span class="sep">/</span>
+			<span class="max">{{item.data.uses.max}}</span>
 		</div>
 	{{/if}}
 	{{#if item.data.quantity}} 

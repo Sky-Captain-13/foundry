@@ -197,6 +197,7 @@ async function addFavorites(app, html, data) {
   if (app.options.editable) {
     html.find('.spellbook .item-controls').css('flex', '0 0 88px');
     html.find('.inventory .item-controls, .features .item-controls').css('flex', '0 0 90px');
+		html.find('.inventory .item-controls, .features .item-controls').css('padding', '0px 11px');
     html.find('.favourite .item-controls').css('flex', '0 0 22px');
   }
   
@@ -365,6 +366,7 @@ Hooks.on("renderAlt5eSheet", (app, html, data) => {
   addFavorites(app, html, data);
   injectPassives(app, html, data);
   makeBold(app, html, data);
+	//app.inventoryPlus.addInventoryFunctions(html);
 });
 
 Hooks.once("ready", () => {

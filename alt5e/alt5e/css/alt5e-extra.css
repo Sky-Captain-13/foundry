@@ -20,7 +20,8 @@ input[type="datetime-local"]:hover,
 input[type="datetime-local"]:focus,
 .dnd5e input[type="text"]:hover, 
 .dnd5e input[type="text"]:focus {
-	box-shadow: 0px 0px 5px #ff0000, 0px 0px 5px #c53131;
+	/* box-shadow: 0px 0px 5px #ff0000, 0px 0px 5px #c53131; */
+	box-shadow: none;
 }
 
 input[type="text"],
@@ -81,9 +82,8 @@ a:hover,
 .filepicker .tiles-list {
   width: 501px;
 }
-/*
-.token-tooltip-alt-tooltip-container {
-	color: #c53131 !important;
-	border: 2px solid #c53131 !important;
+
+.dnd5e .form-group.stacked label.checkbox {
+	font-weight: normal;
+	font-size: 12px;
 }
-*/
