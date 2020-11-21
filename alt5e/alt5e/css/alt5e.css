@@ -342,7 +342,8 @@
 	color: #b5b3a4;
 }
 
-.alt5e.dnd5e.sheet.actor.character .inventory .item-controls .item-toggle.active, 
+.alt5e.dnd5e.sheet.actor .inventory-list .item-detail .item-toggle.active,
+.alt5e.dnd5e.sheet.actor.character .inventory .item-controls .item-toggle.active,
 .alt5e.dnd5e.sheet.actor.character .spellbook .item-controls .item-toggle.active {
 	color: #c53131;
 }

@@ -163,6 +163,15 @@ async function addFavorites(app, html, data) {
         item.spellCon = c;
         item.spellRit = r;
       }
+			
+			let attr = item.type === "spell" ? "preparation.prepared" : "equipped";
+			let isActive = getProperty(item.data, attr);
+			item.data.toggleClass = isActive ? "active" : "";
+			if (item.type === "spell") {
+				item.data.toggleTitle = game.i18n.localize(isActive ? "DND5E.SpellPrepared" : "DND5E.SpellUnprepared");
+			} else {
+				item.data.toggleTitle = game.i18n.localize(isActive ? "DND5E.Equipped" : "DND5E.Unequipped");
+			}
       
       item.editable = app.options.editable;
       switch (item.type) {
@@ -174,7 +183,8 @@ async function addFavorites(app, html, data) {
         break;
       case 'spell':
         if (item.data.preparation.mode) {
-          item.spellPrepMode = ` (${CONFIG.DND5E.spellPreparationModes[item.data.preparation.mode]})`
+          item.spellPrepMode = ` (${CONFIG.DND5E.spellPreparationModes[item.data.preparation.mode]})`;
+					item.data.canPrep = true;
         }
         if (item.data.level) {
           favSpells[item.data.level].spells.push(item);
@@ -187,6 +197,7 @@ async function addFavorites(app, html, data) {
         if (item.flags.favtab.sort === undefined) {
           item.flags.favtab.sort = (favItems.count + 1) * 100000; // initial sort key if not present
         }
+				item.data.isItem = true;
         favItems.push(item);
         break;
       }
@@ -206,7 +217,7 @@ async function addFavorites(app, html, data) {
   data.favFeats = favFeats.length > 0 ? favFeats.sort((a, b) => (a.flags.favtab.sort) - (b.flags.favtab.sort)) : false;
   data.favSpells = spellCount > 0 ? favSpells : false;
   data.editable = app.options.editable;
-  
+	
   await loadTemplates(['modules/alt5e/templates/item.hbs']);
   let favtabHtml = $(await renderTemplate('modules/alt5e/templates/template.hbs', data));
   favtabHtml.find('.item-name h4').click(event => app._onItemSummary(event));
@@ -219,11 +230,24 @@ async function addFavorites(app, html, data) {
       li.setAttribute("draggable", true);
       li.addEventListener("dragstart", handler, false);
     });
-    //favtabHtml.find('.item-toggle').click(event => app._onToggleItem(event));
+    
+		favtabHtml.find('.item-toggle').click(ev => {
+			ev.preventDefault();
+			let itemId = ev.currentTarget.closest(".item").dataset.itemId;
+			let item = app.actor.getOwnedItem(itemId);
+			let isActive = getProperty(item.data, "data.equipped");
+			item.update({ 
+			  "data.toggleClass": !isActive ? "active" : "",
+				"data.toggleTitle": game.i18n.localize(!isActive ? "DND5E.Equipped" : "DND5E.Unequipped"),
+				"data.equipped": !getProperty(item.data, "data.equipped")
+			});
+		});
+		
     favtabHtml.find('.item-edit').click(ev => {
       let itemId = $(ev.target).parents('.item')[0].dataset.itemId;
       app.actor.getOwnedItem(itemId).sheet.render(true);
     });
+		
     favtabHtml.find('.item-fav').click(ev => {
       let itemId = $(ev.target).parents('.item')[0].dataset.itemId;
       let val = !app.actor.getOwnedItem(itemId).data.flags.favtab.isFavourite
@@ -359,14 +383,14 @@ async function migrateTraits(app, html, data) {
 
 Actors.registerSheet("dnd5e", Alt5eSheet, {
   types: ["character"],
-  makeDefault: true
+  makeDefault: true,
+	label: "Sky's Alternate 5e Sheet"
 });
 
 Hooks.on("renderAlt5eSheet", (app, html, data) => {
   addFavorites(app, html, data);
   injectPassives(app, html, data);
   makeBold(app, html, data);
-	//app.inventoryPlus.addInventoryFunctions(html);
 });
 
 Hooks.once("ready", () => {
