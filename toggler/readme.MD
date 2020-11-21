@@ -10,8 +10,8 @@
 * **System Compatibility**: D&D 5th Edition 1.1.1
 
 ### Link(s) to Module
-* [https://foundryvtt.com/packages/alt5e/](https://foundryvtt.com/packages/toggler/) - Not submitted yet... soon!(tm)
-* [https://github.com/Sky-Captain-13/foundry/tree/master/alt5e](https://github.com/Sky-Captain-13/foundry/tree/master/toggler)
+* [https://foundryvtt.com/packages/toggler/](https://foundryvtt.com/packages/toggler/) - Not submitted yet... soon!(tm)
+* [https://github.com/Sky-Captain-13/foundry/tree/master/toggler](https://github.com/Sky-Captain-13/foundry/tree/master/toggler)
 
 ### Description
 This module currently adds or removes 60 ft of dim vision on the scenes currently active tokens if the item `Goggles of Night` is found on a character when the character sheet is opened (rendered) and the goggles are equipped. Unequipping removes 60 ft of dim vision. I plan to include additional toggles as I think of them.
