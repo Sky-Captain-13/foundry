@@ -5,7 +5,7 @@
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.4.1
+* **Version**: 1.4.2
 * **Foundry VTT Compatibility**: 0.7.7
 * **System Compatibility**: D&D 5th Edition 1.1.1
 
@@ -19,6 +19,10 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ECfIHfd.png)
 
 ## Patch Notes
+### Version 1.4.2
+* Adds equip/unequip item toggles in the Favorites section
+* Changes the sheet name in the chooser to a human readable format
+
 ### Version 1.4.1
 * Updated to Foundry v077 and D&D v111
 * Fixed death saves
