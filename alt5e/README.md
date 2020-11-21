@@ -16,7 +16,8 @@
 ### Description
 This module provides an alternate skin/layout of the default D&D 5th edition character sheet in Foundry.
 
-![image](https://i.imgur.com/ECfIHfd.png)
+![image](https://i.imgur.com/puHgzhE.png)
+![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
 ### Version 1.4.2
