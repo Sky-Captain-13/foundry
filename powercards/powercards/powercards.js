@@ -1,8 +1,8 @@
 const PowerCards = (() => {
 	// VERSION INFORMATION
 	const PowerCards_Author = "Sky#9453";
-	const PowerCards_Version = "0.0.6";
-	const PowerCards_LastUpdated = 1589785464;
+	const PowerCards_Version = "1.0.0";
+	const PowerCards_LastUpdated = 1606012959;
 	
 	// CONFIGURATION
 	let USE_PLAYER_AVATAR = false;
@@ -32,10 +32,18 @@ const PowerCards = (() => {
 	};
 	
 	const handleInput = function(message, chatData) {
-		if ( chatData.split(" ")[0].toLowerCase().trim() === "!power") {
+		if (chatData.split(" ")[0].toLowerCase().trim() === "!power") {
 			let who = game.user.data.name;
 			let content = chatData.replace("!power", "").trim();
 			let card = {};
+			
+			// REPLACE INLINE ATTRIBUTE CALLS
+			let activeGM = game.users.find(a => a.active && a.isGM)._id || false;
+			let data = { activeGM: activeGM, content: content };
+			if (game.user.isGM) content = processCommand(data);
+      else content = game.socket.emit("module.powercards", data);
+			
+			console.log(content);
 			
 			// DEFAULT FORMATTING
 			let playerBGColor = game.user.data.color;
@@ -94,30 +102,9 @@ const PowerCards = (() => {
 			content.forEach(function (a) {
 				if (a !== "") card[a.substring(0, a.indexOf("|")).trim()] = a.substring(a.indexOf("|") + 1).trim();
 			});
-			/*
-			let tag;
-			let guts;
-			let rolls = [];
-			let rollcount = 0;
-			content = content.replace(/<br\/>\n/g, " ").replace(/({{(.*?)}})/g, " $2 ").trim().slice(2, content.length - 2).split(/\s+--/);
-			content.forEach(function (a) {
-				if (a !== "") {
-					let tag = a.substring(0, a.indexOf("|")).trim();
-					let guts = a.substring(a.indexOf("|") + 1).trim();
-					let r = guts.match(/\[\[(.*?\]?)\]\]/g);
-					if (r) {
-						r.forEach(function(b) {
-							rolls.push(b);
-							guts = guts.replace(b, `{${rollcount}}`);
-							rollcount++;
-						});
-					};
-					card[tag] = guts;
-				}
-			});
-			*/
-			// PROCESS ROLLS
 			
+			// PROCESS ROLLS
+			// This will be where if/else statements and such go.
 			
 			// AVATAR, EMOTE, & TITLE
 			let avatar = (card.avatar !== undefined) ? `padding: 0px 5px 0px 55px; background-image: url("${card.avatar}"); background-size: 50px 50px; background-position: 5px; background-repeat: no-repeat; height: 60px; min-height: 60px;` : ``;
@@ -130,7 +117,7 @@ const PowerCards = (() => {
 			
 			// REMOVE FORMATTING TAGS
 			let keys = Object.keys(card);
-			let tags_to_remove = ["", "emote_bgcolor", "emote_txcolor", "emote_border", "emote_borderradius", "emote_fontsize", "emote_fontweight", "emote_fontstyle", "emote_textalign", "emote_margin", "emote_padding", "title_bgcolor", "title_txcolor", "title_txshadow", "title_border", "title_borderradius", "title_fontsize", "title_fontweight", "title_fontstyle", "title_textalign", "title_margin", "title_padding", "subtitle_fontsize", "subtitle_fontweight", "subtitle_fontstyle", "subtitle_textalign", "orow_txcolor", "orow_bgcolor", "erow_txcolor", "erow_bgcolor", "guts_lineheight", "guts_border", "guts_borderradius", "guts_fontsize", "guts_fontweight", "guts_fontstyle", "guts_textalign", "guts_margin", "guts_padding", "tokenid", "emote", "title", "subtitle", "avatar"];
+			let tags_to_remove = ["", "selected_token", "emote_bgcolor", "emote_txcolor", "emote_border", "emote_borderradius", "emote_fontsize", "emote_fontweight", "emote_fontstyle", "emote_textalign", "emote_margin", "emote_padding", "title_bgcolor", "title_txcolor", "title_txshadow", "title_border", "title_borderradius", "title_fontsize", "title_fontweight", "title_fontstyle", "title_textalign", "title_margin", "title_padding", "subtitle_fontsize", "subtitle_fontweight", "subtitle_fontstyle", "subtitle_textalign", "orow_txcolor", "orow_bgcolor", "erow_txcolor", "erow_bgcolor", "guts_lineheight", "guts_border", "guts_borderradius", "guts_fontsize", "guts_fontweight", "guts_fontstyle", "guts_textalign", "guts_margin", "guts_padding", "tokenid", "emote", "title", "subtitle", "avatar"];
 			tags_to_remove.forEach(function (b) {
 				if (keys.indexOf(b) !== -1) keys.splice(keys.indexOf(b), 1);
 			});
@@ -168,6 +155,25 @@ const PowerCards = (() => {
 			return false;
 		}
 	};
+	
+	const processCommand = function(data) {
+		if (game.user.id == data.activeGM) {
+      let rgx = /(@{([A-z])\w+\|([A-z])\w+})/;
+			let content = data.content;
+			while (rgx.test(content)) {
+				let a = content.match(rgx)[0];
+				let actor_name = a.split("|")[0].replace("@{", "").trim();
+				let attr_name = a.split("|")[1].replace("}", "").trim();
+				let actor = game.actors.getName(actor_name);
+				let attr_value = 0;
+				if (actor?.data?.data?.attributes[attr_name]) attr_value = actor.data.data.attributes[attr_name]?.value;
+				else ui.notifications.warn(`Warning: Unable to find the [ ${attr_name} ] attribute on an actor named [ ${actor_name} ]. Please check the attribute calls in your powercard macro. Spelling an capitalization matters.`);
+				content = content.replace(a, `${attr_value}`);
+			}
+			console.log(content);
+			return content;
+    }
+	}
 	
 	// HOOKS
 	Hooks.on("ready", function() {
