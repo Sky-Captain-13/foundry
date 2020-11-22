@@ -1,9 +1,7 @@
-This is abso-bally-lutely a super, duper basic alpha version that has no frilly features other than making a pretty card in chat. 
+This is an abso-bally-lutely super, duper basic alpha version that has almost no frilly features other than making a pretty card in chat. 
 ```yaml
 Do NOT ask me for help making powercards. Figure it out on your own for now.
 ```
-![image](https://i.imgur.com/jhC4yIc.png)
-
 ## Sample Powercard
 Spelling and capitalization matters when using an attribute call such as @{Mouse|dex}.
 ```yaml
@@ -18,3 +16,7 @@ Spelling and capitalization matters when using an attribute call such as @{Mouse
 --Critical Hit:|[[1d6]] additional damage
 }}
 ```
+![image](https://i.imgur.com/jhC4yIc.png)
+
+## Attribute Setup on Simple Worldbuilding System
+![image](https://i.imgur.com/dM1izU3.png)
