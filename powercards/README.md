@@ -20,3 +20,12 @@ Spelling and capitalization matters when using an attribute call such as @{Mouse
 
 ## Attribute Setup on Simple Worldbuilding System
 ![image](https://i.imgur.com/dM1izU3.png)
+
+## Patch Notes
+### Version 1.0.1
+* Fixes powercard use by players with attribute calls. Any attribute call would cause powercards to crash and not work for players.
+* Minor refactor of code to prepare for further updates
+
+### Version 1.0.0
+* Major refactor for further updates
+* Added attribute calls @{Actor Name|Attribute}
