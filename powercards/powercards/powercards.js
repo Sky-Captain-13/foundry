@@ -1,8 +1,8 @@
 const PowerCards = (() => {
 	// VERSION INFORMATION
 	const PowerCards_Author = "Sky#9453";
-	const PowerCards_Version = "1.0.0";
-	const PowerCards_LastUpdated = 1606012959;
+	const PowerCards_Version = "1.0.1";
+	const PowerCards_LastUpdated = 1606095032;
 	
 	// CONFIGURATION
 	let USE_PLAYER_AVATAR = false;
@@ -20,7 +20,7 @@ const PowerCards = (() => {
 		min = Math.ceil(min);
 		max = Math.floor(max);
 		return Math.floor(randomNumber * (max - min + 1)) + min;
-	}
+	};
 	
 	function getBrightness(hex) {
 		return ((getHex2Dec(hex.substr(1, 2)) * 299) + (getHex2Dec(hex.substr(3, 2)) * 587) + (getHex2Dec(hex.substr(5, 2)) * 114)) / 1000;
@@ -33,20 +33,37 @@ const PowerCards = (() => {
 	
 	const handleInput = function(message, chatData) {
 		if (chatData.split(" ")[0].toLowerCase().trim() === "!power") {
-			let who = game.user.data.name;
-			let content = chatData.replace("!power", "").trim();
+			let activeGM = game.users.find(a => a.active && a.isGM)._id || false;
+			let data = { activeGM: activeGM, user: game.user, content: chatData.replace("!power", "").trim()};
+			if (game.user.isGM) content = processCommand(data);
+			else content = game.socket.emit("module.powercards", data);
+			
+			// DO NOT SEND ORIGINAL MESSAGE TO CHAT
+			return false;
+		}
+	};
+	
+	const processCommand = function(data) {
+		if (game.user.id == data.activeGM) {
+			let who = data.user.name;
+			let content = data.content;
 			let card = {};
 			
-			// REPLACE INLINE ATTRIBUTE CALLS
-			let activeGM = game.users.find(a => a.active && a.isGM)._id || false;
-			let data = { activeGM: activeGM, content: content };
-			if (game.user.isGM) content = processCommand(data);
-      else content = game.socket.emit("module.powercards", data);
-			
-			console.log(content);
+			// REPLACE INLINE ATTRIBUTE CALLS WITH VALUES
+			let rgx = /(@{([A-z])\w+\|([A-z])\w+})/;
+			while (rgx.test(content)) {
+				let attr_query = content.match(rgx)[0];
+				let actor_name = attr_query.split("|")[0].replace("@{", "").trim();
+				let attr_name = attr_query.split("|")[1].replace("}", "").trim();
+				let attr_value = 0;
+				let actor = game.actors.getName(actor_name);
+				if (actor?.data?.data?.attributes[attr_name]) attr_value = actor.data.data.attributes[attr_name]?.value;
+				else ui.notifications.warn(`Warning: Unable to find the [ ${attr_name} ] attribute on an actor named [ ${actor_name} ]. Please check the attribute calls in your powercard macro. Spelling an capitalization matters.`);
+				content = content.replace(attr_query, `${attr_value}`);
+			}
 			
 			// DEFAULT FORMATTING
-			let playerBGColor = game.user.data.color;
+			let playerBGColor = game.user.color;
 			let playerTXColor = (getBrightness(playerBGColor) < (255 / 2)) ? "#FFFFFF" : "#000000";
 			let playerTXShadow = (getBrightness(playerTXColor) < (255 / 2)) ? "#FFFFFF" : "#000000";
 			
@@ -150,34 +167,13 @@ const PowerCards = (() => {
 				type: CONST.CHAT_MESSAGE_TYPES.OTHER,
 				sound: ""
 			});
-			
-			// DO NOT SEND ORIGINAL MESSAGE TO CHAT
-			return false;
 		}
 	};
-	
-	const processCommand = function(data) {
-		if (game.user.id == data.activeGM) {
-      let rgx = /(@{([A-z])\w+\|([A-z])\w+})/;
-			let content = data.content;
-			while (rgx.test(content)) {
-				let a = content.match(rgx)[0];
-				let actor_name = a.split("|")[0].replace("@{", "").trim();
-				let attr_name = a.split("|")[1].replace("}", "").trim();
-				let actor = game.actors.getName(actor_name);
-				let attr_value = 0;
-				if (actor?.data?.data?.attributes[attr_name]) attr_value = actor.data.data.attributes[attr_name]?.value;
-				else ui.notifications.warn(`Warning: Unable to find the [ ${attr_name} ] attribute on an actor named [ ${actor_name} ]. Please check the attribute calls in your powercard macro. Spelling an capitalization matters.`);
-				content = content.replace(a, `${attr_value}`);
-			}
-			console.log(content);
-			return content;
-    }
-	}
 	
 	// HOOKS
 	Hooks.on("ready", function() {
 		Hooks.on("chatMessage", handleInput);
+		game.socket.on("module.powercards", processCommand);
 		console.log("-=> PowerCards v" + PowerCards_Version + " <=- [" + (new Date(PowerCards_LastUpdated * 1000)) + "]");
 		//console.log(Date.now().toString().substr(0, 10));
 	});
