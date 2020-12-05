@@ -1,11 +1,12 @@
-![](https://img.shields.io/badge/Foundry-v0.7.5-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.8-informational)
+![](https://img.shields.io/badge/D&D5e-v1.1.1-informational)
 
 ## Points of Interest Actor Sheet
 
 * **Author**: Sky#9435
-* **Version**: 0.0.7
-* **Foundry VTT Compatibility**: 0.6.6
-* **System Compatibility**: D&D 5e
+* **Version**: 0.0.8
+* **Foundry VTT Compatibility**: 0.7.8
+* **System Compatibility**: D&D 5e 1.1.1
 
 ### Link(s) to Module
 * [https://github.com/Sky-Captain-13/foundry/tree/master/poi-sheet](https://github.com/Sky-Captain-13/foundry/tree/master/poi-sheet)
@@ -19,6 +20,10 @@ The Points of Interest Actor Sheet adds a new Actor Sheet for the D&D 5e System 
 4. The sheet could potentially be expanded to include stats for points of interest for strategic gameplay like Pathfinder Kingmaker.
 
 To use the PoI Sheet, create a new Actor using the Character type and then edit the actor's Sheet at the top of the character sheet window and change it to `dnd5e.PoISheet`
+
+## Patch Notes
+### Version 0.0.8
+* Version compatibility update to 0.7.8
 
 ## Installation
 ### Method 1
