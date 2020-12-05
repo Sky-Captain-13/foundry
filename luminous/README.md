@@ -15,7 +15,7 @@
 * [https://github.com/Sky-Captain-13/foundry/tree/master/luminous](https://github.com/Sky-Captain-13/foundry/tree/master/luminous)
 
 ### Description
-Provides a lighter take on the Foundry UI with less transparency and the use of cooler colors.
+Provides a lighter take on the Foundry UI with less transparency and the use of cooler colors. 
 
 ## Patch Notes
 ### Version 0.0.6
