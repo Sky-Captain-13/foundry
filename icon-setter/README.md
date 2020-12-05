@@ -20,11 +20,6 @@ The player or GM can enter `!icon {icon name}` such as `!icon acid` into the cha
 ## Patch Notes
 ### Version 0.0.2
 * Version compatibility update to 0.7.8
-* Major rework of the CSS
-* Updates controls hover / active css
-* Updates status icon hover / active css
-* Improves the aesthetics of padding / margins in the sidebar
-* Improved aesthetics in the combat tracker
 
 ### Version 0.0.1
 * Initial commit
