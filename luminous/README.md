@@ -1,13 +1,13 @@
-![](https://img.shields.io/badge/Foundry-v0.7.5-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.8-informational)
 
-![](https://img.shields.io/badge/D&D5e-v0.98-informational)
+![](https://img.shields.io/badge/D&D5e-v1.1.1-informational)
 
 ## Luminous
 
 * **Author**: Sky#9435
-* **Version**: 0.0.5
-* **Foundry VTT Compatibility**: 0.7.5
-* **System Compatibility**: D&D 5th Edition 0.98
+* **Version**: 0.0.6
+* **Foundry VTT Compatibility**: 0.7.8
+* **System Compatibility**: D&D 5th Edition 1.1.1
 * **Module Conflicts**: Any module that affects CSS across a variety of modules
 
 ### Link(s) to Module
@@ -18,8 +18,14 @@
 Provides a lighter take on the Foundry UI with less transparency and the use of cooler colors.
 
 ## Patch Notes
-### Version 0.0.5
-* Update to 
+### Version 0.0.6
+* Version compatibility update to 0.7.8
+* Major rework of the CSS
+* Updates controls hover / active css
+* Updates status icon hover / active css
+* Improves the aesthetics of padding / margins in the sidebar
+* Improved aesthetics in the combat tracker
+
 ### Version 0.0.4
 * Minor CSS update to override player color on text/border of Token Tooltip Alt module
 
