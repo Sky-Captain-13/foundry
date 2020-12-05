@@ -1,10 +1,10 @@
-![](https://img.shields.io/badge/Foundry-v0.7.5-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.8-informational)
 
 ## Icon Setter
 
 * **Author**: Sky#9435
-* **Version**: 0.0.1
-* **Foundry VTT Compatibility**: 0.7.5
+* **Version**: 0.0.2
+* **Foundry VTT Compatibility**: 0.7.8
 * **System Compatibility**: Universal
 
 ### Link(s) to Module
@@ -18,6 +18,14 @@ A simple module that allows players to set status icons on targeted tokens. GM's
 The player or GM can enter `!icon {icon name}` such as `!icon acid` into the chat window or use it as a chat macro to toggle the named icon on the selected and/or targeted tokens. The module can only set icons located in the `public/icons/svg` folder currently. 
 
 ## Patch Notes
+### Version 0.0.2
+* Version compatibility update to 0.7.8
+* Major rework of the CSS
+* Updates controls hover / active css
+* Updates status icon hover / active css
+* Improves the aesthetics of padding / margins in the sidebar
+* Improved aesthetics in the combat tracker
+
 ### Version 0.0.1
 * Initial commit
 
