@@ -1,8 +1,8 @@
-![](https://img.shields.io/badge/Foundry-v0.7.5-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.8-informational)
 ## Expander
 
-* **Author**: Sky#9435, KaKaRoTo#4756 (Discord)
-* **Version**: 0.0.5
+* **Author**: Sky#9435
+* **Version**: 0.0.6
 * **Minimum Foundry Compatibility**: 0.6.0 to 0.6.5
 * **System Compatibility**: Universal
 
@@ -13,6 +13,10 @@
 This module expands the chat window when you click on the chat icon instead of only by clicking on the arrow at the bottom.
 
 https://i.imgur.com/3y64pXF.gifv
+
+## Patch Notes
+### Version 0.0.6
+* Version compatibility update to 0.7.8
 
 ## Installation
 ### Method 1
