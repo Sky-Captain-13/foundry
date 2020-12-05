@@ -13,7 +13,7 @@
 * [https://github.com/Sky-Captain-13/foundry/tree/master/dm_toolkit](https://github.com/Sky-Captain-13/foundry/tree/master/dm_toolkit)
 
 ### Description
-This is a personal toolkit containing various capabilities listed below.
+This is a personal toolkit containing various capabilities listed below. 
 
 ## Patch Notes
 ### Version 2.1.0
