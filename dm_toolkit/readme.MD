@@ -10,19 +10,15 @@
 * **System Compatibility**: D&D 5th Edition 1.1.1
 
 ### Link(s) to Module
-* [https://foundryvtt.com/packages/alt5e/](https://foundryvtt.com/packages/alt5e/)
-* [https://github.com/Sky-Captain-13/foundry/tree/master/alt5e](https://github.com/Sky-Captain-13/foundry/tree/master/alt5e)
+* [https://github.com/Sky-Captain-13/foundry/tree/master/dm_toolkit](https://github.com/Sky-Captain-13/foundry/tree/master/dm_toolkit)
 
 ### Description
-This module provides an alternate skin/layout of the default D&D 5th edition character sheet in Foundry.
-
-![image](https://i.imgur.com/puHgzhE.png)
-![image](https://i.imgur.com/ngzG3K7.png)
+This is a personal toolkit containing various capabilities listed below.
 
 ## Patch Notes
 ### Version 2.1.0
 * Version compatibility update to 0.7.8
-* Integrates the minimization and restoration of sheets back to their previous spots when moved
+* Integrates the minimization and restoration of sheets back to their previous spots when moved (by Deuce)
 * Adds the ability for players to delete their own tokens
 * Actors from the sidebar can be dragged onto an empty spot on the macrobar to create a macro that opens that character sheet
 * Automatically marks all weapons, armors, and tools as proficient in the D&D 5e system when added to a character sheet
