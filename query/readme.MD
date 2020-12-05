@@ -1,9 +1,11 @@
-![](https://img.shields.io/badge/Foundry-v0.5.5-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.8-informational)
+![](https://img.shields.io/badge/SimpleWorldBuilding-v0.4-informational)
+
 ## Query
 
 * **Author**: Sky#9435
-* **Version**: 0.0.4
-* **Foundry VTT Compatibility**: 0.5.5
+* **Version**: 0.0.6
+* **Foundry VTT Compatibility**: 0.7.8
 * **System Compatibility**: Universal
 
 ### Link(s) to Module
