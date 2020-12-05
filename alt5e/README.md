@@ -1,12 +1,12 @@
-![](https://img.shields.io/badge/Foundry-v0.7.7-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.8-informational)
 
 ![](https://img.shields.io/badge/D&D5e-v1.1.1-informational)
 
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.4.2
-* **Foundry VTT Compatibility**: 0.7.7
+* **Version**: 1.4.3
+* **Foundry VTT Compatibility**: 0.7.8
 * **System Compatibility**: D&D 5th Edition 1.1.1
 
 ### Link(s) to Module
@@ -20,6 +20,9 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.4.3
+* Version compatibility update to 0.7.8
+
 ### Version 1.4.2
 * Adds equip/unequip item toggles in the Favorites section
 * Changes the sheet name in the chooser to a human readable format
