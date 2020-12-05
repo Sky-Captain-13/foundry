@@ -1,12 +1,11 @@
-![](https://img.shields.io/badge/Foundry-v0.7.7-informational)
-
+![](https://img.shields.io/badge/Foundry-v0.7.8-informational)
 ![](https://img.shields.io/badge/D&D5e-v1.1.1-informational)
 
 ## Toggler
 
 * **Author**: Sky#9435
-* **Version**: 0.0.1
-* **Foundry VTT Compatibility**: 0.7.7
+* **Version**: 0.0.2
+* **Foundry VTT Compatibility**: 0.7.8
 * **System Compatibility**: D&D 5th Edition 1.1.1
 
 ### Link(s) to Module
@@ -17,6 +16,9 @@
 This module currently adds or removes 60 ft of dim vision on the scenes currently active tokens if the item `Goggles of Night` is found on a character when the character sheet is opened (rendered) and the goggles are equipped. Unequipping removes 60 ft of dim vision. I plan to include additional toggles as I think of them.
 
 ## Patch Notes
+### Version 0.0.2
+* Version compatibility update to 0.7.8
+
 ### Version 0.0.1
 * Initial commit
 
