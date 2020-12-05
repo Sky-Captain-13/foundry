@@ -6,7 +6,7 @@ class PoISheet extends ActorSheet {
 	
 	static get defaultOptions() {
 		const options = super.defaultOptions;
-		options.classes.push('dnd5e sheet actor character');
+		options.classes.push('dnd5e poi-sheet sheet actor character');
 		mergeObject(options, {width: 672, height: 736});
 		return options;
 	}
