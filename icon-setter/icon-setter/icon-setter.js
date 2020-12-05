@@ -47,7 +47,7 @@ const IconSetter = (() => {
   Hooks.on("ready", function() {
     Hooks.on("chatMessage", handleInput);
     game.socket.on("module.icon-setter", processCommand);
-		console.log("-=> IconSetter v" + IconSetter_Version + " <=- [" + (new Date(IconSetter_LastUpdated * 1000)) + "]");
-		//console.log(Date.now().toString().substr(0, 10));
+    console.log("-=> IconSetter v" + IconSetter_Version + " <=- [" + (new Date(IconSetter_LastUpdated * 1000)) + "]");
+    //console.log(Date.now().toString().substr(0, 10));
   });
 })();
