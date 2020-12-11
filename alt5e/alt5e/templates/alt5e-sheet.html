@@ -72,9 +72,10 @@
         </li>
         
 				{{!-- SPEED / MOVEMENT TYPES --}}
-				<li class="attribute configure-movement">
+				<li class="attribute movement">
 					<h4 class="attribute-name box-title">
-						{{ localize "DND5E.Speed" }} ({{data.attributes.movement.units}})
+					{{ localize "DND5E.Movement" }}
+						<a class="config-button" data-action="movement" title="{{localize 'DND5E.MovementConfig'}}"><i class="fas fa-cog"></i></a>
 					</h4>
 					<div class="attribute-value">
 						<span>{{movement.primary}}</span>
@@ -83,7 +84,7 @@
 						{{#if movement.special}}
 							<span title="{{movement.special}}">{{movement.special}}</span>
 						{{else}}
-							<span title="{{movement.special}}">Configure <i class="fas fa-cog"></i></span>
+							<span>No Special Modes</span>
 						{{/if}}
 					</footer>
 				</li>

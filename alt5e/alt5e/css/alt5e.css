@@ -545,3 +545,7 @@
 .alt5e.dnd5e.sheet.actor .inventory-list .item .item-uses input {
 	width: 28px;
 }
+
+.dnd5e.chat-card .card-header img { 
+	border: none; 
+}
