@@ -5,9 +5,9 @@
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.4.3
+* **Version**: 1.5.0
 * **Foundry VTT Compatibility**: 0.7.8
-* **System Compatibility**: D&D 5th Edition 1.1.1
+* **System Compatibility**: D&D 5th Edition 1.2.0
 
 ### Link(s) to Module
 * [https://foundryvtt.com/packages/alt5e/](https://foundryvtt.com/packages/alt5e/)
@@ -20,6 +20,11 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.5.0
+* Version compatibility update for D&D 1.2.0
+* Adjusted to new configuration buttons setup
+* Added new senses configuration
+
 ### Version 1.4.3
 * Version compatibility update to 0.7.8
 
