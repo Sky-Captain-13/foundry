@@ -2,6 +2,11 @@ import { DND5E } from "../../systems/dnd5e/module/config.js";
 import ActorSheet5e from "../../systems/dnd5e/module/actor/sheets/base.js";
 import ActorSheet5eCharacter from "../../systems/dnd5e/module/actor/sheets/character.js";
 
+// VERSION INFORMATION
+const Alt5e_Author = "Sky";
+const Alt5e_Version = "1.5.1";
+const Alt5e_LastUpdated = 1608080828; //console.log(Date.now().toString().substr(0, 10));
+
 export class Alt5eSheet extends ActorSheet5eCharacter {
   get template() {
     if ( !game.user.isGM && this.actor.limited && game.settings.get("alt5e", "useExpandedSheet")) return "modules/alt5e/templates/expanded-limited-sheet.html";
@@ -297,16 +302,15 @@ async function addFavorites(app, html, data) {
 }
 
 async function injectPassives(app, html, data) {
-  let sentinel_shield = (data.actor.items.some( i => i.name.toLowerCase() === "sentinel shield" && i.data.equipped)) ? 5 : 0;
-  let passivesTarget = html.find('input[name="data.traits.senses"]').parent();
+  let passivesTarget = html.find('.senses').parent();
   let passives = "";
-  let tagStyle = "text-align: center; min-width: unset; font-size: 13px;";
+  let tagStyle = "text-align: center; min-width: unset; font-size: 12px; width: 50px; line-height: 17px;";
   if (game.settings.get("alt5e", "showPassiveInsight")) {
     let passiveInsight = data.data.skills.ins.passive;
     passives += `
       <div class="form-group">
         <label>Passive Insight</label>
-        <ul class="traits-list" style="flex: unset;">
+        <ul class="traits-list" style="/* flex: unset; */">
           <li class="tag" style="${tagStyle}">${passiveInsight}</li>
         </ul>
       </div>
@@ -317,7 +321,7 @@ async function injectPassives(app, html, data) {
     passives += `
       <div class="form-group">
         <label>Passive Investigation</label>
-        <ul class="traits-list" style="flex: unset;">
+        <ul class="traits-list" style="/* flex: unset; */">
           <li class="tag" style="${tagStyle}">${passiveInvestigation}</li>
         </ul>
       </div>
@@ -329,7 +333,7 @@ async function injectPassives(app, html, data) {
     passives += `
       <div class="form-group">
         <label>Passive Perception</label>
-        <ul class="traits-list" style="flex: unset;">
+        <ul class="traits-list" style="/* flex: unset; */">
           <li class="tag" style="${tagStyle}">${passivePerception}</li>
         </ul>
       </div>
@@ -340,7 +344,7 @@ async function injectPassives(app, html, data) {
     passives += `
       <div class="form-group">
         <label>Passive Stealth</label>
-        <ul class="traits-list" style="flex: unset;">
+        <ul class="traits-list" style="/* flex: unset; */">
           <li class="tag" style="${tagStyle}">${passiveStealth}</li>
         </ul>
       </div>
@@ -394,6 +398,7 @@ Hooks.on("renderAlt5eSheet", (app, html, data) => {
 });
 
 Hooks.once("ready", () => {
+  console.log("-=> Alt5e v" + Alt5e_Version + " <=- [" + (new Date(Alt5e_LastUpdated * 1000)) + "]");
   game.settings.register("alt5e", "alt5eVersion", {
     name: "Alt5e ver 1.3.0",
     hint: "",

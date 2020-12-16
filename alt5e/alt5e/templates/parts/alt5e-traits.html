@@ -1,19 +1,30 @@
 <div class="traits">
+	{{#unless isVehicle}}
+    <div class="form-group">
+      <label>{{localize "DND5E.SpecialTraits"}}</label>
+      <a class="config-button" data-action="flags" title="{{localize 'DND5E.SpecialTraits'}}"><i class="fas fa-cog"></i></a>
+    </div>
+	{{/unless}}
+
 	<div class="form-group">
 		<label>{{localize "DND5E.Size"}}</label>
-		<select class="actor-size" name="data.traits.size">
-			{{#select data.traits.size}}
-			{{#each config.actorSizes as |label size|}}
-				<option value="{{size}}">{{label}}</option>
-			{{/each}}
-			{{/select}}
-		</select>
+    <ul class="traits-list">
+      <li class="tag">
+        <select class="actor-size" name="data.traits.size">
+          {{#select data.traits.size}}
+            {{#each config.actorSizes as |label size|}}
+              <option value="{{size}}">{{label}}</option>
+            {{/each}}
+          {{/select}}
+        </select>
+      </li>
+    </ul>
 	</div>
 
 	{{#unless isVehicle}}
 	<div class="form-group">
-		<label>{{localize "DND5E.Senses"}}</label>
-		<a class="config-button" data-action="senses" title="{{localize 'DND5E.MovementConfig'}}"><i class="fas fa-cog"></i></a>
+		<label class="senses">{{localize "DND5E.Senses"}}</label>
+		<a class="config-button" data-action="senses" title="{{localize 'DND5E.SensesConfig'}}"><i class="fas fa-cog"></i></a>
 		<ul class="traits-list">
 		{{#each senses as |v k|}}
 			<li class="tag {{k}}">{{v}}</li>
@@ -119,11 +130,4 @@
 		</ul>
 	</div>
 	{{/if}}
-
-	{{#unless isVehicle}}
-	<div class="form-group">
-		<label>{{localize "DND5E.SpecialTraits"}}</label>
-		<a class="config-button" data-action="flags" title="{{localize 'DND5E.SpecialTraits'}}"><i class="fas fa-cog"></i></a>
-	</div>
-	{{/unless}}
 </div>

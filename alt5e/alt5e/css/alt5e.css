@@ -211,11 +211,11 @@
 	flex: 1;
 	border: none;
 	font-family: "Signika", sans-serif;
-	font-size: 13px;
+	font-size: 12px;
 	margin: 0px;
-	text-align-last: right;
 	max-width: fit-content;
-	direction: rtl;
+	/* direction: rtl;
+  text-align-last: right; */
 	-webkit-appearance: none;
 }
 
@@ -243,9 +243,8 @@
 }
 
 .alt5e.dnd5e .traits-list .tag {
-	margin: 3px 0px 0px 0px;
-	padding: 0px 3px;
-	line-height: 18px;
+	line-height: 20px;
+  font-size: 12px;
 }
 
 .alt5e .ac-display, 
