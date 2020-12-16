@@ -5,7 +5,7 @@
 ## DM Toolkit
 
 * **Author**: Sky#9435
-* **Version**: 2.1.0
+* **Version**: 2.2.0
 * **Foundry VTT Compatibility**: 0.7.8
 * **System Compatibility**: D&D 5th Edition 1.1.1
 
@@ -16,6 +16,14 @@
 This is a personal toolkit containing various capabilities listed below. 
 
 ## Patch Notes
+### Version 2.2.0
+* Stole code to prevent GM from speaking as a PC's token if selected
+* Stole code to auto-hide rolls and chat from hidden tokens (GM only)
+* Add option to allow players to delete their own tokens
+* Rewrote the css for !heal / !damage output
+* Added auto status effect icons application and removal to tokens based on health
+ * Bloodied and Prone require the Simple Status Icons module and properly defined status effects
+
 ### Version 2.1.0
 * Version compatibility update to 0.7.8
 * Integrates the minimization and restoration of sheets back to their previous spots when moved (by Deuce)
