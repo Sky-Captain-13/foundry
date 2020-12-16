@@ -1,23 +1,42 @@
-/*
-#token-hud .status-effects {
-  width: 200px;
-  grid-template-columns: 50px 50px 50px 50px;
+.dmtk {
+	--imgSize: 40px;
 }
 
-#token-hud .status-effects .effect-control {
-	height: 50px;
-	width: 50px;
+.dmtk.heal {
+	background-color: #004400;
 }
 
-#token-hud .status-effects {
-	background: rgba(0, 0, 0, 0.9);
+.dmtk.damage {
+  background-color: #440000;
 }
 
-#token-hud .status-effects .effect-control:hover {
-	opacity: 1;
+.dmtk.msg-style {
+	display: flex;
+	align-items: center;
+	margin: -7px;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	color: #FFF;
+	background-image: linear-gradient(rgba(255, 255, 255, .0), rgba(255, 255, 255, .2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
 }
 
-.simple-dice-roller-popup {
-	background: rgba(0, 0, 0, 0.9) !important;
+.dmtk.img-style {
+	/* height: var(--imgSize); */
+	/* min-height: var(--imgSize); */
+	max-height: var(--imgSize);
+	/* width: var(--imgSize); */
+	/* min-width: var(--imgSize); */
+	max-width: var(--imgSize);
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	vertical-align: middle;
 }
-*/
+
+.dmtk.imgbg-style {
+	background-color: rgba(255, 255, 255, 0.3); 
+	border-radius: 50%; 
+	margin-right: 10px;
+}

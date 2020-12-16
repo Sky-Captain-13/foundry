@@ -1,50 +1,36 @@
 const DM_Toolkit = (() => {
   // VERSION INFORMATION
   const DMToolkit_Author = "Sky";
-  const DMToolkit_Version = "2.1.0";
-  const DMToolkit_LastUpdated = 1607092980;
-  
-  // CONFIGURATION
-  const announceTokenHPChange = true; // TO DO: Change to a module settings configuration option
+  const DMToolkit_Version = "2.2.0";
+  const DMToolkit_LastUpdated = 1608080828; //console.log(Date.now().toString().substr(0, 10));
   
   // FUNCTIONS
-  const actorDrop = async (bar, data, slot) => {
-    if (data.type !== 'Actor') return;
-    
-    const actor = game.actors.get(data.id);
-    if (!actor) return;
-    
-    const command = `
-      let actor = game.actors.get('${data.id}');
-      if (actor) {
-        if (!actor.sheet.rendered) actor.sheet.render(true);
-        else actor.sheet.close();
+  const activateListeners = function() {
+    $(document.getElementById('chat-log')).on('click', '.toolkit-chat', (event) => {
+      event.preventDefault();
+      let roll = $(event.currentTarget);
+      let tip = roll.parent().parent().find(".message-header");
+      if (!tip.is(":visible")) {
+        roll[0].style.margin = '0px -7px -7px -7px';
+        tip.slideDown(0);
+      } else {
+        roll[0].style.margin = '-7px';
+        tip.slideUp(0);
       }
-    `;
-    let macro = game.macros.entities.find(macro => macro.name === actor.name && macro.command === command);
-    
-    if (!macro) {
-      macro = await Macro.create({
-        name: actor.name,
-        type: 'script',
-        img: actor.data.img,
-        command: command
-      }, {
-        renderSheet: false
-      });
-    }
-    
-    game.user.assignHotbarMacro(macro, slot);
-    return false;
-  };
+    });
+  }
+  
+  const addGridBorder = function() {
+    const border = canvas.grid.addChild(new PIXI.Graphics());
+    border.lineStyle(1.0, colorStringToHex(canvas.scene.data.gridColor), canvas.scene.data.gridAlpha).drawRect(0, 0, canvas.dimensions.width, canvas.dimensions.height);
+  }
   
   const addProficiency = (actor, item, sheet, id) => {
     if (item.type === "weapon" || item.type === "armor") actor.updateOwnedItem({ _id: item._id, "data.proficient": true });
     if (item.type === "tool") actor.updateOwnedItem({ _id: item._id, "data.proficient": 1 });
   }
   
-  const adjustTokenHP = function(changeType, amount, announce) {
-    // Loop through selected tokens and add or subtract hpChange from the HP Bar.
+  const adjustTokenHP = async function(changeType, amount, chatAnnounceOverride = true) {
     let count = 0;
     const promises = [];
       for ( let token of canvas.tokens.controlled ) {
@@ -52,51 +38,121 @@ const DM_Toolkit = (() => {
         let actor = token.actor;
         let hp = actor.data.data.attributes.hp;
         let roll = new Roll(amount).roll();
-        let hpChange = roll.total;
-        let tooltip = amount + " (" + roll._result + ")";
+        let hpChange = Math.abs(roll.total);
+        let tooltip = [];
+        roll.terms.forEach(function (term) {
+          if (term.results != undefined) tooltip.push(`(${term.results.flatMap((die) => die.discarded ? [] : die.result).join(" + ")})`);
+          else tooltip.push(term);
+        });
+        
         count += 1;
         if (changeType === "Healing" || changeType === "Potion") {
-          // Heal
           promises.push(token.actor.update({
             "data.attributes.hp.value": Math.min(hp.value + hpChange, hp.max)
           }));
           let healType = (changeType === "Healing") ? "is healed for" : "drinks a potion and is healed for";
           let plural = (hpChange != 1) ? "s" : "";
+          
+          // HEALING MESSAGE
           message = `
-          <div class="dnd5e chat-card item-card">
-            <header class="card-header flexrow">
-              <img src="${actor.data.token.img}" width="36" height="36" style="border: none; margin: auto 5px;"/>
-              <h3 style="line-height: unset; margin: auto 0px;">${actor.data.name} ${healType} <span title="${tooltip}">${hpChange}</span> hit point${plural}.</h3>
-            </header>
+          <div class="toolkit-chat dmtk msg-style heal" title="${amount} = ${tooltip.join(" ")}">
+            <div class="dmtk imgbg-style">
+              <img class="dmtk img-style" src="${actor.data.token.img}" />
+            </div>
+            ${token.data.name} ${healType} ${hpChange} hit point${plural}.
           </div>`;
         } else {
-          // Damage
           let temphp = parseInt(hp.temp) || 0;
           let damage = Math.max(hpChange - temphp, 0);
           temphp = (temphp === 0) ? "" : Math.max(temphp - hpChange, 0);
+          let curhp = Math.max(hp.value - damage, 0);
+          let deathmsg = (curhp <= 0) ? " and has been slain!" : ".";
           promises.push(token.actor.update({
             "data.attributes.hp.temp": temphp,
-            "data.attributes.hp.value": Math.max(hp.value - damage, 0)
+            "data.attributes.hp.value": curhp
           }));
+          
+          // DAMAGE & DEATH MESSAGE
           message = `
-          <div class="dnd5e chat-card item-card">
-            <header class="card-header flexrow">
-              <img src="${actor.data.token.img}" width="36" height="36" style="border: none; margin: auto 5px;"/>
-              <h3 style="line-height: unset; margin: auto 0px;">${actor.data.name} takes <span title="${tooltip}">${hpChange}</span> damage.</h3>
-            </header>
+          <div class="toolkit-chat dmtk msg-style damage" title="${amount} = ${tooltip.join(" ")}">
+            <div class="dmtk imgbg-style">
+              <img class="dmtk img-style" src="${actor.data.token.img}" />
+            </div>
+            ${token.data.name} takes ${hpChange} damage${deathmsg}
           </div>`;
         }
-        if (announce) {
+        
+        // ANNOUNCE TO CHAT
+        if (game.settings.get("dm_toolkit", "announceToChat") && chatAnnounceOverride) {
           ChatMessage.create({
             user: game.user._id,
-            speaker: { alias: "DM Toolkit" },
+            speaker: { alias: "" },
             content: message,
-            type: CONST.CHAT_MESSAGE_TYPES.OTHER,
             sound: (count <= 1) ? CONFIG.sounds.dice : ""
           });
         }
       }
     return Promise.all(promises);
+  }
+  
+  const checkActorStatus = async function(actorData, changed) {
+    if (changed?.data?.attributes?.hp !== undefined) {
+      let token = canvas.tokens.placeables.filter(t => (t.data.actorId === actorData.id))[0];
+      let hp = actorData.data.data.attributes.hp;
+      await checkStatus(token, hp);
+      // console.warn(`${actor.name}'s Hit Points: ${hp.value} / ${hp.max}`);
+    }
+  }
+  
+  const checkTokenStatus = async function(scene, tokenData, changed) {
+    if (changed?.actorData?.data?.attributes?.hp !== undefined) {
+      let token = canvas.tokens.get(tokenData._id);
+      let hp = token.actor.data.data.attributes.hp;
+      await checkStatus(token, hp);
+      // console.warn(`${token.name}'s Hit Points: ${hp.value} / ${hp.max}`);
+    }
+  }
+  
+  const checkStatus = async function(token, hp) {
+    // Get the ActiveEffects objects for bloodied, dead, and prone
+    let bloodied = CONFIG.statusEffects.find(effect => (effect.id === "bloodied"));
+    let dead = CONFIG.statusEffects.find(effect => (effect.id === "dead"));
+    let prone = CONFIG.statusEffects.find(effect => (effect.id === "prone"));
+    
+    // Determine if the creature is already bloodied, dead, or prone
+    let active = token.actor.effects.map(fx => fx.data.label.toLowerCase());
+    let isBloodied = active.includes("bloodied");
+    let isDead = active.includes("dead");
+    let isProne = active.includes("prone");
+    
+    // REMOVE DEAD
+    if (isDead && (hp.value) > 0 && dead) {
+      isDead = false;
+      await token.toggleEffect(dead);
+    }
+    
+    // REMOVE BLOODIED
+    if (isBloodied && (hp.value) >= (hp.max/2) && bloodied) {
+      isBloodied = false;
+      await token.toggleEffect(bloodied);
+    }
+    
+    // ADD BLOODIED
+    if (!isBloodied && (hp.value) > 0 && (hp.value) < (hp.max/2) && bloodied) {
+      isBloodied = true;
+      await token.toggleEffect(bloodied);
+    }
+    
+    // REMOVE BLOODIED, ADD DEAD, ADD PRONE
+    if (hp.value <= 0 && token.actor?.data?.type === "character") {
+      if (isBloodied && bloodied) await token.toggleEffect(bloodied);
+      if (!isDead && dead) await token.toggleEffect(dead);
+      if (!isProne && prone) await token.toggleEffect(prone);
+    } else if (hp.value <= 0 && token.actor?.data?.type === "npc") {
+      if (isBloodied && bloodied) await token.toggleEffect(bloodied);
+      if (dead) await token.toggleEffect(dead, {overlay: true});
+      if (!isProne && prone) await token.toggleEffect(prone);
+    }
   }
   
   const deleteOwnToken = function(data) {
@@ -113,9 +169,13 @@ const DM_Toolkit = (() => {
       
       // !heal|damage applies damage or healing to the selected tokens
       if (command === "!heal" || command === "!damage" || command === "!dmg") {
+        if (canvas.tokens.controlled.length == 0) {
+          ui.notifications.error("You must select one or more tokens before using this command.");
+          return false;
+        }
         let changeType = (command === "!heal") ? "Healing" : "Damage";
         if (args !== "") {
-          adjustTokenHP(changeType, args, announceTokenHPChange);
+          adjustTokenHP(changeType, args);
         } else {
           setTimeout(function() {
             let applyChange = false;
@@ -138,7 +198,7 @@ const DM_Toolkit = (() => {
               },
               default: "yes",
               close: html => {
-                if (applyChange) adjustTokenHP(changeType, html.find('[name="hpChange"]')[0].value, announceTokenHPChange);
+                if (applyChange) adjustTokenHP(changeType, html.find('[name="hpChange"]')[0].value);
               }
             }).render(true);
             setTimeout(function() { document.getElementById("dmtk_alterhp").focus(); }, 100);
@@ -260,6 +320,10 @@ const DM_Toolkit = (() => {
       
       // Use a Potion of Healing
       if (command === "!potion") {
+        if (canvas.tokens.controlled.length == 0) {
+          ui.notifications.error("You must select one or more tokens before using this command.");
+          return false;
+        }
         let amount = "2d4+2";
         setTimeout(function() {
           let applyChange = false;
@@ -288,7 +352,7 @@ const DM_Toolkit = (() => {
             },
             default: "yes",
             close: html => {
-              if (applyChange) adjustTokenHP("Potion", amount = html.find('[name="potionRoll"]')[0].value, announceTokenHPChange);
+              if (applyChange) adjustTokenHP("Potion", amount = html.find('[name="potionRoll"]')[0].value);
             }
           }).render(true);
           setTimeout(function() { document.getElementById("dmtk_potions").focus(); }, 100);
@@ -298,28 +362,94 @@ const DM_Toolkit = (() => {
       
       // Resets a token to max hp, removes temp hp, and remove any status icons.
       if (command === "!reset") {
-        adjustTokenHP("Healing", "9999", false);
+        ( async ()=> {
+          for ( let token of canvas.tokens.controlled ) {
+            let fx = token.actor.data.effects.filter(e => e.flags?.core?.statusId);
+            for (let f of fx) {
+              let existing = CONFIG.statusEffects.find(effect => (effect.icon === f.icon))
+              await token.toggleEffect(existing);
+            }
+            await token.actor.applyDamage(0 - token.actor.data.data.attributes.hp.max);
+          }
+        })();
         return false;
       }
     }
   };
+    
+  const hideCardHeader = function(msg, html, data) {
+    if (html.find(".toolkit-chat").length) html.find(".message-header").hide();
+  }
+  
+  const resolveHiddenToken = function(messageData) {
+    if (!game.user.isGM) return;
+    const speaker = messageData.speaker;
+    if (!speaker) return;
+    const token = canvas.tokens.get(speaker.token);
+    if (token && token.data.hidden) {
+      messageData.whisper = ChatMessage.getWhisperRecipients("GM");
+    }
+  }
+  
+  const resolvePCToken = function(messageData) {
+    // console.log(messageData);
+    if (!game.user.isGM) return;
+    const speaker = messageData.speaker;
+    if (!speaker) return;
+    const token = canvas.tokens.get(speaker.token);
+    if (!messageData.roll && token?.actor?.hasPlayerOwner) {
+      messageData.speaker = {};
+      messageData.speaker.alias = game.users.get(messageData.user).name;
+      messageData.type = CONST.CHAT_MESSAGE_TYPES.OOC;
+    }
+  }
+  
+  const resolvePreCreateMessage = function(messageData) {
+    resolveHiddenToken(messageData);
+    resolvePCToken(messageData); 
+  }
   
   // HOOKS
   Hooks.on("ready", function() {
-    game.socket.on("module.dm_toolkit", deleteOwnToken);
-    Hooks.on("chatMessage", handleInput);
-    Hooks.on("createOwnedItem", addProficiency);
-    Hooks.on("hotbarDrop", actorDrop);
+    activateListeners();
+    game.socket.on("module.dm_toolkit", deleteOwnToken);    
     console.log("-=> DMToolkit v" + DMToolkit_Version + " <=- [" + (new Date(DMToolkit_LastUpdated * 1000)) + "]");
-    //console.log(Date.now().toString().substr(0, 10));
   });
   
+  Hooks.on("canvasReady", addGridBorder);
+  Hooks.on("chatMessage", handleInput);
+  Hooks.on("createOwnedItem", addProficiency);
+  Hooks.on("preCreateChatMessage", resolvePreCreateMessage);
+  Hooks.on("renderChatMessage", hideCardHeader);
+  Hooks.on("updateActor", checkActorStatus);
+  Hooks.on("updateToken", checkTokenStatus);
+  
   Hooks.once("ready", function() {
+    // TOOLKIT CONFIGURATION SETTINGS
+    game.settings.register("dm_toolkit", "deleteOwnToken", {
+      name: "Allow Players to Delete Own Tokens",
+      hint: "This option will allow players to delete tokens they control.",
+      scope: "world",
+      config: true,
+      default: "true",
+      type: Boolean
+    });
+    
+    game.settings.register("dm_toolkit", "announceToChat", {
+      name: "Announce HP Changes to Chat",
+      hint: "This option will enable or disable the announcement of healing or damage to tokens using !heal or !damage.",
+      scope: "world",
+      config: true,
+      default: "true",
+      type: Boolean
+    });
+    
+    // ENABLE PLAYERS TO DELETE OWNED TOKENS
     document.addEventListener("keyup", evt => {
-      if (evt.key !== "Delete" || $(":focus").length > 0 || game.user.isGM) return;
+      if (evt.key !== "Delete" || $(":focus").length > 0 || game.user.isGM || !game.settings.get("dm_toolkit", "deleteOwnToken")) return;
       let activeGM = game.users.find(a => a.active && a.isGM)._id || false;
       if (!activeGM) {
-        ui.notifications.warn(`Could not delete any tokens because there a GM is not connected.`);
+        ui.notifications.warn(`Could not delete any tokens because a GM is not online.`);
         return;
       }
       let layer = canvas.activeLayer;
@@ -335,7 +465,7 @@ const DM_Toolkit = (() => {
     });
   });
   
-	// SAVES POSITION OF MINIMIZED SHEET ICONS AND RESTORES THEM
+  // SAVES POSITION OF MINIMIZED SHEET ICONS AND RESTORES THEM
   Application.prototype.minimize = async function() {
     if ( !this.popOut || [true, null].includes(this._minimized) ) return;
     this._minimized = null;
@@ -385,7 +515,7 @@ const DM_Toolkit = (() => {
       });
     })
   };
-	
+  
   Application.prototype.maximize = async function() {
     if ( !this.popOut || [false, null].includes(this._minimized) ) return;
     this._minimized = null;
@@ -410,7 +540,7 @@ const DM_Toolkit = (() => {
         game.settings.set('foundry-pin', 'pins', pins);
       }
     }
-		
+    
     return new Promise((resolve) => {
       let target = {width: this.position.width, height: this.position.height};
       if (this._skycons.maxpos !== undefined) {
@@ -432,8 +562,3 @@ const DM_Toolkit = (() => {
     })
   };  
 })();
-
-/* TO DO: Find hook for scene creation and use below add border to grid
-const border = canvas.grid.addChild(new PIXI.Graphics());
-border.lineStyle(1.0, colorStringToHex(canvas.scene.data.gridColor), canvas.scene.data.gridAlpha).drawRect(0, 0, canvas.dimensions.width, canvas.dimensions.height);
-*/
