@@ -5,7 +5,7 @@
 ## Alt5e
 
 * **Author**: Sky#9435
-* **Version**: 1.5.0
+* **Version**: 1.5.1
 * **Foundry VTT Compatibility**: 0.7.8
 * **System Compatibility**: D&D 5th Edition 1.2.0
 
@@ -20,6 +20,12 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.5.1
+* Restored display of passives in Traits
+* Changed position and style of passives
+* Changed position and style of Size dropdown
+* Moved the Special Traits configuration button to the top of the Traits section
+
 ### Version 1.5.0
 * Version compatibility update for D&D 1.2.0
 * Adjusted to new configuration buttons setup
