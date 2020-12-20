@@ -1,12 +1,12 @@
-![](https://img.shields.io/badge/Foundry-v0.7.8-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.9-informational)
 
 ![](https://img.shields.io/badge/D&D5e-v1.1.1-informational)
 
 ## DM Toolkit
 
 * **Author**: Sky#9435
-* **Version**: 2.2.0
-* **Foundry VTT Compatibility**: 0.7.8
+* **Version**: 2.2.1
+* **Foundry VTT Compatibility**: 0.7.9
 * **System Compatibility**: D&D 5th Edition 1.1.1
 
 ### Link(s) to Module
@@ -16,6 +16,11 @@
 This is a personal toolkit containing various capabilities listed below. 
 
 ## Patch Notes
+### Version 2.2.1
+* Foundry version compatibility update to 0.7.9
+* Cleaned up code
+* Added option to auto-unpause on load
+
 ### Version 2.2.0
 * Stole code to prevent GM from speaking as a PC's token if selected
 * Stole code to auto-hide rolls and chat from hidden tokens (GM only)
