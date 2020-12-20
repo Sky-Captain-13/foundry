@@ -42,7 +42,11 @@ a:hover,
 	font-weight: 700;
 	text-shadow: none;
 }
-
+/*
+#actors-popout .entity-name a:hover {
+  font-weight: normal;
+}
+*/
 .alt5e.dnd5e.sheet input[type="text"]:hover,
 .alt5e.dnd5e.sheet select:hover,
 .alt5e.dnd5e input[type="text"]:hover, 

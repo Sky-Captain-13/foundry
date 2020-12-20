@@ -1,7 +1,9 @@
 /* IMG BORDER REMOVAL */
-  img.profile { 
-    border: none !important; 
-  }
+img.profile, .dnd5e.chat-card .card-header img,
+#player-config .avatar { 
+	border: none !important; 
+	border-radius: 5px;
+}
 
 
 /* MISCELLANEOUS */
@@ -9,7 +11,7 @@ button {
 	border-radius: 5px;
 }
 
-.fa-angle-up:before {
+.playlist-name .fa-angle-up:before {
 	content: "\f105";
 }
 
@@ -18,13 +20,24 @@ button {
 	padding: 5px;
 }
 
+/* PERMISSION VIEWER MODULE STUFF */
+.permission-viewer-all, .permission-viewer-owner, .permission-viewer-user {
+  vertical-align: middle;
+}
+
+.permission-viewer-user {
+  height: 12px;
+  width: 12px;
+}
+
+/* MONSTER BLOCKS */
+.monsterblock header .profile-image img {
+  object-fit: cover;
+  border-radius: 5px;
+}
+
 /* UNSET LINE HEIGHT FONT AWESOME ICONS */
 #sidebar .fa, #sidebar .fab, #sidebar .fad, #sidebar .fal, #sidebar .far, #sidebar .fas { line-height: unset; }
-
-/* MAKE THE TOKEN HUD LESS TRANSPARENT & BIGGER */
-.placeable-hud input[type="text"] {
-  background: rgba(0, 0, 0, 0.75) !important;
-}
 
 /* SCROLL BARS - CHROME ONLY ~ FUCK FIREFOX */
 ::-webkit-scrollbar-thumb {
@@ -62,6 +75,8 @@ button {
 .placeable-hud .control-icon.active {
   border: 1px solid #FFF;
 }
+
+/* MISC */
 
 a:hover,
 .tabs .item.active {
@@ -243,7 +258,7 @@ li.folder > .folder-header,
 }
 
 ol.subdirectory  {
-  margin-left: 5px;
+  margin: 5px 0px 3px 5px;
 	padding-left: 5px;
 }
 
@@ -258,10 +273,11 @@ li.folder > .folder-header h3 > i {
   vertical-align: middle;
   font-size: 2em;
 }
-
+/*
 #actors-popout {
   width: fit-content !important;
 }
+*/
 
 /* SIDEBAR BACKGROUND & TEXT COLOR */
 #sidebar, .sidebar-popout {
@@ -283,12 +299,13 @@ li.folder.collapsed > .folder-header {
 }
 
 li.folder > .folder-header {
-	padding: 3px 4px 1px 0px;
+	padding: 3px 4px 0px 0px;
 }
 
 .sidebar-tab .directory-list .directory-item h3, .sidebar-tab .directory-list .directory-item h4 {
   padding: 0px 6px;
   font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .sidebar-tab .directory-list .directory-item img {
@@ -305,12 +322,18 @@ li.folder > .folder-header {
 #items-popout li.folder > .folder-header h3,
 #scenes-popout li.folder > .folder-header h3 {
 	margin-top: -2px;
+  margin-bottom: 2px;
+}
+
+#scenes .scene h3 a {
+  color: #FFF;
+  text-shadow: 1px 1px 3px #000, 1px -1px 3px #000, -1px 1px 3px #000, -1px -1px 3px #000;
 }
 
 #scenes .scene h3 a:hover {
   color: #FFF;
   font-weight: normal;
-  text-shadow: 1px 1px 3px #000, 1px -1px 3px #000, -1px 1px 3px #000;
+  text-shadow: 1px 1px 3px #000, 1px -1px 3px #000, -1px 1px 3px #000, -1px -1px 3px #000, 0 0 10px #000, 0 0 8px #000, 0 0 6px #000;
 }
 
 /* COMBAT TRACKER */
@@ -378,28 +401,27 @@ li.folder > .folder-header {
 
 /* SCENE TAB */
 #scenes .scene h3 {
-  font-size: 1.75em;
+  font-size: 1.5em;
   color: #FFF;
   text-shadow: 1px 1px 3px #000, 1px -1px 3px #000, -1px 1px 3px #000;
-	line-height: 100px;
+	line-height: inherit;
 	padding-left: 0px;
 }
 
 #scenes .subdirectory {
   border-left: 1px solid rgba(51, 51, 51, 0.5);
   border-bottom: 1px solid rgba(51, 51, 51, 0.5);
-  border-radius: 0px 0px 0px 15px;
-	padding-bottom: 10px;
+  border-radius: 0px 0px 0px 5px;
+	padding-bottom: 5px;
+  margin: -5px 0px 0px 5px;
 }
 
 #scenes .scene {
-	border-radius: 15px;
-	position: relative;
-	height: 100px;
-	line-height: 100px;
-	background-position: 50% 50%;
+	border-radius: 5px;
+	height: 75px;
+	line-height: 75px;
 	border: 1px solid rgba(0, 0, 0, 0.8);
-	margin: 6px 0px -5px 5px;
+	margin: 5px 0px 0px 0px;
 	box-shadow: none;
 }
 
@@ -447,99 +469,122 @@ li.folder > .folder-header {
 }
 
 /* TOKEN & PLACEABLE HUD ALTERATIONS */
-  #token-hud .status-effects {
-    top: -2px;
-    width: 220px;
-    grid-template-columns: 56px 56px 56px 56px;
-    background: rgba(0, 0, 0, 1);
-    box-shadow: none;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 5px 1px 5px;
-  }
+#token-hud .status-effects {
+	top: -2px;
+	width: 220px;
+	grid-template-columns: 56px 56px 56px 56px;
+	background: rgba(0, 0, 0, 1);
+	box-shadow: none;
+	border: none;
+	border-radius: 5px;
+	padding: 5px 5px 1px 5px;
+}
 
-  #token-hud .status-effects .effect-control {
-    height: 52px;
-    width: 52px;
-    border: 2px solid transparent;
-    padding: 2px;
-    margin-bottom: 4px;
-  }
+#token-hud .status-effects .effect-control {
+	height: 52px;
+	width: 52px;
+	border: 2px solid transparent;
+	padding: 2px;
+	margin-bottom: 4px;
+}
 
-  #token-hud .status-effects .effect-control:hover {
-    opacity: 1;
-    border: 2px solid #0FF;
-    border-radius: 5px;
-    background: rgba(0, 255, 255, 0.25);
-  }
-  
-  #token-hud .status-effects .effect-control.active {
-    border: 2px solid #0F0;
-    border-radius: 5px;
-    background: rgba(0, 255, 0, 0.25);
-  }
-  
-  #token-hud .attribute.bar1 input {
-    border: 2px solid #7cd000;
-  }
-  
-  .placeable-hud .control-icon {
-    border: 2px solid transparent;
-    background: #000;
-  }
-  
-  .placeable-hud .control-icon:hover {
-    border: 2px solid #0FF;
-  }
-  
-  .placeable-hud .control-icon.active {
-    color: #FFF;
-    border: 2px solid #0F0;
-  }
-  
-  .placeable-hud .control-icon.active img {
-    opacity: 1;
-  }
-  
-  .placeable-hud input[type="text"] {
-    background: #000;
-    box-shadow: none;
-  }
+#token-hud .status-effects .effect-control:hover {
+	opacity: 1;
+	border: 2px solid #0FF;
+	border-radius: 5px;
+	background: rgba(0, 255, 255, 0.25);
+}
+
+#token-hud .status-effects .effect-control.active {
+	border: 2px solid #0F0;
+	border-radius: 5px;
+	background: rgba(0, 255, 0, 0.25);
+}
+
+#token-hud .attribute.elevation input {
+	border: 2px solid #FF00FF;
+}
+
+#token-hud .attribute.elevation input:hover,
+#token-hud .attribute.elevation input:focus {
+  box-shadow: 0 0 5px #CC00FF, 0 0 10px #CC00FF;
+}
+
+#token-hud .attribute.bar1 input {
+	border: 2px solid #00FF00;
+}
+
+#token-hud .attribute.bar1 input:hover,
+#token-hud .attribute.bar1 input:focus {
+  box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
+}
+
+#token-hud .attribute.bar2 input {
+	border: 2px solid #00FFFF;
+}
+
+#token-hud .attribute.bar2 input:hover,
+#token-hud .attribute.bar2 input:focus {
+  box-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF;
+}
+
+.placeable-hud .control-icon {
+	border: 2px solid transparent;
+	background: #000;
+}
+
+.placeable-hud .control-icon:hover {
+	border: 2px solid #0FF;
+}
+
+.placeable-hud .control-icon.active {
+	color: #FFF;
+	border: 2px solid #0F0;
+}
+
+.placeable-hud .control-icon.active img {
+	opacity: 1;
+}
+
+.placeable-hud input[type="text"] {
+	background: #000;
+	box-shadow: none;
+}
 	
 /* CONTROLS MENU */
-  #controls .scene-control:hover, #controls .control-tool:hover {
-    border: 1px solid #0FF;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #0FF;
-  }
-  
-  #controls .scene-control.active, #controls .control-tool.active {
-    border: 1px solid #0F0;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #0F0;
-  }
-  
-  #controls .control-tool, #controls .control-tool.toggle {
-    border: 1px solid #000;
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 5px #000;
-  }
-  
-  #controls .control-tool.toggle.active {
-    color: #FFF;
-    background: rgba(0, 255, 0, 0.5);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #0F0;
-    border: 1px solid #0F0;
-  }
-  
-  #controls .control-tool.toggle:hover {
-    color: #FFF;
-    background: rgba(0, 255, 255, 0.5);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #0FF;
-    border: 1px solid #0FF;
-  }
-  
-  #controls .control-tool.toggle.active:hover {
-    color: #FFF;
-    background: rgba(150, 0, 0, 0.5);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #800;
-    border: 1px solid #C00;
-  }
+#controls .scene-control:hover, #controls .control-tool:hover {
+	border: 1px solid #0FF;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #0FF;
+}
+
+#controls .scene-control.active, #controls .control-tool.active {
+	border: 1px solid #0F0;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #0F0;
+}
+
+#controls .control-tool, #controls .control-tool.toggle {
+	border: 1px solid #000;
+	background: rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 5px #000;
+}
+
+#controls .control-tool.toggle.active {
+	color: #FFF;
+	background: rgba(0, 255, 0, 0.5);
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #0F0;
+	border: 1px solid #0F0;
+}
+
+#controls .control-tool.toggle:hover {
+	color: #FFF;
+	background: rgba(0, 255, 255, 0.5);
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #0FF;
+	border: 1px solid #0FF;
+}
+
+#controls .control-tool.toggle.active:hover {
+	color: #FFF;
+	background: rgba(150, 0, 0, 0.5);
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #800;
+	border: 1px solid #C00;
+}
