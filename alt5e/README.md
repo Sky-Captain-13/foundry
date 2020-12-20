@@ -1,12 +1,11 @@
-![](https://img.shields.io/badge/Foundry-v0.7.8-informational)
+![](https://img.shields.io/badge/Foundry-v0.7.9-informational)
 
 ![](https://img.shields.io/badge/D&D5e-v1.2.0-informational)
 
 ## Alt5e
-
 * **Author**: Sky#9435
-* **Version**: 1.5.1
-* **Foundry VTT Compatibility**: 0.7.8
+* **Version**: 1.5.2
+* **Foundry VTT Compatibility**: 0.7.9
 * **System Compatibility**: D&D 5th Edition 1.2.0
 
 ### Link(s) to Module
@@ -20,6 +19,11 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.5.2
+* Foundry version compatibility update to 0.7.9
+* Minor css adjustments
+* Sheet no longer forces itself to be the default sheet
+
 ### Version 1.5.1
 * Restored display of passives in Traits
 * Changed position and style of passives
