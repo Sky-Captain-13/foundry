@@ -7,7 +7,7 @@
 * **Author**: Sky#9435
 * **Version**: 2.2.1
 * **Foundry VTT Compatibility**: 0.7.9
-* **System Compatibility**: D&D 5th Edition 1.1.1
+* **System Compatibility**: D&D 5th Edition 1.2.0
 
 ### Link(s) to Module
 * [https://github.com/Sky-Captain-13/foundry/tree/master/dm_toolkit](https://github.com/Sky-Captain-13/foundry/tree/master/dm_toolkit)
