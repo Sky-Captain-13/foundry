@@ -43,11 +43,10 @@
 }
 
 .alt5e.dnd5e.sheet.actor.character .sheet-header img.profile {
-	padding: 5px;
-	margin: 0px 0px 0px -5px;
-	object-fit: contain;
+	object-fit: cover;
 	height: auto;
 	border-right: none;
+  border-radius: 10px;
 }
 
 .alt5e.dnd5e.sheet.actor .counters {
@@ -526,6 +525,7 @@
 
 .alt5e.dnd5e.sheet .sheet-header .header-details {
 	border-left: 1px solid rgba(0, 0, 0, 0.15);
+  margin-left: -2px;
 }
 
 .alt5e.dnd5e.sheet.actor .inventory-filters .currency input[type="text"] {
@@ -547,4 +547,8 @@
 
 .dnd5e.chat-card .card-header img { 
 	border: none; 
+}
+
+.alt5e.dnd5e.sheet.actor .traits a:hover {
+  text-shadow: none;
 }

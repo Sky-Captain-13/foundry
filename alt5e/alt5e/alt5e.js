@@ -4,8 +4,10 @@ import ActorSheet5eCharacter from "../../systems/dnd5e/module/actor/sheets/chara
 
 // VERSION INFORMATION
 const Alt5e_Author = "Sky";
-const Alt5e_Version = "1.5.1";
-const Alt5e_LastUpdated = 1608080828; //console.log(Date.now().toString().substr(0, 10));
+const Alt5e_Version = "1.5.2";
+const Alt5e_LastUpdated = 1608497645; //console.log(Date.now().toString().substr(0, 10));
+// Update Notes ~ 1.5.2
+// * Changed sheet to not force to default sheet
 
 export class Alt5eSheet extends ActorSheet5eCharacter {
   get template() {
@@ -387,7 +389,7 @@ async function migrateTraits(app, html, data) {
 
 Actors.registerSheet("dnd5e", Alt5eSheet, {
   types: ["character"],
-  makeDefault: true,
+  makeDefault: false,
 	label: "Sky's Alternate 5e Sheet"
 });
 

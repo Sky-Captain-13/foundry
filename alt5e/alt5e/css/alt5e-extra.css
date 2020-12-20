@@ -1,6 +1,7 @@
 /*
-
-DELETE THIS LINE (LINE #3) TO DISABLE THIS CSS */
+DELETE LINE #4 TO DISABLE THIS CSS */
+/*
+*/
 
 ::-webkit-scrollbar {
 	height: 6px;
@@ -20,7 +21,6 @@ input[type="datetime-local"]:hover,
 input[type="datetime-local"]:focus,
 .dnd5e input[type="text"]:hover, 
 .dnd5e input[type="text"]:focus {
-	/* box-shadow: 0px 0px 5px #ff0000, 0px 0px 5px #c53131; */
 	box-shadow: none;
 }
 
@@ -40,6 +40,11 @@ a:hover,
 	text-shadow: none;
 }
 
+.entity-name a:hover {
+	color: #FFF;
+	text-shadow: 0px 0px 2px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, 0.8);
+}
+
 .dnd5e.sheet .sheet-navigation .item.active {
 	color: #c53131;
 	border-bottom: 3px solid #c53131;
@@ -49,9 +54,24 @@ a:hover,
 .dnd5e.sheet.item .sheet-header img.profile {
 	border: none;
 }
-/**/
 
-/* FILEPICKER */
+#navigation #scene-list .scene a:hover {
+  font-weight: normal;
+  color: #FFF;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 8px rgba(255, 255, 255, 0.9), 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+#scenes .scene h3 a {
+  color: #FFF;
+  text-shadow: 1px 1px 3px #000, 1px -1px 3px #000, -1px 1px 3px #000, -1px -1px 3px #000;
+}
+
+#scenes .scene h3 a:hover {
+  color: #FFF;
+  font-weight: normal;
+  text-shadow: 1px 1px 3px #000, 1px -1px 3px #000, -1px 1px 3px #000, -1px -1px 3px #000, 0 0 10px #000, 0 0 8px #000, 0 0 6px #000;
+}
+
 .filepicker .display-modes a.active {
   background: #c53131;
   color: #FFF;
@@ -87,3 +107,4 @@ a:hover,
 	font-weight: normal;
 	font-size: 12px;
 }
+/**/
