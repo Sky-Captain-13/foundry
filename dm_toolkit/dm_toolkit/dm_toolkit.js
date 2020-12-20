@@ -1,8 +1,8 @@
 const DM_Toolkit = (() => {
   // VERSION INFORMATION
   const DMToolkit_Author = "Sky";
-  const DMToolkit_Version = "2.2.0";
-  const DMToolkit_LastUpdated = 1608080828; //console.log(Date.now().toString().substr(0, 10));
+  const DMToolkit_Version = "2.2.1";
+  const DMToolkit_LastUpdated = 1608497645; //Date.now().toString().substr(0, 10)
   
   // FUNCTIONS
   const activateListeners = function() {
@@ -95,7 +95,8 @@ const DM_Toolkit = (() => {
     return Promise.all(promises);
   }
   
-  const checkActorStatus = async function(actorData, changed) {
+  const checkActorStatus = async function(actorData, changed, options, id) {
+    if (game.userId !== id) return;
     if (changed?.data?.attributes?.hp !== undefined) {
       let token = canvas.tokens.placeables.filter(t => (t.data.actorId === actorData.id))[0];
       let hp = actorData.data.data.attributes.hp;
@@ -104,7 +105,8 @@ const DM_Toolkit = (() => {
     }
   }
   
-  const checkTokenStatus = async function(scene, tokenData, changed) {
+  const checkTokenStatus = async function(scene, tokenData, changed, options, id) {
+    if (game.userId !== id) return;
     if (changed?.actorData?.data?.attributes?.hp !== undefined) {
       let token = canvas.tokens.get(tokenData._id);
       let hp = token.actor.data.data.attributes.hp;
@@ -426,6 +428,24 @@ const DM_Toolkit = (() => {
   
   Hooks.once("ready", function() {
     // TOOLKIT CONFIGURATION SETTINGS
+    game.settings.register("dm_toolkit", "announceToChat", {
+      name: "Announce HP Changes to Chat",
+      hint: "This option will enable or disable the announcement of healing or damage to tokens using !heal or !damage.",
+      scope: "world",
+      config: true,
+      default: "true",
+      type: Boolean
+    });
+    
+    game.settings.register("dm_toolkit", "autoUnpause", {
+      name: "Auto-Unpause",
+      hint: "Automatically unpause the game after loading.",
+      scope: "world",
+      config: true,
+      default: "false",
+      type: Boolean
+    });
+    
     game.settings.register("dm_toolkit", "deleteOwnToken", {
       name: "Allow Players to Delete Own Tokens",
       hint: "This option will allow players to delete tokens they control.",
@@ -435,14 +455,9 @@ const DM_Toolkit = (() => {
       type: Boolean
     });
     
-    game.settings.register("dm_toolkit", "announceToChat", {
-      name: "Announce HP Changes to Chat",
-      hint: "This option will enable or disable the announcement of healing or damage to tokens using !heal or !damage.",
-      scope: "world",
-      config: true,
-      default: "true",
-      type: Boolean
-    });
+    // AUTO UNPAUSE
+    let removePause = game.settings.get("dm_toolkit", "autoUnpause");
+    if (!removePause) setTimeout(function(){ game.togglePause(); }, 500);
     
     // ENABLE PLAYERS TO DELETE OWNED TOKENS
     document.addEventListener("keyup", evt => {
@@ -562,3 +577,15 @@ const DM_Toolkit = (() => {
     })
   };  
 })();
+
+/*
+ FIGURE OUT HOW TO FILL TEMPLATES INSTEAD OF HIGHLIGHTING GRID SPACES
+ Per Moerill: MeasuredTemplates#highlightGrid << make this do nothing
+class yourMeasuredTemplate extends MeasuredTemplate {
+constructor (...args) {
+  super(...args);
+  this._borderThickness = 0;
+}
+}
+MeasuredTemplate = yourMeasuredTemplate;
+*/
