@@ -5,7 +5,7 @@
 ## Luminous
 
 * **Author**: Sky#9435
-* **Version**: 0.0.9
+* **Version**: 0.0.10
 * **Foundry VTT Compatibility**: 0.7.9
 * **System Compatibility**: D&D 5th Edition 1.2.0
 * **Module Conflicts**: Any module that affects CSS across a variety of modules
@@ -18,6 +18,9 @@
 Provides a lighter take on the Foundry UI with less transparency and the use of cooler colors. 
 
 ## Patch Notes
+### Version 0.0.10
+* Yet another correction to module.json version
+
 ### Version 0.0.9
 * Added compatibility with Dice Tray
 * Improved playlist by hiding playlist controls until you mouse over the playlist
