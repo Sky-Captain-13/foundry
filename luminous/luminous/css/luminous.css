@@ -207,7 +207,6 @@ textarea:focus {
 }
 
 /* SIDEBAR */
-/* TAB COLORS */
 #sidebar-tabs > .item {
   line-height: 31px;
 }
@@ -255,6 +254,7 @@ li.folder > .folder-header,
 .sidebar-tab .directory-list {
 	padding-left: 5px;
   padding-right: 5px;
+  overflow-y: scroll;
 }
 
 ol.subdirectory  {
@@ -587,4 +587,68 @@ li.folder > .folder-header {
 	background: rgba(150, 0, 0, 0.5);
 	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #800;
 	border: 1px solid #C00;
+}
+
+/* PLAYLIST IMPROVEMENTS */
+#playlists li.playlist {
+  padding: 0px;
+}
+
+#playlists li.playlist .playlist-header .playlist-name {
+  font-weight: bold;
+}
+
+#playlists .directory-item > .playlist-sounds > li.sound:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+#playlists li.sound .sound-name {
+  overflow: visible;
+}
+
+#playlists li.sound .sound-controls {
+  flex: 1;
+  visibility: hidden;
+}
+
+#playlists li.playlist:hover .sound-name {
+  overflow: hidden;
+}
+#playlists li.playlist:hover .sound-controls {
+  flex: 0 0 152px;
+  visibility: visible;
+}
+
+/* DICE TRAY COMPATIBILITY */
+.dice-tray button {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.dice-tray input[type="text"] {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dice-tray button.dice-tray__math--sub:hover {
+  background: #440000;
+  box-shadow: 0 0 10px inset #AA0000;
+  border-color: #CC0000;
+}
+
+.dice-tray button.dice-tray__math--add:hover {
+  background: #006600;
+  box-shadow: 0 0 10px inset #00AA00;
+  border-color: #00CC00;
+}
+
+.dice-tray button.dice-tray__advantage:hover, .dice-tray button.dice-tray__advantage.active {
+  background: #008800;
+  box-shadow: 0 0 6px inset #00AA00;
+  border-color: #00FF00;
+}
+
+.dice-tray button.dice-tray__disadvantage:hover, .dice-tray button.dice-tray__disadvantage.active {
+  background: #440000;
+  box-shadow: 0 0 6px inset #AA0000;
+  border-color: #CC0000;
 }
