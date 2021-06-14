@@ -5,7 +5,7 @@
 ## Luminous
 
 * **Author**: Sky#9435
-* **Version**: 0.1.0
+* **Version**: 0.1.1
 * **Foundry VTT Compatibility**: 0.8.6
 * **System Compatibility**: D&D 5th Edition 1.3.3
 * **Module Conflicts**: Any module that affects CSS across a variety of modules
@@ -18,6 +18,9 @@
 Provides a lighter take on the Foundry UI with less transparency and the use of cooler colors. 
 
 ## Patch Notes
+### Version 0.1.1
+* Uploading folders and zip files into the right place this time...
+
 ### Version 0.1.0
 * Updated for some changes made to playlists
 * Tinkered around with the compendium folders/icons (book instead of folder for the compendium icon)
