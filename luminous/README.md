@@ -1,13 +1,13 @@
-![](https://img.shields.io/badge/Foundry-v0.7.9-informational)
+![](https://img.shields.io/badge/Foundry-v0.8.9-informational)
 
-![](https://img.shields.io/badge/D&D5e-v1.2.0-informational)
+![](https://img.shields.io/badge/D&D5e-v1.3.3-informational)
 
 ## Luminous
 
 * **Author**: Sky#9435
-* **Version**: 0.0.10
-* **Foundry VTT Compatibility**: 0.7.9
-* **System Compatibility**: D&D 5th Edition 1.2.0
+* **Version**: 0.1.0
+* **Foundry VTT Compatibility**: 0.8.6
+* **System Compatibility**: D&D 5th Edition 1.3.3
 * **Module Conflicts**: Any module that affects CSS across a variety of modules
 
 ### Link(s) to Module
@@ -18,6 +18,12 @@
 Provides a lighter take on the Foundry UI with less transparency and the use of cooler colors. 
 
 ## Patch Notes
+### Version 0.1.0
+* Updated for some changes made to playlists
+* Tinkered around with the compendium folders/icons (book instead of folder for the compendium icon)
+* Fixed top/bottom borders on actors
+* Updated for 08x
+
 ### Version 0.0.10
 * Yet another correction to module.json version
 
