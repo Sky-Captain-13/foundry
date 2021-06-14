@@ -1,3 +1,13 @@
+#notifications {
+  display: none;
+}
+
+/* ATROPOS !IMPORTANT BULLSHIT REMOVER */
+.directory-item.compendium-folder h4 {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
 /* IMG BORDER REMOVAL */
 img.profile, .dnd5e.chat-card .card-header img,
 #player-config .avatar { 
@@ -11,6 +21,7 @@ button {
 	border-radius: 5px;
 }
 
+.global-control .fa-angle-up:before, 
 .playlist-name .fa-angle-up:before {
 	content: "\f105";
 }
@@ -273,11 +284,45 @@ li.folder > .folder-header h3 > i {
   vertical-align: middle;
   font-size: 2em;
 }
-/*
-#actors-popout {
-  width: fit-content !important;
+
+/* COMPENDIUM TAB BULLSHIT */
+.compendium-pack {
+  padding: 0px !important;
+  margin: 0px !important;
 }
-*/
+
+#compendium li.compendium-pack .status-icons,
+#compendium li.compendium-pack .compendium-footer {
+  color: #666;
+}
+
+#compendium > ul > li > ol > li > h4 > a > i::before {
+  content: "\f02d";
+}
+
+/* COMPENDIUM FOLDER MODULE COMPATIBILITY */
+li.compendium-folder > .compendium-folder-header h3 > i {
+  display: inline;
+  vertical-align: middle;
+  font-size: 2em;
+}
+
+.folder-contents {
+  border-left: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  border-radius: 0px 0px 0px 5px;
+}
+
+.compendium-folder-header > .create-folder, .move-folder, .edit-folder,
+.folder-header a.export-folder, a.import-folder, a.create-fic {
+  color: #333 !important;
+}
+
+li.compendium-folder > .compendium-folder-header {
+  background-color: transparent !important;
+  color: #333 !important;
+  border: none;
+}
 
 /* SIDEBAR BACKGROUND & TEXT COLOR */
 #sidebar, .sidebar-popout {
@@ -337,17 +382,24 @@ li.folder > .folder-header {
 }
 
 /* COMBAT TRACKER */
+
+#combat li.combatant .token-name .combatant-control {
+  color: #999;
+}
+
 #combat #combat-round .encounters a,
 #combat #combat-round .encounters h4,
 #combat li.combatant .token-resource,
-#combat li.combatant .token-name .combatant-control {
+#combat li.combatant .token-name .combatant-control.active {
   color: #333;
 	border: none;
 }
 
 #combat li.combatant .token-name,
+#combat li.combatant .token-resource .resource,
 #combat li.combatant .token-initiative .initiative {
 	font-size: 22px;
+  font-weight: bold;
   text-shadow: none;
 }
 
@@ -417,6 +469,7 @@ li.folder > .folder-header {
 }
 
 #scenes .scene {
+  background-size: 100% auto;
 	border-radius: 5px;
 	height: 75px;
 	line-height: 75px;
@@ -429,6 +482,79 @@ li.folder > .folder-header {
 #playlists li.playlist .sound-control {
   font-size: 13px;
   color: #333;
+}
+
+#playlists li.playlist .sound-control.inactive {
+  color: #777;
+}
+
+#playlists li.sound .sound-playback .sound-timer,
+#playlists i.volume-icon {
+  color: #333;
+}
+
+#playlists #global-volume .playlist-header h4,
+#playlists .global-control .playlist-header h4 {
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+#playlists .global-control .playlist-sounds {
+  padding: 0px 6px;
+}
+
+#playlists li.playlist {
+  padding: 0px;
+}
+
+#playlists li.playlist .playlist-header .playlist-name {
+  font-weight: bold;
+}
+
+#playlists .directory-item > .playlist-sounds > li.sound:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+#playlists li.sound .sound-name {
+  flex: 6;
+}
+
+#playlists li.sound .sound-controls {
+  flex: 1;
+  visibility: hidden;
+}
+
+#playlists li.playlist:hover .sound-controls {
+  flex: 0 0 70px;
+  visibility: visible;
+}
+
+#playlists .playlist .playlist-header .playlist-name i.fa, 
+#playlists .sound-control {
+  color: #333;
+}
+
+#playlists .sound-control.disabled {
+  color: #999;
+}
+
+#currently-playing > ol > li > div.sound-controls.flexrow {
+  visibility: visible;
+}
+
+#playlists .global-control .playlist-sounds input[type="range"] {
+  flex: 20;
+}
+
+#playlists .global-control .playlist-header {
+  background: none;
+  border-bottom: none;
+}
+
+#playlists .directory-list {
+  border-top: 1px solid #000;
 }
 
 /* SETTINGS */
@@ -589,37 +715,6 @@ li.folder > .folder-header {
 	border: 1px solid #C00;
 }
 
-/* PLAYLIST IMPROVEMENTS */
-#playlists li.playlist {
-  padding: 0px;
-}
-
-#playlists li.playlist .playlist-header .playlist-name {
-  font-weight: bold;
-}
-
-#playlists .directory-item > .playlist-sounds > li.sound:nth-child(odd) {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-}
-
-#playlists li.sound .sound-name {
-  overflow: visible;
-}
-
-#playlists li.sound .sound-controls {
-  flex: 1;
-  visibility: hidden;
-}
-
-#playlists li.playlist:hover .sound-name {
-  overflow: hidden;
-}
-#playlists li.playlist:hover .sound-controls {
-  flex: 0 0 152px;
-  visibility: visible;
-}
-
 /* DICE TRAY COMPATIBILITY */
 .dice-tray button {
   background: rgba(0, 0, 0, 0.8);
@@ -651,4 +746,12 @@ li.folder > .folder-header {
   background: #440000;
   box-shadow: 0 0 6px inset #AA0000;
   border-color: #CC0000;
+}
+
+div.permission-viewer > a > div > i {
+  color: #333 !important;
+}
+
+.directory .directory-list .directory-item.entity {
+  border: none;
 }
