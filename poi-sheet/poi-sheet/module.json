@@ -1,16 +1,28 @@
 {
-	"name": "poi-sheet",
-	"title": "Point of Interest Sheet",
-	"description": "A very simple alternate sheet that allows actors to be used as Points of Interest if map notes don't work for you.",
-	"version": "0.0.8",
-	"author": "Sky#9453",
-	"minimumCoreVersion": "0.6.0",
-	"compatibleCoreVersion": "0.7.8",
-	"minimumSystemVersion": "1.1.1",
-	"systems": ["dnd5e"],
-	"scripts": ["./poi-sheet.js"],
-	"styles": ["/poi-sheet.css"],
-	"url": "https://github.com/Sky-Captain-13/foundry/tree/master/poi-sheet",
-	"manifest": "https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/poi-sheet/poi-sheet/module.json",
-	"download": "https://github.com/Sky-Captain-13/foundry/raw/master/poi-sheet/poi-sheet.zip"
+  "name": "poi-sheet",
+  "title": "Point of Interest Sheet",
+  "description": "A very simple alternate sheet that allows actors to be used as Points of Interest if map notes don't work for you.",
+  "author": "Sky#9453",
+  "url": "https://github.com/Sky-Captain-13/foundry/tree/master/poi-sheet",
+  "flags": {},
+  "version": "0.1.0",
+  "minimumCoreVersion": "0.8.7",
+  "compatibleCoreVersion": "0.8.7",
+  "scripts": [
+    "./poi-sheet.js"
+  ],
+  "esmodules": [],
+  "styles": [
+    "/poi-sheet.css"
+  ],
+  "languages": [],
+  "packs": [],
+  "system": [],
+  "dependencies": [],
+  "socket": false,
+  "manifest": "https://raw.githubusercontent.com/Sky-Captain-13/foundry/master/poi-sheet/poi-sheet/module.json",
+  "download": "https://github.com/Sky-Captain-13/foundry/raw/master/poi-sheet/poi-sheet.zip",
+  "protected": false,
+  "coreTranslation": false,
+  "minimumSystemVersion": "1.3.5"
 }

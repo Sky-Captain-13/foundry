@@ -7,17 +7,19 @@
 			</h1>
 			<ul class="summary" style="border-bottom: none;">
 				<li style="width: 50%;">
-					<span style="display: inline-block; width: 50px; float: left;">Type</span><input style="width: calc(100% - 50px);" type="text" name="data.details.poi-type" value="{{data.details.poi-type}}" placeholder="Type"/>
+					<span style="display: inline-block; width: 50px; float: left;">Type</span>
+          <input style="width: calc(100% - 50px);" type="text" name="data.details.poi-type" value="{{data.data.details.poi-type}}" placeholder="Type"/>
 				</li>
 				<li style="width: 50%;">
-					<span style="display: inline-block; width: 50px; float: left;">Status</span><input style="width: calc(100% - 50px);" type="text" name="data.details.poi-status" value="{{data.details.poi-status}}" placeholder="Status"/>
+					<span style="display: inline-block; width: 50px; float: left;">Status</span>
+          <input style="width: calc(100% - 50px);" type="text" name="data.details.poi-status" value="{{data.data.details.poi-status}}" placeholder="Status"/>
 				</li>
 			</ul>
 		</div>
 	</header>
 	<section class="sheet-body flexcol">
-		<div class="biography flexcol poi-bio" data-group="primary" data-tab="biography">
-			{{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
-		</div>
+    <div class="biography poi-bio">
+      {{editor content=data.data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable rollData=rollData}}
+    </div>
 	</section>
 </form>

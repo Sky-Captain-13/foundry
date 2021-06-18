@@ -1,6 +1,5 @@
 class PoISheet extends ActorSheet {
 	get template() {
-		if ( !game.user.isGM && this.actor.limited ) return "modules/poi-sheet/poi-sheet.html";
 		return "modules/poi-sheet/poi-sheet.html";
 	}
 	
