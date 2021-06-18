@@ -1,12 +1,12 @@
-![](https://img.shields.io/badge/Foundry-v0.7.8-informational)
-![](https://img.shields.io/badge/D&D5e-v1.1.1-informational)
+![](https://img.shields.io/badge/Foundry-v0.8.7-informational)
+![](https://img.shields.io/badge/D&D5e-v1.3.5-informational)
 
 ## Points of Interest Actor Sheet
 
 * **Author**: Sky#9435
-* **Version**: 0.0.8
-* **Foundry VTT Compatibility**: 0.7.8
-* **System Compatibility**: D&D 5e 1.1.1
+* **Version**: 0.1.0
+* **Foundry VTT Compatibility**: 0.8.7
+* **System Compatibility**: D&D 5e 1.3.5
 
 ### Link(s) to Module
 * [https://github.com/Sky-Captain-13/foundry/tree/master/poi-sheet](https://github.com/Sky-Captain-13/foundry/tree/master/poi-sheet)
@@ -22,6 +22,11 @@ The Points of Interest Actor Sheet adds a new Actor Sheet for the D&D 5e System 
 To use the PoI Sheet, create a new Actor using the Character type and then edit the actor's Sheet at the top of the character sheet window and change it to `dnd5e.PoISheet`
 
 ## Patch Notes
+### Version 0.1.0
+* Update to Foundry 0.8.7
+* Fixed data display issue
+* Data _should_ be there still... _should_ display properly, but I can't be 100% sure since I don't have a way to test it easily. MAKE BACKUPS OF YOUR WORLD.
+
 ### Version 0.0.8
 * Version compatibility update to 0.7.8
 
