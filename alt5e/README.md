@@ -4,9 +4,9 @@
 
 ## Alt5e
 * **Author**: Sky#9435
-* **Version**: 1.5.2
-* **Foundry VTT Compatibility**: 0.7.9
-* **System Compatibility**: D&D 5th Edition 1.2.0
+* **Version**: 1.6.0
+* **Foundry VTT Compatibility**: 0.8.8
+* **System Compatibility**: D&D 5th Edition 1.4.1
 
 ### Link(s) to Module
 * [https://foundryvtt.com/packages/alt5e/](https://foundryvtt.com/packages/alt5e/)
@@ -19,6 +19,9 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.6.0
+* Updated HTML for new automatic Armor Class calculation options
+
 ### Version 1.5.2
 * Foundry version compatibility update to 0.7.9
 * Minor css adjustments
