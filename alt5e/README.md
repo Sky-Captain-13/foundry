@@ -1,6 +1,6 @@
-![](https://img.shields.io/badge/Foundry-v0.7.9-informational)
+![](https://img.shields.io/badge/Foundry-v0.8.8-informational)
 
-![](https://img.shields.io/badge/D&D5e-v1.2.0-informational)
+![](https://img.shields.io/badge/D&D5e-v1.4.1-informational)
 
 ## Alt5e
 * **Author**: Sky#9435
