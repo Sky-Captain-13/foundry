@@ -1,12 +1,12 @@
-![](https://img.shields.io/badge/Foundry-v0.8.8-informational)
+![](https://img.shields.io/badge/Foundry-v0.8.9-informational)
 
-![](https://img.shields.io/badge/D&D5e-v1.4.1-informational)
+![](https://img.shields.io/badge/D&D5e-v1.5.3-informational)
 
 ## Alt5e
 * **Author**: Sky#9435
-* **Version**: 1.6.0
-* **Foundry VTT Compatibility**: 0.8.8
-* **System Compatibility**: D&D 5th Edition 1.4.1
+* **Version**: 1.6.1
+* **Foundry VTT Compatibility**: 0.8.9
+* **System Compatibility**: D&D 5th Edition 1.5.3
 
 ### Link(s) to Module
 * [https://foundryvtt.com/packages/alt5e/](https://foundryvtt.com/packages/alt5e/)
@@ -19,6 +19,9 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.6.1
+* Corrected currency labels
+
 ### Version 1.6.0
 * Updated HTML for new automatic Armor Class calculation options
 
