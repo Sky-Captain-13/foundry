@@ -422,6 +422,16 @@
 	margin: auto;
 }
 
+.dnd5e.sheet.actor ul.skills-list li.skill .skill-name-controls .config-button {
+  font-size: 13px;
+  top: 1px;
+}
+
+.alt5e.dnd5e.sheet.actor .skill:hover,
+.alt5e.dnd5e.sheet.actor .config-button:hover {
+	color: #c53131;
+}
+
 .alt5e.dnd5e.sheet .sheet-navigation .item:hover,
 .alt5e.dnd5e.sheet.actor .proficiency-toggle:hover,
 .alt5e.dnd5e.sheet.actor .proficient .proficiency-toggle:hover,
