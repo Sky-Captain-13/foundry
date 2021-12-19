@@ -4,7 +4,7 @@
 
 ## Alt5e
 * **Author**: Sky#9435
-* **Version**: 1.6.1
+* **Version**: 1.7.0
 * **Foundry VTT Compatibility**: 0.8.9
 * **System Compatibility**: D&D 5th Edition 1.5.5
 
