@@ -6,9 +6,9 @@
   "authors": [],
   "url": "https://github.com/Sky-Captain-13/foundry/tree/master/alt5e",
   "flags": {},
-  "version": "1.7.0",
-  "minimumCoreVersion": "0.8.9",
-  "compatibleCoreVersion": "0.8.9",
+  "version": "1.7.1",
+  "minimumCoreVersion": "9.238",
+  "compatibleCoreVersion": "9.238",
   "scripts": [],
   "esmodules": [
     "alt5e.js"
@@ -28,6 +28,6 @@
   "download": "https://github.com/Sky-Captain-13/foundry/raw/master/alt5e/alt5e.zip",
   "protected": false,
   "coreTranslation": false,
-  "minimumSystemVersion": "1.5.5",
+  "minimumSystemVersion": "1.5.6",
   "library": false
 }

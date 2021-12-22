@@ -330,7 +330,6 @@ async function injectPassives(app, html, data) {
     `;
   };
   if (game.settings.get("alt5e", "showPassivePerception")) {
-    let actor = game.actors.entities.find(a => a.data._id === data.actor._id);
     let passivePerception = data.data.skills.prc.passive;
     passives += `
       <div class="form-group">
