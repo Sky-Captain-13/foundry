@@ -101,6 +101,7 @@
 	flex: 0 0 100px;
 	flex-direction: column;
 	border: none;
+  height: fit-content;
 }
 
 .alt5e.dnd5e.sheet.actor .ability-scores .ability {

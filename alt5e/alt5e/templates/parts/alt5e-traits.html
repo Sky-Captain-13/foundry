@@ -32,12 +32,12 @@
 		</ul>
 	</div>
 
-	<div class="form-group {{data.traits.languages.cssClass}}">
-		<label>{{localize "DND5E.Languages"}}</label>
+	<div class="form-group rollable {{data.traits.languages.cssClass}}">
+		<label style="cursor: pointer;">{{localize "DND5E.Languages"}}</label>
 		<a class="trait-selector" data-options="languages" data-target="data.traits.languages">
 			<i class="fas fa-edit"></i>
 		</a>
-		<ul class="traits-list">
+		<ul class="traits-list alt5e-languages">
 		{{#each data.traits.languages.selected as |v k|}}
 			<li class="tag {{k}}">{{v}}</li>
 		{{/each}}
