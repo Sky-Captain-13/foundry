@@ -3,7 +3,7 @@
 	"title": "Luminous",
 	"author": "Sky#9453",
 	"description": "A lighter take on the Foundry UI.",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"minimumCoreVersion": "0.8.6",
 	"compatibleCoreVersion": "9.238",
 	"styles": ["/css/luminous.css", "/css/luminous_dnd5e.css"],

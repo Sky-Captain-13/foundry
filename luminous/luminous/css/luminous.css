@@ -256,7 +256,8 @@ textarea:focus {
 li.folder > .folder-header,
 .sidebar-tab .directory-list .folder + .entity,
 .sidebar-tab .directory-list .entity:last-child,
-.sidebar-tab .directory-list .directory-item {
+.sidebar-tab .directory-list .directory-item,
+.directory .directory-list .directory-item.document {
   border: none;
 	line-height: 34px
 }
@@ -332,7 +333,8 @@ li.compendium-folder > .compendium-folder-header {
 #sidebar, .sidebar-popout,
 .app.sidebar-popout .window-content,
 li.folder > .folder-header h3,
-li.folder > .folder-header .create-folder, li.folder > .folder-header .create-entity {
+li.folder > .folder-header .create-folder, li.folder > .folder-header .create-entity,
+li.folder > .folder-header .create-document {
   color: #333;
 }
 
@@ -678,37 +680,37 @@ li.folder > .folder-header {
 }
 	
 /* CONTROLS MENU */
-#controls .scene-control:hover, #controls .control-tool:hover {
+#controls ol .scene-control:hover, #controls ol .control-tool:hover {
 	border: 1px solid #0FF;
 	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #0FF;
 }
 
-#controls .scene-control.active, #controls .control-tool.active {
+#controls ol .scene-control.active, #controls ol .control-tool.active {
 	border: 1px solid #0F0;
 	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #0F0;
 }
 
-#controls .control-tool, #controls .control-tool.toggle {
+#controls ol .control-tool, #controls ol .control-tool.toggle {
 	border: 1px solid #000;
 	background: rgba(0, 0, 0, 0.5);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 5px #000;
 }
 
-#controls .control-tool.toggle.active {
+#controls ol .control-tool.toggle.active {
 	color: #FFF;
 	background: rgba(0, 255, 0, 0.5);
 	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #0F0;
 	border: 1px solid #0F0;
 }
 
-#controls .control-tool.toggle:hover {
+#controls ol .control-tool.toggle:hover {
 	color: #FFF;
 	background: rgba(0, 255, 255, 0.5);
 	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #0FF;
 	border: 1px solid #0FF;
 }
 
-#controls .control-tool.toggle.active:hover {
+#controls ol .control-tool.toggle.active:hover {
 	color: #FFF;
 	background: rgba(150, 0, 0, 0.5);
 	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 5px #800;
