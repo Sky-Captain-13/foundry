@@ -21,6 +21,8 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ## Patch Notes
 ### Version 1.7.2
 * Corrects error thrown by Foundry v9.238 when attempting to edit an item from the Favorites section
+* Fixed an issue that would send Known Languages to chat when editing your languages
+* Adjusted css to clean up a few problems
 
 ### Version 1.7.1
 * Removes an errant bit of code throwing an error when injecting passive skills into the sheet
