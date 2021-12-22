@@ -357,8 +357,8 @@ li.folder > .folder-header {
 	flex: 0 0 40px;
 	height: 40px;
 	width: 40px;
-	object-fit: cover;
-	object-position: 50% 0;
+	object-fit: contain;
+	object-position: 50% 50%;
 	margin: 0 8px 0 2px;
 	border-radius: 5px;
 }

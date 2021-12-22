@@ -15,10 +15,10 @@ div.monsterblock {
 	border-bottom: 3px solid rgba(55, 90, 160, 1);
 }
 
-
-.alt5e.dnd5e.sheet .editable .rollable:hover h4,
-.alt5e.dnd5e.sheet .editable .rollable:hover {
-	font-weight: bold;
+.alt5e.dnd5e.sheet.actor .skill:hover,
+.alt5e.dnd5e.sheet.actor .config-button:hover {
+	color: rgba(55, 90, 160, 1);
+	text-shadow: none;
 }
 
 a:hover,
