@@ -1,12 +1,12 @@
-![](https://img.shields.io/badge/Foundry-v0.8.9-informational)
+![](https://img.shields.io/badge/Foundry-v9.238-informational)
 
-![](https://img.shields.io/badge/D&D5e-v1.5.5-informational)
+![](https://img.shields.io/badge/D&D5e-v1.5.6-informational)
 
 ## Alt5e
 * **Author**: Sky#9435
-* **Version**: 1.7.0
-* **Foundry VTT Compatibility**: 0.8.9
-* **System Compatibility**: D&D 5th Edition 1.5.5
+* **Version**: 1.7.1
+* **Foundry VTT Compatibility**: 9.238
+* **System Compatibility**: D&D 5th Edition 1.5.6
 
 ### Link(s) to Module
 * [https://foundryvtt.com/packages/alt5e/](https://foundryvtt.com/packages/alt5e/)
@@ -19,6 +19,9 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.7.1
+* Removes an errant bit of code throwing an error when injecting passive skills into the sheet
+
 ### Version 1.7.0
 * Added skill configuration options from core sheet
 
