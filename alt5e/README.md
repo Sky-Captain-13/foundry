@@ -4,7 +4,7 @@
 
 ## Alt5e
 * **Author**: Sky#9435
-* **Version**: 1.7.1
+* **Version**: 1.7.2
 * **Foundry VTT Compatibility**: 9.238
 * **System Compatibility**: D&D 5th Edition 1.5.6
 
@@ -19,6 +19,9 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.7.2
+* Corrects error thrown by Foundry v9.238 when attempting to edit an item from the Favorites section
+
 ### Version 1.7.1
 * Removes an errant bit of code throwing an error when injecting passive skills into the sheet
 
