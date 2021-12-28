@@ -4,8 +4,8 @@ import ActorSheet5eCharacter from "../../systems/dnd5e/module/actor/sheets/chara
 
 // VERSION INFORMATION
 const Alt5e_Author = "Sky";
-const Alt5e_Version = "1.7.2";
-const Alt5e_LastUpdated = 1640150571; //console.log(Date.now().toString().substr(0, 10));
+const Alt5e_Version = "1.7.3";
+const Alt5e_LastUpdated = 1640692611; //console.log(Date.now().toString().substr(0, 10));
 
 export class Alt5eSheet extends ActorSheet5eCharacter {
   get template() {
@@ -90,8 +90,7 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
     html.find('.item-delete').off("click");
     html.find('.item-delete').click(event => {
       let li = $(event.currentTarget).parents('.item');
-      let itemId = li.attr("data-item-id");
-      // let item = this.actor.getOwnedItem(itemId);
+      let itemID = li.attr("data-item-id");
       let item = this.actor.items.get(itemId);
       new Dialog({
         title: `Deleting ${item.data.name}`,
@@ -101,7 +100,7 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
             icon: '<i class="fa fa-check"></i>',
             label: 'Yes',
             callback: dlg => {
-              this.actor.deleteOwnedItem(itemId);
+              this.actor.deleteEmbeddedDocuments("Item", [itemID]);
             }
           },
           cancel: {
@@ -146,7 +145,6 @@ async function addFavorites(app, html, data) {
     if (app.options.editable) {
       let favBtn = $(`<a class="item-control item-fav" data-fav="${isFav}" title="${isFav ? "Remove from Favourites" : "Add to Favourites"}"><i class="fas ${isFav ? "fa-star" : "fa-sign-in-alt"}"></i></a>`);
       favBtn.click(ev => {
-        //app.actor.getOwnedItem(item._id).update({
         app.actor.items.get(item._id).update({
           "flags.favtab.isFavourite": !item.flags.favtab.isFavourite
         });
@@ -238,7 +236,6 @@ async function addFavorites(app, html, data) {
 		favtabHtml.find('.item-toggle').click(ev => {
 			ev.preventDefault();
 			let itemId = ev.currentTarget.closest(".item").dataset.itemId;
-			// let item = app.actor.getOwnedItem(itemId);
       let item = app.actor.items.get(itemId);
 			let isActive = getProperty(item.data, "data.equipped");
 			item.update({ 
@@ -250,15 +247,12 @@ async function addFavorites(app, html, data) {
 		
     favtabHtml.find('.item-edit').click(ev => {
       let itemId = $(ev.target).parents('.item')[0].dataset.itemId;
-      //app.actor.getOwnedItem(itemId).sheet.render(true);
       app.actor.items.get(itemId).sheet.render(true);
     });
 		
     favtabHtml.find('.item-fav').click(ev => {
       let itemId = $(ev.target).parents('.item')[0].dataset.itemId;
-      // let val = !app.actor.getOwnedItem(itemId).data.flags.favtab.isFavourite
       let val = !app.actor.items.get(itemId).data.flags.favtab.isFavourite
-      //app.actor.getOwnedItem(itemId).update({
       app.actor.items.get(itemId).update({      
         "flags.favtab.isFavourite": val
       });
