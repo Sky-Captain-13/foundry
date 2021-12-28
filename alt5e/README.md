@@ -4,7 +4,7 @@
 
 ## Alt5e
 * **Author**: Sky#9435
-* **Version**: 1.7.2
+* **Version**: 1.7.3
 * **Foundry VTT Compatibility**: 9.238
 * **System Compatibility**: D&D 5th Edition 1.5.6
 
@@ -19,6 +19,9 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.7.3
+* Confirmation dialog when deleting an item fixed. Was throwing an error due to stupid deprecated function bullshit.
+
 ### Version 1.7.2
 * Corrects error thrown by Foundry v9.238 when attempting to edit an item from the Favorites section
 * Fixed an issue that would send Known Languages to chat when editing your languages
