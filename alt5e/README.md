@@ -4,7 +4,7 @@
 
 ## Alt5e
 * **Author**: Sky#9435
-* **Version**: 1.7.3
+* **Version**: 1.7.4
 * **Foundry VTT Compatibility**: 9.238
 * **System Compatibility**: D&D 5th Edition 1.5.6
 
@@ -19,6 +19,9 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.7.4
+* Actually fixed deleting items this time.
+
 ### Version 1.7.3
 * Confirmation dialog when deleting an item fixed. Was throwing an error due to stupid deprecated function bullshit.
 
