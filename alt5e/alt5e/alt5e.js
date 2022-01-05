@@ -4,8 +4,8 @@ import ActorSheet5eCharacter from "../../systems/dnd5e/module/actor/sheets/chara
 
 // VERSION INFORMATION
 const Alt5e_Author = "Sky";
-const Alt5e_Version = "1.7.3";
-const Alt5e_LastUpdated = 1640692611; //console.log(Date.now().toString().substr(0, 10));
+const Alt5e_Version = "1.7.4";
+const Alt5e_LastUpdated = 1641414669; //console.log(Date.now().toString().substr(0, 10));
 
 export class Alt5eSheet extends ActorSheet5eCharacter {
   get template() {
@@ -91,7 +91,7 @@ export class Alt5eSheet extends ActorSheet5eCharacter {
     html.find('.item-delete').click(event => {
       let li = $(event.currentTarget).parents('.item');
       let itemID = li.attr("data-item-id");
-      let item = this.actor.items.get(itemId);
+      let item = this.actor.items.get(itemID);
       new Dialog({
         title: `Deleting ${item.data.name}`,
         content: `<p>Are you sure you want to delete ${item.data.name}?</p>`,
