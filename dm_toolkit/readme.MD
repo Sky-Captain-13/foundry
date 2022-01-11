@@ -1,13 +1,13 @@
-![](https://img.shields.io/badge/Foundry-v0.7.9-informational)
+![](https://img.shields.io/badge/Foundry-v9.242-informational)
 
-![](https://img.shields.io/badge/D&D5e-v1.2.0-informational)
+![](https://img.shields.io/badge/D&D5e-v1.5.6-informational)
 
 ## DM Toolkit
 
 * **Author**: Sky#9435
-* **Version**: 2.2.1
-* **Foundry VTT Compatibility**: 0.7.9
-* **System Compatibility**: D&D 5th Edition 1.2.0
+* **Version**: 2.4.1
+* **Foundry VTT Compatibility**: 9.272
+* **System Compatibility**: D&D 5th Edition 1.5.6
 
 ### Link(s) to Module
 * [https://github.com/Sky-Captain-13/foundry/tree/master/dm_toolkit](https://github.com/Sky-Captain-13/foundry/tree/master/dm_toolkit)
@@ -16,6 +16,11 @@
 This is a personal toolkit containing various capabilities listed below. 
 
 ## Patch Notes
+### Version 2.4.1
+* Compatibility update for Foundry v9.242
+* Forgot to track anything else I changed...
+* Known problems include +/- HP commands not working and tracking bloodied status
+
 ### Version 2.2.1
 * Foundry version compatibility update to 0.7.9
 * Cleaned up code
