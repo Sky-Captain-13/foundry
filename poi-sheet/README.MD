@@ -1,11 +1,11 @@
-![](https://img.shields.io/badge/Foundry-v9.238-informational)
+![](https://img.shields.io/badge/Foundry-v9.242-informational)
 ![](https://img.shields.io/badge/D&D5e-v1.5.6-informational)
 
 ## Points of Interest Actor Sheet
 
 * **Author**: Sky#9435
-* **Version**: 0.1.1
-* **Foundry VTT Compatibility**: 9.238
+* **Version**: 0.1.2
+* **Foundry VTT Compatibility**: 9.242
 * **System Compatibility**: D&D 5e 1.5.6
 
 ### Link(s) to Module
@@ -22,6 +22,9 @@ The Points of Interest Actor Sheet adds a new Actor Sheet for the D&D 5e System 
 To use the PoI Sheet, create a new Actor using the Character type and then edit the actor's Sheet at the top of the character sheet window and change it to `dnd5e.PoISheet`
 
 ## Patch Notes
+### Version 0.1.2
+* Compatibility update for Foundry v9.242
+
 ### Version 0.1.1
 * Compatibility update to Foundry v9.238
 
