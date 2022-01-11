@@ -4,8 +4,8 @@ import ActorSheet5eCharacter from "../../systems/dnd5e/module/actor/sheets/chara
 
 // VERSION INFORMATION
 const Alt5e_Author = "Sky";
-const Alt5e_Version = "1.7.4";
-const Alt5e_LastUpdated = 1641414669; //console.log(Date.now().toString().substr(0, 10));
+const Alt5e_Version = "1.7.5";
+const Alt5e_LastUpdated = 1641913977; //console.log(Date.now().toString().substr(0, 10));
 
 export class Alt5eSheet extends ActorSheet5eCharacter {
   get template() {
@@ -360,24 +360,6 @@ async function makeBold(app, html, data) {
         'color': prepColor
       });
     }
-  }
-}
-
-async function migrateTraits(app, html, data) {
-  let actor = game.actors.entities.find(a => a.data._id === data.actor._id);
-  let actorVersion = (actor.data.flags.alt5e && actor.data.flags.alt5e.version) ? actor.data.flags.alt5e.version : "unknown version";
-  let moduleVersion = game.settings.get("alt5e", "alt5eVersion");
-  function compareVersions (a, b) {
-    var i, diff;
-    var regExStrip0 = /(\.0+)+$/;
-    var segmentsA = a.replace(regExStrip0, '').split('.');
-    var segmentsB = b.replace(regExStrip0, '').split('.');
-    var l = Math.min(segmentsA.length, segmentsB.length);
-    for (i = 0; i < l; i++) {
-        diff = parseInt(segmentsA[i], 10) - parseInt(segmentsB[i], 10);
-        if (diff) return diff;
-    }
-    return segmentsA.length - segmentsB.length;
   }
 }
 
