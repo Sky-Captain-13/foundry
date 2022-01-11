@@ -1,11 +1,12 @@
 const DM_Toolkit = (() => {
   // VERSION INFORMATION
   const DMToolkit_Author = "Sky";
-  const DMToolkit_Version = "2.2.1";
-  const DMToolkit_LastUpdated = 1608497645; //Date.now().toString().substr(0, 10)
+  const DMToolkit_Version = "2.4.1";
+  const DMToolkit_LastUpdated = 1641913977; //Date.now().toString().substr(0, 10);
   
   // FUNCTIONS
   const activateListeners = function() {
+    // Show or hide the top of the damage/healing chat cards
     $(document.getElementById('chat-log')).on('click', '.toolkit-chat', (event) => {
       event.preventDefault();
       let roll = $(event.currentTarget);
@@ -22,17 +23,12 @@ const DM_Toolkit = (() => {
   
   const addGridBorder = function() {
     const border = canvas.grid.addChild(new PIXI.Graphics());
-    border.lineStyle(1.0, colorStringToHex(canvas.scene.data.gridColor), canvas.scene.data.gridAlpha).drawRect(0, 0, canvas.dimensions.width, canvas.dimensions.height);
+    border.lineStyle(2.0, colorStringToHex(canvas.scene.data.gridColor), canvas.scene.data.gridAlpha).drawRect(0, 0, canvas.dimensions.width, canvas.dimensions.height);
   }
-  
-  const addProficiency = (actor, item, sheet, id) => {
-    if (item.type === "weapon" || item.type === "armor") actor.updateOwnedItem({ _id: item._id, "data.proficient": true });
-    if (item.type === "tool") actor.updateOwnedItem({ _id: item._id, "data.proficient": 1 });
-  }
-  
+    
   const adjustTokenHP = async function(changeType, amount, chatAnnounceOverride = true) {
     let count = 0;
-    const promises = [];
+    ( async ()=> {
       for ( let token of canvas.tokens.controlled ) {
         let message = "";
         let actor = token.actor;
@@ -47,9 +43,7 @@ const DM_Toolkit = (() => {
         
         count += 1;
         if (changeType === "Healing" || changeType === "Potion") {
-          promises.push(token.actor.update({
-            "data.attributes.hp.value": Math.min(hp.value + hpChange, hp.max)
-          }));
+          await token.actor.update({"data.attributes.hp.value": Math.min(hp.value + hpChange, hp.max)});
           let healType = (changeType === "Healing") ? "is healed for" : "drinks a potion and is healed for";
           let plural = (hpChange != 1) ? "s" : "";
           
@@ -67,10 +61,10 @@ const DM_Toolkit = (() => {
           temphp = (temphp === 0) ? "" : Math.max(temphp - hpChange, 0);
           let curhp = Math.max(hp.value - damage, 0);
           let deathmsg = (curhp <= 0) ? " and has been slain!" : ".";
-          promises.push(token.actor.update({
+          await token.actor.update({
             "data.attributes.hp.temp": temphp,
             "data.attributes.hp.value": curhp
-          }));
+          });
           
           // DAMAGE & DEATH MESSAGE
           message = `
@@ -92,26 +86,37 @@ const DM_Toolkit = (() => {
           });
         }
       }
-    return Promise.all(promises);
+    })();
+  }
+  
+  const autoFocusNamePrompt = function() {
+    let a = document.querySelectorAll('#document-create input[name=name]')[0] || document.querySelectorAll('#folder-create input[name=name]')[0];
+    if (!a) return;
+    a.focus();
+  }
+  
+  const autoUnpause = function() {
+    if (game.settings.get("dm_toolkit", "autoUnpause") && game.paused) game.togglePause();
   }
   
   const checkActorStatus = async function(actorData, changed, options, id) {
+    return;
     if (game.userId !== id) return;
     if (changed?.data?.attributes?.hp !== undefined) {
       let token = canvas.tokens.placeables.filter(t => (t.data.actorId === actorData.id))[0];
       let hp = actorData.data.data.attributes.hp;
       await checkStatus(token, hp);
-      // console.warn(`${actor.name}'s Hit Points: ${hp.value} / ${hp.max}`);
     }
   }
   
-  const checkTokenStatus = async function(scene, tokenData, changed, options, id) {
+  const checkTokenStatus = async function(tokenData, changed, options, id) {
+    console.log(tokenData);
+    console.log(changed);
     if (game.userId !== id) return;
     if (changed?.actorData?.data?.attributes?.hp !== undefined) {
-      let token = canvas.tokens.get(tokenData._id);
+      let token = canvas.tokens.get(changed._id);
       let hp = token.actor.data.data.attributes.hp;
       await checkStatus(token, hp);
-      // console.warn(`${token.name}'s Hit Points: ${hp.value} / ${hp.max}`);
     }
   }
   
@@ -158,16 +163,149 @@ const DM_Toolkit = (() => {
   }
   
   const deleteOwnToken = function(data) {
-    if (game.user.id == data.activeGM) canvas.tokens.deleteMany(data.ids);
+    // if (game.user.id == data.activeGM) canvas.tokens.deleteMany(data.ids);
+    if (game.user.id == data.activeGM) canvas.scene.deleteEmbeddedDocuments("Token", data.ids);
+  }
+  
+  const disableGridHighlights = function () {
+    MeasuredTemplate.prototype.highlightGrid = function() {
+      const grid = canvas.grid;
+      const d = canvas.dimensions;
+      const border = this.borderColor;
+      const color = this.fillColor;
+      
+      // Only highlight for objects which have a defined shape
+      if ( !this.id || !this.shape ) return;
+      
+      // Clear existing highlight
+      const hl = grid.getHighlightLayer(`Template.${this.id}`);
+      hl.clear();
+      
+      // If we are in gridless mode, highlight the shape directly
+      if ( grid.type === CONST.GRID_TYPES.GRIDLESS || game.settings.get("dm_toolkit", "disableGridHighlight") ) {
+        const shape = this.shape.clone();
+        if ( "points" in shape ) {
+          shape.points = shape.points.map((p, i) => {
+            if ( i % 2 ) return this.y + p;
+            else return this.x + p;
+          });
+        } else {
+          shape.x += this.x;
+          shape.y += this.y;
+        }
+        // return grid.grid.highlightGridPosition(hl, {border, color, shape});
+        return BaseGrid.prototype.highlightGridPosition.call(grid.grid, hl, {border, color, shape});
+      }
+      
+      // Get number of rows and columns
+      const nr = Math.ceil(((this.data.distance * 1.5) / d.distance) / (d.size / grid.h));
+      const nc = Math.ceil(((this.data.distance * 1.5) / d.distance) / (d.size / grid.w));
+
+      // Get the offset of the template origin relative to the top-left grid space
+      const [tx, ty] = canvas.grid.getTopLeft(this.data.x, this.data.y);
+      const [row0, col0] = grid.grid.getGridPositionFromPixels(tx, ty);
+      const hx = canvas.grid.w / 2;
+      const hy = canvas.grid.h / 2;
+      const isCenter = (this.data.x - tx === hx) && (this.data.y - ty === hy);
+
+      // Identify grid coordinates covered by the template Graphics
+      for (let r = -nr; r < nr; r++) {
+        for (let c = -nc; c < nc; c++) {
+          let [gx, gy] = canvas.grid.grid.getPixelsFromGridPosition(row0 + r, col0 + c);
+          const testX = (gx+hx) - this.data.x;
+          const testY = (gy+hy) - this.data.y;
+          let contains = ((r === 0) && (c === 0) && isCenter ) || this.shape.contains(testX, testY);
+          if ( !contains ) continue;
+          grid.grid.highlightGridPosition(hl, {x: gx, y: gy, border, color});
+        }
+      }
+    }
+  }
+  
+  const getRandomPrefix = function() {
+    let positiveAdj = [
+      "Adaptable", "Adventurous", "Agreeable", "Alert", "Amiable", "Articulate", "Athletic", 
+      "Attractive", "Benevolent", "Brilliant", "Calm", "Capable", "Captivating", "Caring", 
+      "Charismatic", "Charming", "Cheerful", "Clever", "Colorful", "Compassionate", "Conciliatory", 
+      "Confident", "Considerate", "Contemplative", "Cooperative", "Courageous", "Courteous", 
+      "Creative", "Cultured", "Curious", "Daring", "Decent", "Decisive", "Dedicated", "Dignified", 
+      "Disciplined", "Discreet", "Dramatic", "Dutiful", "Earnest", "Educated", "Efficient", "Elegant", 
+      "Eloquent", "Empathetic", "Energetic", "Enthusiastic", "Fair", "Faithful", "Farsighted", 
+      "Firm", "Flexible", "Focused", "Forecful", "Forgiving", "Forthright", "Freethinking", "Friendly", 
+      "Gallant", "Generous", "Gentle", "Gracious", "Hardworking", "Hearty", "Helpful", "Heroic", 
+      "Honest", "Honorable", "Humble", "Humorous", "Idealistic", "Imaginative", "Incisive", 
+      "Incorruptible", "Independent", "Innovative", "Inoffensive", "Insightful", "Intelligent", "Intuitive", 
+      "Invulnerable", "Kind", "Knowledgeable", "Logical", "Loyal", "Magnanimous", "Methodical", 
+      "Meticulous", "Modest", "Neat", "Observant", "Optimistic", "Orderly", "Organized", "Passionate", 
+      "Patient", "Peaceful", "Perceptive", "Perfectionist", "Persuasive", "Playful", "Polished", 
+      "Popular", "Practical", "Precise", "Principled", "Protective", "Prudent", "Punctual", "Rational", 
+      "Realistic", "Reliable", "Resourceful", "Respectful", "Reverential", "Romantic", "Rustic", "Sage", 
+      "Scholarly", "Scrupulous", "Selfless", "Self-sufficent", "Sensitive", "Sentimental", "Serious", 
+      "Shrewd", "Simple", "Skillful", "Sociable", "Solid", "Sophisticated", "Spontaneous", "Stable", 
+      "Steadfast", "Steady", "Stoic", "Strong", "Studious", "Suave", "Subtle", "Sympathetic", "Thorough", 
+      "Tidy", "Tolerant", "Trusting", "Warm", "Well-read", "Well-rounded", "Wise", "Witty", "Youthful"
+    ];
+    
+    let neutralAdj = [
+      "Absentminded", "Aggressive", "Ambitious", "Amusing", "Artful", "Ascetic", "Authoritarian", 
+      "Breezy", "Busy", "Casual", "Crebral", "Circumspect", "Competitive", "Conservative", "Deceptive", 
+      "Determined", "Dreamy", "Driven", "Droll", "Dry", "Earthy", "Enigmatic", "Experimental", "Folksy", 
+      "Formal", "Frugal", "Glamorous", "Huried", "Hypnotic", "Iconoclastic", "Intense", "Irreverent", 
+      "Mellow", "Mystical", "Obedient", "Ordinary", "Outspoken", "Placid", "Predictable", "Reserved", 
+      "Restrained", "Sarcastic", "Skeptical", "Solemn", "Solitary", "Stern", "Stolid", "Strict", "Stubborn", 
+      "Stylish", "Tough", "Unhurried", "Unpredicatable", "Whimsical"
+    ];
+    
+    let negativeAdj = [
+      "Abrasive", "Abrupt", "Agonizing", "Airy", "Aloof", "Amoral", "Angry", "Anxious", "Apathetic", 
+      "Argumentative", "Arrogant", "Assertive", "Barbaric", "Bewildered", "Bizarre", "Blunt", "Boisterous",
+      "Brutal", "Calculating", "Callous", "Cantakerous", "Careless", "Cautious", "Childish", "Clumsy", 
+      "Coarse", "Cold", "Complacent", "Complaintive", "Compulsive", "Conceited", "Conformist", "Confused", 
+      "Contemptible", "Cowardly", "Crafty", "Crass", "Crazy", "Crude", "Cruel", "Cynical", "Decadent", 
+      "Deceitful", "Delicate", "Desperate", "Destructive", "Devious", "Dirty", "Discontented", "Dishonest", 
+      "Disloyal", "Disobedient", "Disorderly", "Disorganized", "Disruptive", "Dissolute", "Dissonant", 
+      "Distractible", "Disturbing", "Dogmatic", "Domineering", "Dull", "Discouraged", "Egocentric", 
+      "Enervated", "Envious", "Erratic", "Excitable", "Extravagant", "Extreme", "Fanatical", "Fatalistic", 
+      "Fearful", "Fickle", "Fiery", "Flamboyant", "Foolish", "Forgetful", "Fraudulent", "Frightening", 
+      "Frivolous", "Gloomy", "Graceless", "Greedy", "Grim", "Gullible", "Hateful", "Haughty", "Hedonistic", 
+      "Hesitant", "Hidebound", "Hostile", "Ignorant", "Imitative", "Impatient", "Impractical", "Imprudent", 
+      "Impulsive", "Inconsiderate", "Indecisive", "Indulgent", "Insecure", "Insensitive", "Insincere", 
+      "Insulting", "Intolerant", "Irascible", "Irrational", "Irresponsible", "Irritable", "Lazy",
+      "Libidinous", "Loquacious", "Malicious", "Mannered", "Mannerless", "Mawkish", "Mealymouthed", 
+      "Mechanical", "Meddlesome", "Melancholic", "Messy", "Miserable", "Miserly", "Misguided", "Monstrous", 
+      "Moody", "Morbid", "Muddle-headed", "Naive", "Narcissistic", "Neglectful", "Neurotic", "Nihilistic", 
+      "Obnoxious", "Obsessive", "Odd", "Opinionated", "Opportunistic", "Oppressed", "Outrageous", 
+      "Overimaginative", "Paranoid", "Passive", "Pedantic", "Perverse", "Petty", "Plodding", "Pompous", 
+      "Possessive", "Power-hungry", "Predatory", "Presumptuous", "Pretentious", "Prim", "Procrastinating", 
+      "Profligate", "Provocative", "Pugnacious", "Quirky", "Resentful", "Ridiculous", "Rigid", "Ritualistic", 
+      "Rowdy", "Ruined", "Sanctimonious", "Scornful", "Secretive", "Sedentary", "Selfish", "Self-indulgent", 
+      "Shallow", "Shortsighted", "Shy", "Silly", "Single-minded", "Sloppy", "Sly", "Superstitious", 
+      "Suspicious", "Tactless", "Tasteless", "Tense", "Thoughtless", "Timid", "Treacherous", "Troublesome", 
+      "Uncaring", "Uncharitable", "Uncooperative", "Undisciplined", "Unfriendly", "Unhealthy", "Unreliable", 
+      "Unrestrained", "Unstable", "Venal", "Venomous", "Vindictive", "Zany"
+    ];
+    
+    // RANDOMIZE TOKEN NAME PREFIX
+    let prefix = "";
+    let r = 0;
+    let adjType = Math.random() * (3 - 1) + 1;
+    if (adjType == 1) {
+      r = Math.floor(Math.random() * (positiveAdj.length - 1) + 1);
+      prefix = positiveAdj[r];
+    } else if (adjType == 2) {
+      r = Math.floor(Math.random() * (neutralAdj.length - 1) + 1);
+      prefix = neutralAdj[r];
+    } else {
+      r = Math.floor(Math.random() * (negativeAdj.length - 1) + 1);
+      prefix = negativeAdj[r];
+    }
+    return prefix;
   }
   
   const handleInput = function(msg, chatData) {
     if (chatData.charAt(0) === "!") {
       let command = chatData.split(" ")[0].trim();
       let args = chatData.replace(command, "").trim();
-      //let userID = game.user.id;
-      //let selected = canvas.tokens.controlled.map(a => a.data._id);
-      //let targeted = Array.from(game.user.targets).map(a => a.data._id);
       
       // !heal|damage applies damage or healing to the selected tokens
       if (command === "!heal" || command === "!damage" || command === "!dmg") {
@@ -366,12 +504,15 @@ const DM_Toolkit = (() => {
       if (command === "!reset") {
         ( async ()=> {
           for ( let token of canvas.tokens.controlled ) {
-            let fx = token.actor.data.effects.filter(e => e.flags?.core?.statusId);
-            for (let f of fx) {
-              let existing = CONFIG.statusEffects.find(effect => (effect.icon === f.icon))
-              await token.toggleEffect(existing);
+            let effect = token.actor.effects.contents;
+            for (let i = 0; i < effect.length; i++) {
+              let effect_id = effect[i].data._id;
+              await token.actor.effects.contents[0].delete();
             }
-            await token.actor.applyDamage(0 - token.actor.data.data.attributes.hp.max);
+            await token.actor.update({
+              "data.attributes.hp.temp": 0,
+              "data.attributes.hp.value": token.actor.data.data.attributes.hp.max
+            });
           }
         })();
         return false;
@@ -382,51 +523,61 @@ const DM_Toolkit = (() => {
   const hideCardHeader = function(msg, html, data) {
     if (html.find(".toolkit-chat").length) html.find(".message-header").hide();
   }
-  
+   
   const resolveHiddenToken = function(messageData) {
-    if (!game.user.isGM) return;
-    const speaker = messageData.speaker;
-    if (!speaker) return;
-    const token = canvas.tokens.get(speaker.token);
+    if (!game.user.isGM || !messageData.data.speaker) return;
+    const token = canvas.tokens.get(messageData.data.speaker.token);
     if (token && token.data.hidden) {
-      messageData.whisper = ChatMessage.getWhisperRecipients("GM");
+      let wt = ChatMessage.getWhisperRecipients("GM").map(a => a.data._id);
+      messageData.data.update({whisper: wt});
     }
   }
   
   const resolvePCToken = function(messageData) {
-    // console.log(messageData);
-    if (!game.user.isGM) return;
-    const speaker = messageData.speaker;
-    if (!speaker) return;
-    const token = canvas.tokens.get(speaker.token);
-    if (!messageData.roll && token?.actor?.hasPlayerOwner) {
-      messageData.speaker = {};
-      messageData.speaker.alias = game.users.get(messageData.user).name;
-      messageData.type = CONST.CHAT_MESSAGE_TYPES.OOC;
+    if (!game.user.isGM || !messageData.data.speaker) return;
+    const token = canvas.tokens.get(messageData.data.speaker.token);
+    if (token?.actor?.hasPlayerOwner) {
+      messageData.data.update({
+        speaker: {},
+        "speaker.alias": game.users.get(messageData.data.user).name
+      });
     }
   }
   
   const resolvePreCreateMessage = function(messageData) {
-    resolveHiddenToken(messageData);
-    resolvePCToken(messageData); 
+    if (game.settings.get("dm_toolkit", "hideHiddenTokenChat")) resolveHiddenToken(messageData);
+    resolvePCToken(messageData);
+  }
+  
+  const setTokenDefaults = function(token, data, options, userid) {
+    // SKIP LINKED TOKENS LINKED TO ACTORS
+    const actor = game.actors.get(data.actorId);
+    if (!actor || (data.actorLink)) return data;
+    
+    // RANDOMIZE NPC HP
+    const formula = actor.data.data.attributes.hp.formula;
+    if (formula) {
+      const r = new Roll(formula).evaluate({ async : false });
+      const newHP = Math.max(r._total, 1);
+      setProperty(data, "actorData.data.attributes.hp.value", newHP);
+      setProperty(data, "actorData.data.attributes.hp.max", newHP);
+    }
+    
+    // OTHER SETTINGS
+    let prefix = getRandomPrefix();
+    data.name = `${prefix} ${actor.data.name}`;
+    //data.img = `assets/tokens/bestiary/${actor.data.name}.png`;
+    data.lockRotation = false;
+    data.hidden = game.settings.get("dm_toolkit", "hideNewTokens");
+    data.bar1.attribute = "attributes.hp";
+    data.bar2.attribute = "";
+    data.displayBars = 50;
+    token.data.update(data);
+    return data;
   }
   
   // HOOKS
-  Hooks.on("ready", function() {
-    activateListeners();
-    game.socket.on("module.dm_toolkit", deleteOwnToken);    
-    console.log("-=> DMToolkit v" + DMToolkit_Version + " <=- [" + (new Date(DMToolkit_LastUpdated * 1000)) + "]");
-  });
-  
-  Hooks.on("canvasReady", addGridBorder);
-  Hooks.on("chatMessage", handleInput);
-  Hooks.on("createOwnedItem", addProficiency);
-  Hooks.on("preCreateChatMessage", resolvePreCreateMessage);
-  Hooks.on("renderChatMessage", hideCardHeader);
-  Hooks.on("updateActor", checkActorStatus);
-  Hooks.on("updateToken", checkTokenStatus);
-  
-  Hooks.once("ready", function() {
+  Hooks.once("init", function() {
     // TOOLKIT CONFIGURATION SETTINGS
     game.settings.register("dm_toolkit", "announceToChat", {
       name: "Announce HP Changes to Chat",
@@ -439,7 +590,7 @@ const DM_Toolkit = (() => {
     
     game.settings.register("dm_toolkit", "autoUnpause", {
       name: "Auto-Unpause",
-      hint: "Automatically unpause the game after loading.",
+      hint: "Automatically unpauses the game after loading.",
       scope: "world",
       config: true,
       default: "false",
@@ -455,14 +606,37 @@ const DM_Toolkit = (() => {
       type: Boolean
     });
     
-    // AUTO UNPAUSE
-    let removePause = game.settings.get("dm_toolkit", "autoUnpause");
-    if (!removePause) setTimeout(function(){ game.togglePause(); }, 500);
+    game.settings.register("dm_toolkit", "disableGridHighlight", {
+      name: "Disable Grid Highlighting",
+      hint: "Disables highlighting specific squares or hexes on the grid when using a template. Instead, the entire template is filled in. This option is most likely NOT compatible with other modules that also affect templates. Use with caution.",
+      scope: "world",
+      config: true,
+      default: "true",
+      type: Boolean
+    });
     
-    // ENABLE PLAYERS TO DELETE OWNED TOKENS
-    document.addEventListener("keyup", evt => {
+    game.settings.register("dm_toolkit", "hideHiddenTokenChat", {
+      name: "Hide Hidden Token Chat/Rolls",
+      hint: "Sends chat and rolls from hidden tokens as a whisper to the GM instead of sending it publically. These messages can then be revealed by right clicking and using Reveal to Everyone.",
+      scope: "world",
+      config: true,
+      default: "true",
+      type: Boolean
+    });
+    
+    game.settings.register("dm_toolkit", "hideNewTokens", {
+      name: "Hide New Tokens",
+      hint: "Automatically hides new tokens placed on the map by the DM.",
+      scope: "world",
+      config: true,
+      default: "false",
+      type: Boolean
+    });
+        
+    // ALLOW PLAYERS TO DELETE OWNED TOKENS
+    document.addEventListener("keydown", evt => {
       if (evt.key !== "Delete" || $(":focus").length > 0 || game.user.isGM || !game.settings.get("dm_toolkit", "deleteOwnToken")) return;
-      let activeGM = game.users.find(a => a.active && a.isGM)._id || false;
+      let activeGM = game.users.find(a => a.active && a.isGM).id || false;
       if (!activeGM) {
         ui.notifications.warn(`Could not delete any tokens because a GM is not online.`);
         return;
@@ -480,9 +654,30 @@ const DM_Toolkit = (() => {
     });
   });
   
+  Hooks.on("ready", function() {
+    activateListeners();
+    game.socket.on("module.dm_toolkit", deleteOwnToken);
+    console.log("-=> DMToolkit v" + DMToolkit_Version + " <=- [" + (new Date(DMToolkit_LastUpdated * 1000)) + "]");
+    
+    // ADDS OPTION TO FILL TEMPLATE INSTEAD OF HIGHLIGHTING GRID SPACES
+    // PROBABLY MOST LIKELY NOT COMPATIBLE WITH ANY OTHER MODULE THAT AFFECTS TEMPLATES
+    if (game.settings.get("dm_toolkit", "disableGridHighlight")) disableGridHighlights();
+  });
+  
+  Hooks.on("canvasReady", addGridBorder);
+  Hooks.on("canvasReady", autoUnpause);
+  Hooks.on("chatMessage", handleInput);
+  Hooks.on("preCreateChatMessage", resolvePreCreateMessage);
+  Hooks.on("preCreateToken", setTokenDefaults);
+  Hooks.on("renderChatMessage", hideCardHeader);
+  Hooks.on("renderDialog", autoFocusNamePrompt);
+  Hooks.on("renderFolderConfig", autoFocusNamePrompt);
+  Hooks.on("updateActor", checkActorStatus);
+  Hooks.on("updateToken", checkTokenStatus);
+  
   // SAVES POSITION OF MINIMIZED SHEET ICONS AND RESTORES THEM
   Application.prototype.minimize = async function() {
-    if ( !this.popOut || [true, null].includes(this._minimized) ) return;
+    if ( (this.rendered !== undefined && !this.rendered) || !this.popOut || [true, null].includes(this._minimized) ) return;
     this._minimized = null;
 
     if (this._skycons === undefined) {
@@ -532,7 +727,7 @@ const DM_Toolkit = (() => {
   };
   
   Application.prototype.maximize = async function() {
-    if ( !this.popOut || [false, null].includes(this._minimized) ) return;
+    if ( (this.rendered !== undefined && !this.rendered) || !this.popOut || [false, null].includes(this._minimized) ) return;
     this._minimized = null;
 
     // Get content
@@ -575,17 +770,5 @@ const DM_Toolkit = (() => {
         });
       });
     })
-  };  
+  };
 })();
-
-/*
- FIGURE OUT HOW TO FILL TEMPLATES INSTEAD OF HIGHLIGHTING GRID SPACES
- Per Moerill: MeasuredTemplates#highlightGrid << make this do nothing
-class yourMeasuredTemplate extends MeasuredTemplate {
-constructor (...args) {
-  super(...args);
-  this._borderThickness = 0;
-}
-}
-MeasuredTemplate = yourMeasuredTemplate;
-*/

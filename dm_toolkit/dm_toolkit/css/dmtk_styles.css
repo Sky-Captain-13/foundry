@@ -40,3 +40,36 @@
 	border-radius: 50%; 
 	margin-right: 10px;
 }
+
+.tidy5e.sheet.actor .skills-list > .skill > .skill-cust-bonus {
+  /* text-align: center; */
+  font-size: 10px !important;
+}
+
+.tidy5e.sheet.actor .skills-list .skill .skill-name {
+    font-size: 14px !important;
+}
+
+.tidy5e.sheet.actor .skills-list .skill {
+    font-size: 13px !important;
+}
+
+.tidy5e.sheet.actor .list-layout .items-list .item .item-name  {
+    font-size: 14px !important;
+}
+
+.tidy5e.sheet.actor .list-layout .items-list .item-detail {
+    font-size: 14px !important;
+}
+
+.tidy5e.sheet.actor .traits label {
+    font-size: 14px !important;
+}
+
+.tidy5e.sheet.actor .traits .tag {
+    font-size: 14px !important;
+}
+
+.tidy5e.sheet.actor .skills-list .skill {
+  padding: 3px 2px 1px 2px !important;
+}
