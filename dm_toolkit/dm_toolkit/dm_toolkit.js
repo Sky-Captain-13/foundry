@@ -33,7 +33,10 @@ const DM_Toolkit = (() => {
         let message = "";
         let actor = token.actor;
         let hp = actor.data.data.attributes.hp;
-        let roll = new Roll(amount).roll();
+        let roll = new Roll(amount).
+        let roll = new Roll(amount);
+		    roll.evaluate(async = true);
+		    await roll;
         let hpChange = Math.abs(roll.total);
         let tooltip = [];
         roll.terms.forEach(function (term) {
