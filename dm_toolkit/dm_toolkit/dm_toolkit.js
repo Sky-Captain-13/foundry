@@ -41,6 +41,8 @@ const DM_Toolkit = (() => {
         let tooltip = [];
         roll.terms.forEach(function (term) {
           if (term.results != undefined) tooltip.push(`(${term.results.flatMap((die) => die.discarded ? [] : die.result).join(" + ")})`);
+	  else if (term.operator != undefined) tooltip.push(term.operator);
+	  else if (term.number != undefined) tooltip.push(term.number);
           else tooltip.push(term);
         });
         
