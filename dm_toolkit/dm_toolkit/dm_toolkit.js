@@ -35,8 +35,9 @@ const DM_Toolkit = (() => {
         let hp = actor.data.data.attributes.hp;
         let roll = new Roll(amount).
         let roll = new Roll(amount);
-		    roll.evaluate(async = true);
-		    await roll;
+	roll.evaluate(async = true);
+	await roll;
+	const total = await roll._total;
         let hpChange = Math.abs(roll.total);
         let tooltip = [];
         roll.terms.forEach(function (term) {
