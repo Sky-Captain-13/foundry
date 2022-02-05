@@ -3,7 +3,7 @@
   "title": "DM's Toolkit",
 	"author": "Sky#9453",
   "description": "Provides a variety of simple tools for Dungeons Masters.",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "minimumCoreVersion": "9",
 	"compatibleCoreVersion": "9.242",
   "scripts": ["./dm_toolkit.js"],
