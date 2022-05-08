@@ -1,12 +1,12 @@
-![](https://img.shields.io/badge/Foundry-v9.242-informational)
+![](https://img.shields.io/badge/Foundry-v9.269-informational)
 
-![](https://img.shields.io/badge/D&D5e-v1.5.6-informational)
+![](https://img.shields.io/badge/D&D5e-v1.6.1-informational)
 
 ## Alt5e
 * **Author**: Sky#9435
 * **Version**: 1.7.5
-* **Foundry VTT Compatibility**: 9.242
-* **System Compatibility**: D&D 5th Edition 1.5.6
+* **Foundry VTT Compatibility**: 9.269
+* **System Compatibility**: D&D 5th Edition 1.6.1
 
 ### Link(s) to Module
 * [https://foundryvtt.com/packages/alt5e/](https://foundryvtt.com/packages/alt5e/)
@@ -19,6 +19,13 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.8.0
+* Fixed spell components that were showing up as `[Object object]`
+* Spell component icons right aligned instead of centered
+* Adjusted css on spellcasting attribute dropdown, DC, and filters
+* Fixed missing item attunement required/attuned icon in Inventory
+* Adjusted CSS on currency (larger text, wider input box, bottom border returned)
+
 ### Version 1.7.5
 * Compatibility update for Foundry v9.242
 
