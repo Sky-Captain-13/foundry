@@ -325,7 +325,7 @@
 
 .alt5e.dnd5e.sheet.actor .spell-slots, .dnd5e.sheet.actor .spell-comps {
   min-width: 75px;
-	text-align: center;
+	text-align: right;
 }
 
 .alt5e.dnd5e.sheet.actor .spell-uses {
@@ -539,12 +539,23 @@
   margin-left: -2px;
 }
 
+.alt5e.dnd5e.sheet .filter-list {
+  max-width: 100%;
+}
+.alt5e.dnd5e.sheet.actor .inventory-filters .currency {
+  margin: auto;
+  font-size: 16px;
+}
+
 .alt5e.dnd5e.sheet.actor .inventory-filters .currency input[type="text"] {
-	border-bottom: none;
+  flex: 0 0 60px;
+  border-radius: 0px;
+	border-bottom: 1px solid #999;
 }
 
 .alt5e.dnd5e.sheet.actor .inventory-filters .currency input[type="text"]:hover,
 .alt5e.dnd5e.sheet.actor .inventory-filters .currency input[type="text"]:focus {
+  border-radius: 5px;
 	border-bottom: 1px solid #111;
 }
 

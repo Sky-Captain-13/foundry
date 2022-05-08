@@ -4,8 +4,8 @@ import ActorSheet5eCharacter from "../../systems/dnd5e/module/actor/sheets/chara
 
 // VERSION INFORMATION
 const Alt5e_Author = "Sky";
-const Alt5e_Version = "1.7.5";
-const Alt5e_LastUpdated = 1641913977; //console.log(Date.now().toString().substr(0, 10));
+const Alt5e_Version = "1.8.0";
+const Alt5e_LastUpdated = 1652021831; //console.log(Date.now().toString().substr(0, 10));
 
 export class Alt5eSheet extends ActorSheet5eCharacter {
   get template() {

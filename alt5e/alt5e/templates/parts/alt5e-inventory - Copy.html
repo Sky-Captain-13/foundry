@@ -51,7 +51,7 @@
 		</li>
 		<ol class="item-list">
 			{{#each section.items as |item iid|}}
-				<li class="item flexrow {{section.css}}" {{#if section.editableName}}data-item-index="{{iid}}"{{else}}data-item-id="{{item._id}}"{{/if}}>
+				<li class="item flexrow {{section.css}}" data-item-id="{{#if section.editableName}}{{iid}}{{else}}{{item._id}}{{/if}}">
 					<div class="item-name flexrow rollable">
 						{{#if section.editableName}}
 							<input type="text" value="{{item.name}}">
@@ -60,12 +60,8 @@
 							<h4>
 								{{item.name~}}
 								{{~#if item.isStack}} ({{item.data.quantity}}){{/if}}
-              </h4>
-                {{#if item.attunement}}
-                  <div class="item-detail attunement">
-                    <i class="fas {{item.attunement.icon}} {{item.attunement.cls}}" title="{{localize item.attunement.title}}"></i>
-                  </div>
-                {{/if}}
+								{{~#if item.data.attuned}} <i class="fas fa-sun attuned" title={{localize "DND5E.Attuned"}}></i>{{/if}}
+							</h4>
 						{{/if}}
 					</div>
 				{{#if section.columns}}
