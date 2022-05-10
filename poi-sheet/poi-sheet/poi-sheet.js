@@ -1,6 +1,6 @@
 const POISheet_Author = "Sky";
-const POISheet_Version = "0.1.2";
-const POISheet_LastUpdated = 1641913977; //Date.now().toString().substr(0, 10);
+const POISheet_Version = "0.1.3";
+const POISheet_LastUpdated = 1652226769; //Date.now().toString().substr(0, 10);
 
 Hooks.on("ready", function() {
   console.log("-=> Point of Interest Sheet v" + POISheet_Version + " <=- [" + (new Date(POISheet_LastUpdated * 1000)) + "]");
