@@ -1,13 +1,13 @@
-![](https://img.shields.io/badge/Foundry-v9.242-informational)
+![](https://img.shields.io/badge/Foundry-v9.269-informational)
 
-![](https://img.shields.io/badge/D&D5e-v1.5.6-informational)
+![](https://img.shields.io/badge/D&D5e-v1.6.1-informational)
 
 ## DM Toolkit
 
 * **Author**: Sky#9435
-* **Version**: 2.4.1
-* **Foundry VTT Compatibility**: 9.272
-* **System Compatibility**: D&D 5th Edition 1.5.6
+* **Version**: 2.5.0
+* **Foundry VTT Compatibility**: 9.269
+* **System Compatibility**: D&D 5th Edition 1.6.1
 
 ### Link(s) to Module
 * [https://github.com/Sky-Captain-13/foundry/tree/master/dm_toolkit](https://github.com/Sky-Captain-13/foundry/tree/master/dm_toolkit)
@@ -16,6 +16,9 @@
 This is a personal toolkit containing various capabilities listed below. 
 
 ## Patch Notes
+### Version 2.5.0
+* Fixes for +/- hp and potions (provided by Dr Ogres)
+
 ### Version 2.4.1
 * Compatibility update for Foundry v9.242
 * Forgot to track anything else I changed...
