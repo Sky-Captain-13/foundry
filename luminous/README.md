@@ -1,13 +1,13 @@
-![](https://img.shields.io/badge/Foundry-v9.242-informational)
+![](https://img.shields.io/badge/Foundry-v9.269-informational)
 
-![](https://img.shields.io/badge/D&D5e-v1.5.6-informational)
+![](https://img.shields.io/badge/D&D5e-v1.6.1-informational)
 
 ## Luminous
 
 * **Author**: Sky#9435
-* **Version**: 0.1.4
-* **Foundry VTT Compatibility**: 9.242
-* **System Compatibility**: D&D 5th Edition 1.5.6
+* **Version**: 0.1.5
+* **Foundry VTT Compatibility**: 9.269
+* **System Compatibility**: D&D 5th Edition 1.6.1
 * **Module Conflicts**: Any module that affects CSS across a variety of modules
 
 ### Link(s) to Module
@@ -18,6 +18,9 @@
 Provides a lighter take on the Foundry UI with less transparency and the use of cooler colors. 
 
 ## Patch Notes
+### Version 0.1.5
+* Minor bugfix for toggles in the control menu
+
 ### Version 0.1.4
 * Compatibility update for Foundry v9.242
 
