@@ -4,7 +4,7 @@
 
 ## Alt5e
 * **Author**: Sky#9435
-* **Version**: 1.7.5
+* **Version**: 1.8.1
 * **Foundry VTT Compatibility**: 9.269
 * **System Compatibility**: D&D 5th Edition 1.6.1
 
@@ -19,6 +19,9 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.8.1
+* A few minor CSS changes
+
 ### Version 1.8.0
 * Fixed spell components that were showing up as `[Object object]`
 * Spell component icons right aligned instead of centered
