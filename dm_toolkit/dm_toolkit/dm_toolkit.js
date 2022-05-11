@@ -1,8 +1,8 @@
 const DM_Toolkit = (() => {
   // VERSION INFORMATION
   const DMToolkit_Author = "Sky";
-  const DMToolkit_Version = "2.4.1";
-  const DMToolkit_LastUpdated = 1641913977; //Date.now().toString().substr(0, 10);
+  const DMToolkit_Version = "2.5.0";
+  const DMToolkit_LastUpdated = 1652286473; //Date.now().toString().substr(0, 10);
   
   // FUNCTIONS
   const activateListeners = function() {
@@ -33,11 +33,13 @@ const DM_Toolkit = (() => {
         let message = "";
         let actor = token.actor;
         let hp = actor.data.data.attributes.hp;
-        let roll = new Roll(amount).roll();
+        let roll = new Roll(amount).evaluate({async: false});
         let hpChange = Math.abs(roll.total);
         let tooltip = [];
         roll.terms.forEach(function (term) {
           if (term.results != undefined) tooltip.push(`(${term.results.flatMap((die) => die.discarded ? [] : die.result).join(" + ")})`);
+          else if (term.operator != undefined) tooltip.push(term.operator);
+          else if (term.number != undefined) tooltip.push(term.number);
           else tooltip.push(term);
         });
         
@@ -100,7 +102,6 @@ const DM_Toolkit = (() => {
   }
   
   const checkActorStatus = async function(actorData, changed, options, id) {
-    return;
     if (game.userId !== id) return;
     if (changed?.data?.attributes?.hp !== undefined) {
       let token = canvas.tokens.placeables.filter(t => (t.data.actorId === actorData.id))[0];
@@ -110,8 +111,6 @@ const DM_Toolkit = (() => {
   }
   
   const checkTokenStatus = async function(tokenData, changed, options, id) {
-    console.log(tokenData);
-    console.log(changed);
     if (game.userId !== id) return;
     if (changed?.actorData?.data?.attributes?.hp !== undefined) {
       let token = canvas.tokens.get(changed._id);
@@ -388,16 +387,15 @@ const DM_Toolkit = (() => {
           "one hex northwest and two hexes northeast",
           "two hexes northwest and one hex northeast"
         ];
-        let count = new Roll("2d4").roll().total;
+        let count = new Roll("2d4").evaluate({async: false}).total;
         let features = 0;
         let message = "";
-        
         for (i = 0; i <= count; i++) {
-          let distance = new Roll("1d4-1").roll().total;
+          let distance = new Roll("1d4-1").evaluate({async: false});
           let hexes = (distance == 1) ? "hex" : "hexes";
-          let directionCheck = new Roll("1d37-1").roll().total;
-          let checkRoll = new Roll("1d20").roll().total;
-          let featureRoll = new Roll("1d20").roll().total;
+          let directionCheck = new Roll("1d37-1").evaluate({async: false}).total;
+          let checkRoll = new Roll("1d20").evaluate({async: false}).total;
+          let featureRoll = new Roll("1d20").evaluate({async: false}).total;
           let majorFeature = "";
           let checkText = "";
           let featureText = "";
@@ -446,11 +444,11 @@ const DM_Toolkit = (() => {
               ${message}
             </div>
           </div>`;
-        
+        ChatMessage.getWhisperRecipients("GM")
         ChatMessage.create({
           user: game.user._id,
           speaker: { alias: "DM Toolkit" },
-          whisper: game.users.entities.filter(u => u.isGM).map(u => u._id),
+          whisper: ChatMessage.getWhisperRecipients("GM"),
           content: msgToChat,
           type: CONST.CHAT_MESSAGE_TYPES.OTHER,
           sound: ""
