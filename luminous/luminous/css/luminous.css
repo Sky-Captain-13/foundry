@@ -696,6 +696,8 @@ li.folder > .folder-header {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 5px #000;
 }
 
+#controls ol.control-tools > li.toggle.active, 
+#controls ol.control-tools > li.toggle:hover, 
 #controls ol .control-tool.toggle.active {
 	color: #FFF;
 	background: rgba(0, 255, 0, 0.5);
