@@ -33,6 +33,9 @@
         <li>
           <input type="text" name="data.details.alignment" value="{{data.details.alignment}}" placeholder="{{ localize 'DND5E.Alignment' }}"/>
         </li>
+        <li>
+          <input type="text" name="data.details.playername" value="{{data.details.playername}}" placeholder="Player"/>
+        </li>
       </ul>
       {{!-- Header Attributes --}}
       <ul class="attributes flexrow">
@@ -43,25 +46,8 @@
             <a class="config-button" data-action="armor" title="{{localize 'DND5E.ArmorConfig'}}"><i class="fas fa-cog"></i></a>
           </h4>
           <div class="attribute-value attributable" data-property="attributes.ac">
-            <span>{{data.attributes.ac.value}}</span>
+            <span class="prof-bonus">{{data.attributes.ac.value}}</span>
           </div>
-          <footer class="attribute-footer">
-            <span class="spell-dc">{{localize "DND5E.SpellDC"}} {{data.attributes.spelldc}}</span>
-          </footer>
-        </li>
-        
-        {{!-- HIT POINTS --}}
-        <li class="attribute health">
-          <h4 class="attribute-name box-title">Hit Points</h4>
-          <div class="attribute-value multiple">
-            <input name="data.attributes.hp.value" type="text" value="{{data.attributes.hp.value}}" data-dtype="Number" placeholder="10"/>
-            <span class="sep"> / </span>
-            <input name="data.attributes.hp.max" type="text" value="{{data.attributes.hp.max}}" data-dtype="Number" placeholder="10"/>
-          </div>
-          <footer class="attribute-footer">
-            <input name="data.attributes.hp.temp" type="text" class="temphp" placeholder="+Temp" value="{{data.attributes.hp.temp}}" data-dtype="{{data.attributes.hp.type}}"/>
-            <input name="data.attributes.hp.tempmax" type="text" class="temphp" placeholder="+Max" value="{{data.attributes.hp.tempmax}}" data-dtype="{{data.attributes.hp.type}}"/>
-          </footer>
         </li>
         
         {{!-- INITIATIVE --}}
@@ -76,7 +62,7 @@
           </footer>
         </li>
         
-				{{!-- SPEED / MOVEMENT TYPES --}}
+        {{!-- SPEED / MOVEMENT TYPES --}}
 				<li class="attribute movement">
 					<h4 class="attribute-name box-title">
 					{{ localize "DND5E.Movement" }}
@@ -93,6 +79,20 @@
 						{{/if}}
 					</footer>
 				</li>
+        
+        {{!-- HIT POINTS --}}
+        <li class="attribute health">
+          <h4 class="attribute-name box-title">Hit Points</h4>
+          <div class="attribute-value multiple">
+            <input name="data.attributes.hp.value" type="text" value="{{data.attributes.hp.value}}" data-dtype="Number" placeholder="10"/>
+            <span class="sep"> / </span>
+            <input name="data.attributes.hp.max" type="text" value="{{data.attributes.hp.max}}" data-dtype="Number" placeholder="10"/>
+          </div>
+          <footer class="attribute-footer">
+            <input name="data.attributes.hp.temp" type="text" class="temphp" placeholder="+Temp" value="{{data.attributes.hp.temp}}" data-dtype="{{data.attributes.hp.type}}"/>
+            <input name="data.attributes.hp.tempmax" type="text" class="temphp" placeholder="+Max" value="{{data.attributes.hp.tempmax}}" data-dtype="{{data.attributes.hp.type}}"/>
+          </footer>
+        </li>
 				
 				{{!-- HIT DICE / SHORT & LONG REST BUTTONS --}}
         <li class="attribute">
@@ -110,8 +110,11 @@
         <li class="attribute">
           <h4 class="attribute-name box-title">{{ localize "DND5E.Proficiency" }}</h4>
           <div class="attribute-value">
-            <span class="prof-bonus">{{numberFormat data.attributes.prof decimals=0 sign=true}}</span>
+            <span>{{numberFormat data.attributes.prof decimals=0 sign=true}}</span>
           </div>
+          <footer class="attribute-footer">
+            <span class="spell-dc">{{localize "DND5E.SpellDC"}} {{data.attributes.spelldc}}</span>
+          </footer>
         </li>
       </ul>
     </div>
