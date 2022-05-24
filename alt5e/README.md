@@ -4,7 +4,7 @@
 
 ## Alt5e
 * **Author**: Sky#9435
-* **Version**: 1.8.1
+* **Version**: 1.8.2
 * **Foundry VTT Compatibility**: 9.269
 * **System Compatibility**: D&D 5th Edition 1.6.1
 
@@ -19,6 +19,10 @@ This module provides an alternate skin/layout of the default D&D 5th edition cha
 ![image](https://i.imgur.com/ngzG3K7.png)
 
 ## Patch Notes
+### Version 1.8.2
+* Minor CSS fix for race, class, etc
+* Fixed leveling up via drop down on Features tab
+
 ### Version 1.8.1
 * A few minor CSS changes
 
